@@ -1,60 +1,82 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class ThirthpersonMovement : MonoBehaviour
 {
-    public CharacterController controller;
-    public Transform cam;
+    [SerializeField] private float playerSpeed = 2.0f;
 
-    //[SerializeField] private Camera mainCamera;
-    //public float raycastDistance = 1f;
-    //public LayerMask raycastMask;
-    //Vector3 input;
+    [SerializeField] private float jumpHeight = 1.0f;
 
-    public float speed = 6f;
+    [SerializeField] private float gravityValue = -9.81f;
 
-    public float turnSmoothTime = 0.1f;
+    [SerializeField] private float turnSmoothTime = 0.1f;
 
-    float turnSmoothVelocity;
-    private void Update()
+ 
+
+    private CharacterController controller;
+    private PlayerInput playerInput;
+
+    private Vector3 playerVelocity;
+
+    private bool groundedPlayer;
+    private float turnSmoothVelocity;
+
+    private InputAction moveAction;
+    private InputAction jumpAction;
+    
+
+    public Transform camPos;
+
+    private void Awake()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+        controller = GetComponent<CharacterController>();
+        playerInput = GetComponent<PlayerInput>();
+        camPos = Camera.main.transform;
+        moveAction = playerInput.actions["Move"];
+        jumpAction = playerInput.actions["Jump"];
+       
 
-           
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    
+
+    void Update()
+    {
+        groundedPlayer = controller.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
+
+        //Vector2 input = moveAction.ReadValue<Vector2>();
+        //Vector3 move = new Vector3(input.x, 0, input.y);
+        //controller.Move(move * Time.deltaTime * playerSpeed);
+
+        Vector2 input = moveAction.ReadValue<Vector2>();
+        Vector3 direction = new Vector3(input.x, 0f, input.y).normalized;
+
         if (direction.magnitude >= 0.1f)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + camPos.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            //controller.Move(moveDir.normalized * playerSpeed * Time.deltaTime);
+            controller.Move(moveDir.normalized * Time.deltaTime * playerSpeed);
         }
 
-        //input.x = horizontal;
-        //input.z = vertical;
+        // Changes the height position of the player..
+        if (jumpAction.triggered && groundedPlayer)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        }
 
-        //Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-        //RaycastHit hit;
-        //if (Physics.Raycast(ray, out hit, raycastDistance, raycastMask))
-        //{
-        //    Vector3 hitPoint = hit.point;
-        //    hitPoint.y = transform.position.y;
-        //    transform.LookAt(hit.point);
-        //}
-        //Debug.DrawRay(ray.origin, ray.direction * raycastDistance, Color.red);
-
-        //bool isMoving = input.magnitude != 0;
-
-
-        //Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        //if (Physics.Raycast(ray, out RaycastHit raycastHit))
-        //{
-        //    transform.position = raycastHit.point;
-        //}
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
     }
 }
