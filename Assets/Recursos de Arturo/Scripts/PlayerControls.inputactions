@@ -56,7 +56,15 @@
                 {
                     "name": "Pull",
                     "type": "Button",
-                    "id": "1442b91c-1d0a-4d6e-80e3-717586cfe959",
+                    "id": "31fb3d71-6d7b-491f-ad1c-05d93cd08a02",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Throw",
+                    "type": "Button",
+                    "id": "4715efb7-c1f5-4124-8f2e-12c7ab35af66",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -175,12 +183,23 @@
                 },
                 {
                     "name": "",
-                    "id": "248a1981-5444-403e-8856-5e4583cfd54b",
+                    "id": "91db157c-9b28-4566-8075-e6b06838b3a3",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Pull",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "33e5097a-c16f-4647-a1f8-4405ad3c005f",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
