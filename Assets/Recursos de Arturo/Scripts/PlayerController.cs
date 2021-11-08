@@ -14,13 +14,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float turnSmoothTime = 0.1f;
 
-    [SerializeField] private GameObject bulletPrefab;
 
-    [SerializeField] private Transform barrelTransform;
-
-    [SerializeField] private Transform bulletParent;
-
-    [SerializeField] private float bulletHitMissDistance = 25f;
 
     private CharacterController controller;
     private PlayerInput playerInput;
@@ -32,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private InputAction moveAction;
     private InputAction jumpAction;
-    private InputAction shootAction;
+    
 
     public Transform camPos;
 
@@ -43,39 +37,12 @@ public class PlayerController : MonoBehaviour
         camPos = Camera.main.transform;
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
-        shootAction = playerInput.actions["Shoot"];
+        
 
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void OnEnable()
-    {
-        shootAction.performed += _ => ShootGun();
-    }
-
-    private void OnDisable()
-    {
-        shootAction.performed -= _ => ShootGun();
-    }
-
-    private void ShootGun()
-    {
-        RaycastHit hit;
-        GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
-        
-        BulletController bulletController = bullet.GetComponent<BulletController>();
-        if (Physics.Raycast(camPos.position, camPos.forward, out hit, Mathf.Infinity))
-        {
-            bulletController.target = hit.point;
-            bulletController.hit = true;
-        }
-        
-        else
-        {
-            bulletController.target = camPos.position + camPos.forward * bulletHitMissDistance;
-            bulletController.hit = false;
-        }
-    }
+    
 
     void Update()
     {
@@ -85,12 +52,12 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        //Vector2 input = moveAction.ReadValue<Vector2>();
-        //Vector3 move = new Vector3(input.x, 0, input.y);
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
         //controller.Move(move * Time.deltaTime * playerSpeed);
 
         Vector2 input = moveAction.ReadValue<Vector2>();
-        Vector3 direction = new Vector3(input.x, 0f, input.y).normalized;
+        Vector3 direction = new Vector3(horizontal, 0f, vertical    ).normalized;
         
         if (direction.magnitude >= 0.1f)
         {
