@@ -31,6 +31,8 @@ public class Pull : MonoBehaviour
     [Tooltip("velocidad con la que se suelta")]
     public float throwVelocity;
 
+    [SerializeField] private Camera pullCamera;
+
     [System.Obsolete]
     void Update()
     {
@@ -40,10 +42,10 @@ public class Pull : MonoBehaviour
             Screen.lockCursor = true;
 
         RaycastHit hit;
-
+        Debug.DrawRay(pullCamera.transform.position, pullCamera.transform.forward * Mathf.Infinity, Color.blue);
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity))
+            if (Physics.Raycast(pullCamera.transform.position, pullCamera.transform.forward, out hit, Mathf.Infinity))
             {
                 if (hit.transform.tag.Equals(pullableTag))
                 {
@@ -54,7 +56,7 @@ public class Pull : MonoBehaviour
         }
 
         
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKey(KeyCode.E))
         {
             if (heldObject != null)
             {
@@ -73,7 +75,7 @@ public class Pull : MonoBehaviour
         {
 
             // right-clicks, stop pulling
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetKey(KeyCode.E))
             {
                 break;
             }
