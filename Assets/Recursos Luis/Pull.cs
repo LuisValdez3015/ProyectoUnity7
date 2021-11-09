@@ -31,11 +31,14 @@ public class Pull : MonoBehaviour
     [Tooltip("velocidad con la que se suelta")]
     public float throwVelocity;
 
-    public Camera mainCamera;
+    [System.Obsolete]
     void Update()
     {
+        if (Input.GetKey(KeyCode.J))
+            Screen.lockCursor = false;
+        else
+            Screen.lockCursor = true;
 
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Input.GetMouseButtonDown(0))
@@ -47,7 +50,7 @@ public class Pull : MonoBehaviour
                     StartCoroutine(PullObject(hit.transform));
                 }
             }
-            Debug.DrawRay(ray.origin, ray.direction * Mathf.Infinity, Color.red);
+            
         }
 
         
