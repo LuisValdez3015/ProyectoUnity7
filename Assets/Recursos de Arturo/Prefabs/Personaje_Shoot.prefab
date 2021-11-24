@@ -140,9 +140,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 100
-  impactForce: 30
-  fireRate: 15
-  tpsGun: {fileID: 1728998044}
+  fireRate: 1.5
+  maxAmmo: 10
+  currentAmmo: 0
+  reloadTime: 1
+  isReloading: 0
+  tpsGun: {fileID: 0}
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  impactEffect: {fileID: 6115123945634696493, guid: ebee6fd434e7ac347a6a0ec55571e2c1,
+    type: 3}
 --- !u!1 &7763848687315037188
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +193,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7763848687315037188}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ab1b0b0ed55906a4f918d38095bfc591, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -204,10 +212,10 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_StepOffset: 0.1
+  m_SkinWidth: 0.04
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1678416957220018566
@@ -228,7 +236,6 @@ MonoBehaviour:
   turnSmoothTime: 0.1
   controller: {fileID: 769975118}
   cam: {fileID: 0}
-  rotationSpeed: 5
 --- !u!114 &1190208342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,14 +245,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7763848687315037188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e3e7a061b80c5e43a1a9437cbfe6f2d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5076d0a880c585e4ab9e3f64332407b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camPos: {fileID: 0}
-  raycastDistance: 1
-  raycastMask:
+  LayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 512
+  punchRate: 5
 --- !u!1 &7763848687556113068
 GameObject:
   m_ObjectHideFlags: 0

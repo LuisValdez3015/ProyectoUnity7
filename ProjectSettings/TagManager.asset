@@ -17,8 +17,8 @@ TagManager:
   - RaycastHitable
   - Environment
   - Ground
-  - 
-  - 
+  - Biteable
+  - Shootable
   - 
   - 
   - 

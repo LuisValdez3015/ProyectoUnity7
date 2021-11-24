@@ -24,7 +24,7 @@ public class PlayerMovimiento : MonoBehaviour
     private Transform camAim;
     private Transform cameraTransform;
 
-    [SerializeField] private float rotationSpeed = 5f;
+    //[SerializeField] private float rotationSpeed = 5f;
 
     private void Start()
     {
@@ -64,7 +64,7 @@ public class PlayerMovimiento : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
 
         //Esto es para que rote el player
-        Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        //Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
+        //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 }

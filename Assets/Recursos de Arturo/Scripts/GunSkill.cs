@@ -17,6 +17,10 @@ public class GunSkill : MonoBehaviour
 
     [SerializeField] private Camera tpsGun;
 
+    [SerializeField] private LayerMask LayerMask = default;
+
+    [SerializeField] private GameObject impactEffect;
+
     private float nextTimeToFire = 0f;
 
     private void Start()
@@ -42,6 +46,7 @@ public class GunSkill : MonoBehaviour
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             ShootSkill();
+            HitEffect();
         }
     }
 
@@ -52,6 +57,7 @@ public class GunSkill : MonoBehaviour
 
         yield return new WaitForSeconds(reloadTime);
 
+        Debug.Log("Reloaded...");
         currentAmmo = maxAmmo;
         isReloading = false;
     }
@@ -61,11 +67,11 @@ public class GunSkill : MonoBehaviour
         currentAmmo--;
 
         RaycastHit hit;
-        
-        if (Physics.Raycast(tpsGun.transform.position, tpsGun.transform.forward, out hit, range))
+
+        if (Physics.Raycast(tpsGun.transform.position, tpsGun.transform.forward, out hit, range, LayerMask))
         {
             Debug.Log(hit.transform.name);
-            
+
             Target target = hit.transform.GetComponent<Target>();
             if (target != null)
             {
@@ -76,7 +82,18 @@ public class GunSkill : MonoBehaviour
             {
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
+        }
+    }
 
+    void HitEffect()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(tpsGun.transform.position, tpsGun.transform.forward, out hit, range))
+        {
+            GameObject impactGo = Instantiate(impactEffect, hit.point + hit.normal * 0.0001f, Quaternion.LookRotation(hit.normal));
+
+            Destroy(impactGo, 2f);
         }
     }
 }

@@ -19,7 +19,7 @@ public class SwitchVCam : MonoBehaviour
 
     private Transform cameraTransform;
 
-    [SerializeField] private float rotationSpeed = 10f;
+    //[SerializeField] private float rotationSpeed = 10f;
 
     public GameObject Player;
 
@@ -48,8 +48,8 @@ public class SwitchVCam : MonoBehaviour
 
                     //Player.GetComponent<PlayerMovimiento>();
                     //Esto supuestamente es para que el player rote junto a la camara Aim
-                    Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
-                    transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                    //Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
+                    //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
                 }
             }
             else if (boosted)
