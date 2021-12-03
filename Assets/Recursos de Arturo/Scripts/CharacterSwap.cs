@@ -11,6 +11,8 @@ public class CharacterSwap : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera camV;
     [SerializeField] private CinemachineVirtualCamera camAim;
 
+    private PlayerMovimiento playerMovimiento;
+
     void Start()
     {
         if (character == null && possibleCharacters.Count >= 1)
@@ -24,28 +26,29 @@ public class CharacterSwap : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (wichCharacter == 0)
-            {
-                wichCharacter = possibleCharacters.Count - 1;
-            }
-            else
-            {
-                wichCharacter -= 1;
-            }
             Swap();
         }
     }
 
     public void Swap()
     {
+        if (wichCharacter == 0)
+        {
+            wichCharacter = possibleCharacters.Count - 1;
+        }
+        else
+        {
+            wichCharacter -= 1;
+        }
+
         character = possibleCharacters[wichCharacter];
-        character.GetComponent<PlayerMovimiento>().enabled = true;
+        character.GetComponent<PlayerController>().enabled = true;
 
         for (int i = 0; i < possibleCharacters.Count; i++)
         {
             if (possibleCharacters[i] != character)
             {
-                possibleCharacters[i].GetComponent<PlayerMovimiento>().enabled = false;
+                possibleCharacters[i].GetComponent<PlayerController>().enabled = false;
             }           
         }
         camV.LookAt = character;

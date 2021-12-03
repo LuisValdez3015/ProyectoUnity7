@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Pullable
   - Pushable
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
