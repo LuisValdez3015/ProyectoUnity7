@@ -5,14 +5,23 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private PlayerMovimiento playerMovimiento;
+
+    private PlayerSkill playerSkill;
    
     private Vector3 spawnPoint;
+
+    //private GameObject checkPoint;
     //private Vector3 newCheckPoint;
+
+    private void Awake()
+    {
+        playerSkill = GetComponentInChildren<PlayerSkill>();
+        playerMovimiento = GetComponent<PlayerMovimiento>();
+    }
 
     private void Start()
     {
         SetNewSpawnPoint(transform.position);
-        playerMovimiento = GetComponent<PlayerMovimiento>();
     }
 
     private void Update()
@@ -50,6 +59,20 @@ public class PlayerController : MonoBehaviour
     public void SetNewSpawnPoint(Vector3 position)
     {
         spawnPoint = position;           
+    }
+
+    public void GiveControl()
+    {
+        this.enabled = true;
+        playerSkill.enabled = true;
+        playerSkill.SetActive(true);
+    }
+
+    public void LoseControl()
+    {
+        this.enabled = false;
+        playerSkill.enabled = false;
+        playerSkill.SetActive(false);
     }
 
     //private void OnTriggerEnter(Collider other)

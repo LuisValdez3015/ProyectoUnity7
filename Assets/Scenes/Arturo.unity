@@ -603,9 +603,9 @@ MonoBehaviour:
   m_CameraRadius: 0.1
   m_Strategy: 0
   m_MaximumEffort: 4
-  m_SmoothingTime: 0
-  m_Damping: 0
-  m_DampingWhenOccluded: 0
+  m_SmoothingTime: 0.35
+  m_Damping: 0.5
+  m_DampingWhenOccluded: 0.5
   m_OptimalTargetDistance: 0
 --- !u!1 &110264115
 GameObject:
@@ -1280,7 +1280,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601925446}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ab1b0b0ed55906a4f918d38095bfc591, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1556,6 +1556,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3636096308005679051}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &769975116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769975115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a34c9d160677db2469b31220327a85d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushableTag: Pushable
+  forceMagnitude: 9.58
 --- !u!4 &769975120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3636096308582632603, guid: 47ba349bda68595498edb0d3ad970a72,
@@ -2145,7 +2159,7 @@ MonoBehaviour:
   m_CameraRadius: 0.1
   m_Strategy: 0
   m_MaximumEffort: 4
-  m_SmoothingTime: 0
+  m_SmoothingTime: 0.1
   m_Damping: 0.5
   m_DampingWhenOccluded: 0.5
   m_OptimalTargetDistance: 0

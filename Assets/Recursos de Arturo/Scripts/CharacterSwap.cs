@@ -42,13 +42,13 @@ public class CharacterSwap : MonoBehaviour
         }
 
         character = possibleCharacters[wichCharacter];
-        character.GetComponent<PlayerController>().enabled = true;
+        character.GetComponent<PlayerController>().GiveControl();
 
         for (int i = 0; i < possibleCharacters.Count; i++)
         {
             if (possibleCharacters[i] != character)
             {
-                possibleCharacters[i].GetComponent<PlayerController>().enabled = false;
+                possibleCharacters[i].GetComponent<PlayerController>().LoseControl();
             }           
         }
         camV.LookAt = character;
