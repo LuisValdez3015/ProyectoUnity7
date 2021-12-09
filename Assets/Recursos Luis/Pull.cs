@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pull : MonoBehaviour
+public class Pull : PlayerSkill
 {
     [Tooltip("Es a donde va a ir el objeto que jale")]
     public Transform hand;
@@ -36,6 +36,12 @@ public class Pull : MonoBehaviour
     [System.Obsolete]
     void Update()
     {
+        if (!isActive)
+        {
+            return;
+        }
+
+
         if (Input.GetKey(KeyCode.J))
             Screen.lockCursor = false;
         else

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunSkill : MonoBehaviour
+public class GunSkill : PlayerSkill
 {
     private float ShootTarget;
 
@@ -30,6 +30,11 @@ public class GunSkill : MonoBehaviour
 
     void Update()
     {
+        if (!isActive)
+        {
+            return;
+        }
+
         if (isReloading)
         {
             return;
