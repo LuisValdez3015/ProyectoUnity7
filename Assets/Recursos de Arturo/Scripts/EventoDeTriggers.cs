@@ -16,6 +16,8 @@ public class EventoDeTriggers : MonoBehaviour
         if (RequiredTriggers()) return;
 
         WasTriggered = true;
+        onTriggered.Invoke();
+
     }
 
     private bool RequiredTriggers()
