@@ -6,19 +6,19 @@ public class PlayerMovimiento : MonoBehaviour
 {
     [SerializeField] public float playerSpeed = 6f;
 
-    [SerializeField] public float gravity = -9.81f;
-
     [SerializeField] public float jumpHeight = 1.0f;
 
-    [SerializeField] public float turnSmoothTime = 0.1f;
+    private float gravity = -9.81f;
 
-    [SerializeField] public float gravityScale = 1;
+    private float turnSmoothTime = 0.1f;
 
-    public Vector3 playerVelocity;
+    private float gravityScale = 1;
+
+    private Vector3 playerVelocity;
 
     public bool groundedPlayer;
 
-    public float turnSmoothVelocity;
+    private float turnSmoothVelocity;
 
     public CharacterController controller;
     public Transform cam;
@@ -69,6 +69,11 @@ public class PlayerMovimiento : MonoBehaviour
         if (!groundedPlayer) return;
                
         playerVelocity.y = Mathf.Sqrt(jumpHeight * -3f * (gravity * gravityScale));      
+    }
+
+    public void Bounce(float force)
+    {
+        playerVelocity.y = Mathf.Sqrt(force * -3f * (gravity * gravityScale));
     }
 
     //private void Update()

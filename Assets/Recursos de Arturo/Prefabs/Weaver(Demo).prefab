@@ -147,18 +147,17 @@ GameObject:
   - component: {fileID: 2245842178499360157}
   - component: {fileID: 2245842178499360129}
   - component: {fileID: 8400460910428453580}
-  - component: {fileID: 2248195860331790846}
   - component: {fileID: 1588350481372132591}
   - component: {fileID: 2065216246273602830}
   - component: {fileID: 2065216245803810340}
   - component: {fileID: 3815555817764087300}
   m_Layer: 0
-  m_Name: Weaver
+  m_Name: Weaver(Demo)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2245842178499360157
 Transform:
   m_ObjectHideFlags: 0
@@ -200,28 +199,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.4
+  m_Radius: 0.6
   m_SlopeLimit: 45
   m_StepOffset: 0.1
-  m_SkinWidth: 0.04
+  m_SkinWidth: 0.06
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2248195860331790846
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2245842178499360134}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Center: {x: 0, y: 0.2, z: 0.1}
 --- !u!114 &1588350481372132591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,13 +239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 6
-  gravity: -9.81
   jumpHeight: 3
-  turnSmoothTime: 0.1
-  gravityScale: 1
-  playerVelocity: {x: 0, y: 0, z: 0}
   groundedPlayer: 0
-  turnSmoothVelocity: 0
   controller: {fileID: 8400460910428453580}
   cam: {fileID: 0}
 --- !u!114 &2065216245803810340
@@ -277,6 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857b3e8b3cff6404482ed4271a4dcfa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraLookAt: {fileID: 2065216244882246444}
 --- !u!114 &3815555817764087300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +272,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   punchRate: 5
+  boxOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &2065216246567447953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -328,12 +308,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a8ad0d0b58c4f9d4ba9c13056a11f411,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a8ad0d0b58c4f9d4ba9c13056a11f411,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a8ad0d0b58c4f9d4ba9c13056a11f411,
         type: 3}

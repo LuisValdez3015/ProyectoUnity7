@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
    
     private Vector3 spawnPoint;
 
+    [SerializeField] Transform cameraLookAt;
+
+    public Transform CameraLookAt => cameraLookAt;
+
     //private GameObject checkPoint;
     //private Vector3 newCheckPoint;
 
@@ -32,7 +36,6 @@ public class PlayerController : MonoBehaviour
 
         playerMovimiento.Move(direction);
 
-        // Changes the height position of the player..
         if (Input.GetButtonDown("Jump"))
         {
             playerMovimiento.Jump();
@@ -74,13 +77,4 @@ public class PlayerController : MonoBehaviour
         playerSkill.enabled = false;
         playerSkill.SetActive(false);
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        spawnPoint = this.gameObject.transform.position;
-    //        _gm.lastCheckRotation = _playerPos.gameObject.transform.rotation;
-    //    }
-    //}
 }

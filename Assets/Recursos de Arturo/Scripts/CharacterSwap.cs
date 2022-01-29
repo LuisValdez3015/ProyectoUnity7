@@ -6,6 +6,7 @@ using Cinemachine;
 public class CharacterSwap : MonoBehaviour
 {
     [SerializeField] private Transform character;
+    //[SerializeField] private Transform characterWeapon;
     [SerializeField] private List<Transform> possibleCharacters;
     [SerializeField] private int wichCharacter;
     [SerializeField] private CinemachineVirtualCamera camV;
@@ -43,6 +44,7 @@ public class CharacterSwap : MonoBehaviour
 
         character = possibleCharacters[wichCharacter];
         character.GetComponent<PlayerController>().GiveControl();
+        Transform lookAt = character.GetComponent<PlayerController>().CameraLookAt;
 
         for (int i = 0; i < possibleCharacters.Count; i++)
         {
@@ -54,7 +56,7 @@ public class CharacterSwap : MonoBehaviour
         camV.LookAt = character;
         camV.Follow = character;
 
-        camAim.LookAt = character;
-        camAim.Follow = character;
+        camAim.LookAt = lookAt;
+        camAim.Follow = lookAt;
     }
 }

@@ -7,7 +7,7 @@ public class GunSkill : PlayerSkill
     private float ShootTarget;
 
     [SerializeField] private float range = 3f;
-    [SerializeField] private float impactForce = 30f;
+    //[SerializeField] private float impactForce = 30f;
     [SerializeField] private float fireRate = 5f;
 
     [SerializeField] private int maxAmmo = 10;
@@ -17,9 +17,11 @@ public class GunSkill : PlayerSkill
 
     [SerializeField] private Camera tpsGun;
 
-    [SerializeField] private LayerMask LayerMask = default;
+    //[SerializeField] private LayerMask LayerMask = default;
 
     [SerializeField] private GameObject impactEffect;
+
+    [SerializeField] private GameObject gun;
 
     private float nextTimeToFire = 0f;
 
@@ -51,7 +53,6 @@ public class GunSkill : PlayerSkill
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             ShootSkill();
-            HitEffect();
         }
     }
 
@@ -73,32 +74,50 @@ public class GunSkill : PlayerSkill
 
         RaycastHit hit;
 
-        if (Physics.Raycast(tpsGun.transform.position, tpsGun.transform.forward, out hit, range, LayerMask))
+        if (Physics.Raycast(tpsGun.transform.position, tpsGun.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
 
-            Target target = hit.transform.GetComponent<Target>();
-            if (target != null)
+            Vector3 hitpoint = hit.point;
+
+            Vector3 gunposition = gun.transform.position;
+
+            Vector3 direction = (hitpoint - gunposition).normalized;
+
+            RaycastHit hit2;
+
+            if (Physics.Raycast (gunposition, direction, out hit2, range))
             {
-                target.HitTarget(ShootTarget);
+                Target target = hit2.transform.GetComponent<Target>();
+                if (target != null)
+                {
+                    target.HitTarget(ShootTarget);
+                }
+
+
+                GameObject impactGo = Instantiate(impactEffect, hit2.point + hit2.normal * 0.0001f, Quaternion.LookRotation(hit2.normal));
+
+                Destroy(impactGo, 2f);
+
+                Debug.DrawLine(gunposition, hit2.point, Color.blue);
             }
 
-            if (hit.rigidbody != null)
-            {
-                hit.rigidbody.AddForce(-hit.normal * impactForce);
-            }
+            
+
+            //Empuja una nada las cajitas
+            //if (hit.rigidbody != null)
+            //{
+            //    hit.rigidbody.AddForce(-hit.normal * impactForce);
+            //}
         }
     }
 
-    void HitEffect()
-    {
-        RaycastHit hit;
+    //void HitEffect()
+    //{
+    //    RaycastHit hit;
 
-        if (Physics.Raycast(tpsGun.transform.position, tpsGun.transform.forward, out hit, range))
-        {
-            GameObject impactGo = Instantiate(impactEffect, hit.point + hit.normal * 0.0001f, Quaternion.LookRotation(hit.normal));
-
-            Destroy(impactGo, 2f);
-        }
-    }
+    //    if (Physics.Raycast(tpsGun.transform.position, tpsGun.transform.forward, out hit, range))
+    //    {
+    //    }
+    //}
 }
