@@ -20,7 +20,7 @@ public class Pull : PlayerSkill
     public Transform heldObject;
 
     [Tooltip("la distancia")]
-    public float positionDistanceThreshold;
+    public float positionDistanceThreshold = 1;
 
     [Tooltip("velocidad")]
     public float velocityDistanceThreshold;
