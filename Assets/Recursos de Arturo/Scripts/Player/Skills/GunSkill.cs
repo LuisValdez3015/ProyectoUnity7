@@ -23,6 +23,10 @@ public class GunSkill : PlayerSkill
 
     [SerializeField] private GameObject gun;
 
+    [SerializeField] public AudioClip impactAudio;
+
+    [SerializeField] public AudioClip flybyAudio;
+
     private float nextTimeToFire = 0f;
 
     private void Start()
@@ -53,6 +57,8 @@ public class GunSkill : PlayerSkill
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             ShootSkill();
+            AudioSource.PlayClipAtPoint(flybyAudio, transform.position, 0.6f);
+
         }
     }
 
@@ -84,6 +90,8 @@ public class GunSkill : PlayerSkill
 
             Vector3 direction = (hitpoint - gunposition).normalized;
 
+            AudioSource.PlayClipAtPoint(impactAudio, hitpoint);
+
             RaycastHit hit2;
 
             if (Physics.Raycast (gunposition, direction, out hit2, range))
@@ -94,6 +102,7 @@ public class GunSkill : PlayerSkill
                     target.HitTarget(ShootTarget);
                 }
 
+                
 
                 GameObject impactGo = Instantiate(impactEffect, hit2.point + hit2.normal * 0.0001f, Quaternion.LookRotation(hit2.normal));
 

@@ -59,6 +59,7 @@ public class SwitchVCam : MonoBehaviour
             }
 
             gunSkill.enabled = aiming;
+            
 
         }
         if (aimCanvas != null)

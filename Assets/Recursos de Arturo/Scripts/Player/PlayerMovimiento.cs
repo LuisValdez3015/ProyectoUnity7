@@ -8,6 +8,10 @@ public class PlayerMovimiento : MonoBehaviour
 
     [SerializeField] public float jumpHeight = 1.0f;
 
+    [SerializeField] Transform groundRaycastOrigin;
+
+    [SerializeField] float groundRaycastDistance;
+
     private float gravity = -9.81f;
 
     private float turnSmoothTime = 0.1f;
@@ -19,6 +23,8 @@ public class PlayerMovimiento : MonoBehaviour
     public bool groundedPlayer;
 
     private float turnSmoothVelocity;
+
+    
 
     public CharacterController controller;
     public Transform cam;
@@ -35,6 +41,7 @@ public class PlayerMovimiento : MonoBehaviour
 
     private void Update()
     {
+        groundedPlayer = CheckGround();
         DoGravity();
         controller.Move(playerVelocity * Time.deltaTime);
     }
@@ -54,15 +61,14 @@ public class PlayerMovimiento : MonoBehaviour
 
     public void DoGravity()
     {
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+
+        if (controller.isGrounded && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
         }
         playerVelocity.y += gravity * gravityScale * 2f * Time.deltaTime;
         //controller.Move(playerVelocity * Time.deltaTime);
     }
-
 
     public void Jump()
     {
@@ -71,45 +77,20 @@ public class PlayerMovimiento : MonoBehaviour
         playerVelocity.y = Mathf.Sqrt(jumpHeight * -3f * (gravity * gravityScale));      
     }
 
+    public bool CheckGround()
+    {
+        RaycastHit hit;
+        Debug.DrawRay(groundRaycastOrigin.position, Vector3.down * groundRaycastDistance, Color.red);
+
+        if (Physics.Raycast(groundRaycastOrigin.position, Vector3.down, out hit, groundRaycastDistance))
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void Bounce(float force)
     {
         playerVelocity.y = Mathf.Sqrt(force * -3f * (gravity * gravityScale));
     }
-
-    //private void Update()
-    //{
-    //    float horizontal = Input.GetAxisRaw("Horizontal");
-    //    float vertical = Input.GetAxisRaw("Vertical");
-    //    Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-
-    //    if (direction.magnitude >= 0.1f)
-    //    {
-    //        float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-    //        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-    //        transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
-    //        Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-    //        controller.Move(moveDir.normalized * playerSpeed * Time.deltaTime);
-    //    }
-
-    //    groundedPlayer = controller.isGrounded;
-    //    if (groundedPlayer && playerVelocity.y < 0)
-    //    {
-    //        playerVelocity.y = 0f;
-    //    }
-    //    playerVelocity.y += gravity * gravityScale * Time.deltaTime;
-
-    //    // Changes the height position of the player..
-    //    if (Input.GetButtonDown("Jump") && groundedPlayer)
-    //    {
-    //        playerVelocity.y = Mathf.Sqrt(jumpHeight * -3f * (gravity * gravityScale));
-    //    }
-
-    //    playerVelocity.y += gravity * Time.deltaTime;
-    //    controller.Move(playerVelocity * Time.deltaTime);
-
-    //    //Esto es para que rote el player
-    //    //Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
-    //    //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-    //}
 }
