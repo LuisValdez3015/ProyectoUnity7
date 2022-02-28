@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 100
   fireRate: 1.5
-  maxAmmo: 10
+  maxAmmo: 5
   currentAmmo: 0
   reloadTime: 1
   isReloading: 0
@@ -107,6 +107,14 @@ MonoBehaviour:
   gun: {fileID: 831117304}
   impactAudio: {fileID: 8300000, guid: e939009acd26a634c9c6e8fd533639d1, type: 3}
   flybyAudio: {fileID: 8300000, guid: eec90d282c12d7d4c86e10b2b2abfce5, type: 3}
+  rocksAmmo:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  rock: {fileID: 21300000, guid: 584fe0aebfcf82544ae60d90530afc94, type: 3}
+  emptyRock: {fileID: 21300000, guid: f149252e37ce57b4f8013c35825b6c39, type: 3}
 --- !u!1 &626718153
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,8 +369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9be0670b119e104e92a04f4ab57b2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 6
-  jumpHeight: 3
+  playerSpeed: 10
+  jumpHeight: 4
   groundRaycastOrigin: {fileID: 626718154}
   groundRaycastDistance: 0.5
   groundedPlayer: 0
@@ -381,6 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraLookAt: {fileID: 942674540}
+  aimAudio: {fileID: 8300000, guid: 68d3e2586ff1caa4998528f5cb019168, type: 3}
 --- !u!114 &3700013974179292569
 MonoBehaviour:
   m_ObjectHideFlags: 0

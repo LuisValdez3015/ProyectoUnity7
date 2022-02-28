@@ -12,7 +12,24 @@ public class CharacterSwap : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera camV;
     [SerializeField] private CinemachineVirtualCamera camAim;
 
-    private PlayerMovimiento playerMovimiento;
+
+
+    private void OnEnable()
+    {
+        camAim.GetComponent<SwitchVCam>().aimCamActivated += PlayCamAudio;
+    }
+
+    private void OnDisable()
+    {
+        camAim.GetComponent<SwitchVCam>().aimCamActivated -= PlayCamAudio;
+
+    }
+
+    private void PlayCamAudio()
+    {
+        PlayerController player = character.GetComponent<PlayerController>();
+        AudioSource.PlayClipAtPoint(player.AimAudio, Camera.main.transform.position);
+    }
 
     void Start()
     {

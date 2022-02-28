@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
 
     public Transform CameraLookAt => cameraLookAt;
 
+    [SerializeField] AudioClip aimAudio;
+
+    public AudioClip AimAudio => aimAudio;
+
     //private GameObject checkPoint;
     //private Vector3 newCheckPoint;
 

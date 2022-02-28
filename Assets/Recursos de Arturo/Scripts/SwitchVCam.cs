@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
+using System;
 
 public class SwitchVCam : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class SwitchVCam : MonoBehaviour
 
     [SerializeField] GunSkill gunSkill;
 
+    public event Action aimCamActivated;
+
     private void Start()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
@@ -38,6 +41,11 @@ public class SwitchVCam : MonoBehaviour
     {
         if (virtualCamera != null)
         {
+            if (Input.GetMouseButtonDown(1))
+            {
+                aimCamActivated?.Invoke();
+            }
+
             bool aiming = Input.GetMouseButton(1);
             if (aiming)
             {
@@ -47,7 +55,7 @@ public class SwitchVCam : MonoBehaviour
                     boosted = true;
 
                     //Player.GetComponent<PlayerMovimiento>();
-                    //Esto supuestamente es para que el player rote junto a la camara Aim
+                    //Esto es para que el player rote junto a la camara Aim
                     //Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
                     //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
                 }
@@ -67,29 +75,4 @@ public class SwitchVCam : MonoBehaviour
             aimCanvas.SetActive(boosted);
         }                 
     }
-
-    //private void OnEnable()
-    //{
-    //    aimAction.performed += _ => StartAim();
-    //    aimAction.canceled += _ => CancelAim();
-    //}
-
-    //private void OnDisable()
-    //{
-    //    aimAction.performed -= _ => StartAim();
-    //    aimAction.canceled -= _ => CancelAim();
-    //}
-
-    //private void StartAim()
-    //{
-    //    virtualCamera.Priority += priorityBoostAmount;
-    //    aimCanvas.enabled = true;
-    //}
-
-    //private void CancelAim()
-    //{
-    //    virtualCamera.Priority -= priorityBoostAmount;
-    //    aimCanvas.enabled = false;
-    //}
-
 }

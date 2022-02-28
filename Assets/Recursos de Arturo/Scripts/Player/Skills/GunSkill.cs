@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GunSkill : PlayerSkill
 {
@@ -29,6 +30,10 @@ public class GunSkill : PlayerSkill
 
     private float nextTimeToFire = 0f;
 
+    [SerializeField] public Image[] rocksAmmo;
+    [SerializeField] public Sprite rock;
+    [SerializeField] public Sprite emptyRock;
+
     private void Start()
     {
         currentAmmo = maxAmmo;
@@ -56,9 +61,27 @@ public class GunSkill : PlayerSkill
         if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
-            ShootSkill();
             AudioSource.PlayClipAtPoint(flybyAudio, transform.position, 0.6f);
+            ShootSkill();
+        }
 
+        if (currentAmmo > maxAmmo)
+        {
+            currentAmmo = maxAmmo;
+        }
+
+        for (int i = 0; i < rocksAmmo.Length; i++)
+        {
+            int leftAmmo = maxAmmo - currentAmmo;
+
+            if (i < leftAmmo)
+            {
+                rocksAmmo[i].sprite = emptyRock;
+            }
+            else
+            {
+                rocksAmmo[i].sprite = rock;
+            }
         }
     }
 
@@ -90,23 +113,21 @@ public class GunSkill : PlayerSkill
 
             Vector3 direction = (hitpoint - gunposition).normalized;
 
-            AudioSource.PlayClipAtPoint(impactAudio, hitpoint);
-
             RaycastHit hit2;
 
             if (Physics.Raycast (gunposition, direction, out hit2, range))
             {
                 Target target = hit2.transform.GetComponent<Target>();
-                if (target != null)
+                if (target != null && target.IsShootable)
                 {
-                    target.HitTarget(ShootTarget);
+                    target.HitTarget(ShootTarget);                 
                 }
-
                 
-
                 GameObject impactGo = Instantiate(impactEffect, hit2.point + hit2.normal * 0.0001f, Quaternion.LookRotation(hit2.normal));
 
                 Destroy(impactGo, 2f);
+
+                AudioSource.PlayClipAtPoint(impactAudio, hitpoint);
 
                 Debug.DrawLine(gunposition, hit2.point, Color.blue);
             }
