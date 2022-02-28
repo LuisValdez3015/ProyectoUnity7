@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 6
-  jumpHeight: 1
+  jumpHeight: 3
   groundedPlayer: 0
   controller: {fileID: 3700013974179292565}
   cam: {fileID: 0}
