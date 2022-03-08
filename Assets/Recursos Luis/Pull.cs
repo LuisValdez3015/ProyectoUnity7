@@ -69,6 +69,9 @@ public class Pull : PlayerSkill
                 heldObject.transform.parent = null;
                 heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 heldObject.GetComponent<Rigidbody>().velocity = transform.forward * throwVelocity;
+                heldObject.gameObject.SetActive(true);
+                heldObject.GetComponent<Rigidbody>().useGravity = true;
+                heldObject.GetComponent<Rigidbody>().isKinematic = false;
                 heldObject = null;
             }
         }
@@ -77,22 +80,38 @@ public class Pull : PlayerSkill
     IEnumerator PullObject(Transform t)
     {
         Rigidbody r = t.GetComponent<Rigidbody>();
+        r.useGravity = false;
+        r.isKinematic = true;
         while (true)
         {
 
             // right-clicks, stop pulling
             if (Input.GetKey(KeyCode.E))
             {
+                r.useGravity = true;
+                r.isKinematic = false;
                 break;
             }
             float distanceToHand = Vector3.Distance(t.position, hand.position);
-            
+
+            //if (distanceToHand < positionDistanceThreshold)
+            //{
+            //    t.position = hand.position;
+            //    t.parent = hand;
+            //    r.constraints = RigidbodyConstraints.FreezePosition;
+            //    heldObject = t;
+            //    break;
+            //}
+
             if (distanceToHand < positionDistanceThreshold)
             {
                 t.position = hand.position;
                 t.parent = hand;
                 r.constraints = RigidbodyConstraints.FreezePosition;
                 heldObject = t;
+                
+                heldObject.gameObject.SetActive(false);
+                
                 break;
             }
 
@@ -103,18 +122,20 @@ public class Pull : PlayerSkill
             pullForce = pullDirection.normalized * modifier;
 
            
-            if (r.velocity.magnitude < maxVelocity && distanceToHand > velocityDistanceThreshold)
-            {
+            //if (r.velocity.magnitude < maxVelocity && distanceToHand > velocityDistanceThreshold)
+            //{
 
                 
-                r.AddForce(pullForce, ForceMode.Force);
-            }
-            else
-            {
+            //    r.AddForce(pullForce, ForceMode.Force);
+            //}
+            //else
+            //{
 
               
-                r.velocity = pullDirection.normalized * maxVelocity;
-            }
+            //    r.velocity = pullDirection.normalized * maxVelocity;
+            //}
+
+            r.MovePosition(Vector3.Lerp(t.position, hand.position, Time.deltaTime * 100f));
 
             yield return null;
         }

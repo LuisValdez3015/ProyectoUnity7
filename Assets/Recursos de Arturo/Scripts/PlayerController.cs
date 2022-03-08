@@ -21,6 +21,12 @@ public class PlayerController : MonoBehaviour
     //private GameObject checkPoint;
     //private Vector3 newCheckPoint;
 
+
+    //Cambios nuevos
+    [SerializeField] Canvas characterAimCanvas;
+
+    public Canvas CharacterAimCanvas => characterAimCanvas;
+
     private void Awake()
     {
         playerSkill = GetComponentInChildren<PlayerSkill>();

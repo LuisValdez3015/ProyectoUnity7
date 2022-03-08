@@ -22,7 +22,7 @@ public class SwitchVCam : MonoBehaviour
 
     //[SerializeField] private float rotationSpeed = 10f;
 
-    public GameObject Player;
+    //public GameObject Player;
 
     [SerializeField] GunSkill gunSkill;
 

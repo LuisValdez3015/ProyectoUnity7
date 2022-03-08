@@ -13,8 +13,8 @@ public class GunSkill : PlayerSkill
 
     [SerializeField] private int maxAmmo = 10;
     [SerializeField] private int currentAmmo;
-    [SerializeField] private float reloadTime = 1f;
-    [SerializeField] private bool isReloading = false;
+    //[SerializeField] private float reloadTime = 1f;
+    //[SerializeField] private bool isReloading = false;
 
     [SerializeField] private Camera tpsGun;
 
@@ -46,14 +46,15 @@ public class GunSkill : PlayerSkill
             return;
         }
 
-        if (isReloading)
-        {
-            return;
-        }
+        //if (isReloading)
+        //{
+        //    return;
+        //}
 
         if (currentAmmo <= 0)
         {
-            StartCoroutine(Reload());
+            //StartCoroutine(Reload());
+
             return;
         }
 
@@ -85,16 +86,21 @@ public class GunSkill : PlayerSkill
         }
     }
 
-    IEnumerator Reload()
+    //IEnumerator Reload()
+    //{
+    //    isReloading = true;
+    //    Debug.Log("Reloading...");
+
+    //    yield return new WaitForSeconds(reloadTime);
+
+    //    Debug.Log("Reloaded...");
+    //    currentAmmo = maxAmmo;
+    //    isReloading = false;
+    //}
+
+    public void FullAmmoTrigger()
     {
-        isReloading = true;
-        Debug.Log("Reloading...");
-
-        yield return new WaitForSeconds(reloadTime);
-
-        Debug.Log("Reloaded...");
         currentAmmo = maxAmmo;
-        isReloading = false;
     }
 
     private void ShootSkill()
