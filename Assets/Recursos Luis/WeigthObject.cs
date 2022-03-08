@@ -12,7 +12,8 @@ public enum WeightType
 
 public class WeigthObject : MonoBehaviour
 {
-    [SerializeField] private WeightType type = WeightType.Medium;
+    [SerializeField] protected WeightType type = WeightType.Medium;
 
     public WeightType Type => type;
 }
+

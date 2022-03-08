@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioClip aimAudio;
 
     public AudioClip AimAudio => aimAudio;
-
+    public PlayerSkill PlayerSkill => playerSkill;
     //private GameObject checkPoint;
     //private Vector3 newCheckPoint;
 

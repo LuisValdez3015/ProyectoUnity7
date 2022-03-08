@@ -12,6 +12,10 @@ public class PlayerMovimiento : MonoBehaviour
 
     [SerializeField] float groundRaycastDistance;
 
+    [SerializeField] private float playerSpeedWhenUsingSkill = 3;
+
+    [SerializeField] private float playerJumpWhenUsingSkill = 0.5f;
+
     private float gravity = -9.81f;
 
     private float turnSmoothTime = 0.1f;
@@ -24,16 +28,21 @@ public class PlayerMovimiento : MonoBehaviour
 
     private float turnSmoothVelocity;
 
-    
+    private PlayerController playerController;
 
     public CharacterController controller;
     public Transform cam;
-
+    
     private Transform camAim;
     private Transform cameraTransform;
 
     //[SerializeField] private float rotationSpeed = 5f;
 
+
+    private void Awake()
+    {
+        playerController = GetComponent<PlayerController>();
+    }
     private void Start()
     {
         cameraTransform = Camera.main.transform;
@@ -55,7 +64,10 @@ public class PlayerMovimiento : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized * playerSpeed * Time.deltaTime);
+
+            var currentSpeed = playerController.PlayerSkill.IsBeingUse ? playerSpeedWhenUsingSkill : playerSpeed;
+            controller.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
+
         }
     }
 
@@ -73,8 +85,8 @@ public class PlayerMovimiento : MonoBehaviour
     public void Jump()
     {
         if (!groundedPlayer) return;
-               
-        playerVelocity.y = Mathf.Sqrt(jumpHeight * -3f * (gravity * gravityScale));      
+        var currentJump = playerController.PlayerSkill.IsBeingUse ? playerJumpWhenUsingSkill : jumpHeight;
+        playerVelocity.y = Mathf.Sqrt(currentJump * -3f * (gravity * gravityScale));      
     }
 
     public bool CheckGround()
@@ -93,4 +105,6 @@ public class PlayerMovimiento : MonoBehaviour
     {
         playerVelocity.y = Mathf.Sqrt(force * -3f * (gravity * gravityScale));
     }
+
+   
 }

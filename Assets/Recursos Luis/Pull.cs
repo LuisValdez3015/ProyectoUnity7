@@ -33,6 +33,14 @@ public class Pull : PlayerSkill
 
     [SerializeField] private Camera pullCamera;
 
+    private PlayerMovimiento playerMovimiento;
+
+   
+    
+    private void Start()
+    {
+        playerMovimiento = GetComponent<PlayerMovimiento>();
+    }
     [System.Obsolete]
     void Update()
     {
@@ -66,6 +74,8 @@ public class Pull : PlayerSkill
         {
             if (heldObject != null)
             {
+
+                IsBeingUse = false;
                 heldObject.transform.parent = null;
                 heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 heldObject.GetComponent<Rigidbody>().velocity = transform.forward * throwVelocity;
@@ -73,21 +83,27 @@ public class Pull : PlayerSkill
                 heldObject.GetComponent<Rigidbody>().useGravity = true;
                 heldObject.GetComponent<Rigidbody>().isKinematic = false;
                 heldObject = null;
+
+                
             }
         }
     }
 
     IEnumerator PullObject(Transform t)
     {
+
         Rigidbody r = t.GetComponent<Rigidbody>();
         r.useGravity = false;
         r.isKinematic = true;
+        IsBeingUse = true;
+
         while (true)
         {
 
             // right-clicks, stop pulling
             if (Input.GetKey(KeyCode.E))
             {
+                IsBeingUse = false;
                 r.useGravity = true;
                 r.isKinematic = false;
                 break;

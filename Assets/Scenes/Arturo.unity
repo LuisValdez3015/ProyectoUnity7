@@ -1148,6 +1148,25 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &406054816 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 245883793761619873, guid: 03674e1ed21b1504ebf494fb234957dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1914232564}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &406054817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406054816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d9c7251dd79b64b91400bea2b845ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 5
 --- !u!1 &520057012
 GameObject:
   m_ObjectHideFlags: 0
@@ -4892,6 +4911,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 21410265}
+    - target: {fileID: 1128406587516580596, guid: 03674e1ed21b1504ebf494fb234957dd,
+        type: 3}
+      propertyPath: playerJumpWhenUsingSkill
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1128406587516580600, guid: 03674e1ed21b1504ebf494fb234957dd,
         type: 3}
       propertyPath: pullCamera
@@ -5480,6 +5504,8 @@ MonoBehaviour:
   jumpHeight: 3
   groundRaycastOrigin: {fileID: 0}
   groundRaycastDistance: 0
+  playerSpeedWhenUsingSkill: 3
+  playerJumpWhenUsingSkill: 0.5
   groundedPlayer: 0
   controller: {fileID: 8099136046068623326}
   cam: {fileID: 0}
@@ -5966,6 +5992,8 @@ MonoBehaviour:
   jumpHeight: 3
   groundRaycastOrigin: {fileID: 1811604473}
   groundRaycastDistance: 0
+  playerSpeedWhenUsingSkill: 3
+  playerJumpWhenUsingSkill: 0.5
   groundedPlayer: 0
   controller: {fileID: 6895718671683535839}
   cam: {fileID: 0}
