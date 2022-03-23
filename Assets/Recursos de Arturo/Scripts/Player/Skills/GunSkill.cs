@@ -34,6 +34,12 @@ public class GunSkill : PlayerSkill
     [SerializeField] public Sprite rock;
     [SerializeField] public Sprite emptyRock;
 
+
+    //[SerializeField] private Transform character;
+
+    [SerializeField] GameObject RockAmmoCanvas;
+
+
     private void Start()
     {
         currentAmmo = maxAmmo;
@@ -96,6 +102,29 @@ public class GunSkill : PlayerSkill
     //    Debug.Log("Reloaded...");
     //    currentAmmo = maxAmmo;
     //    isReloading = false;
+    //}
+
+    //private void OnEnable()
+    //{
+    //    if (isActive)
+    //    {
+    //        RockAmmoCanvas.SetActive(true);
+    //    }
+
+        
+    //    //camAim.GetComponent<SwitchVCam>().aimCamActivated += CharacterAimUI;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    RockAmmoCanvas.SetActive(false);
+    //    //camAim.GetComponent<SwitchVCam>().aimCamActivated -= CharacterAimUI;
+    //}
+
+    //private void CharacterAimUI()
+    //{
+    //    PlayerController player = character.GetComponent<PlayerController>();
+        
     //}
 
     public void FullAmmoTrigger()

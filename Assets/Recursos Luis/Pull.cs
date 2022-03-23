@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Pull : PlayerSkill
 {
@@ -34,6 +35,8 @@ public class Pull : PlayerSkill
     [SerializeField] private Camera pullCamera;
 
     private PlayerMovimiento playerMovimiento;
+
+    public float originalScale;
 
    
     
@@ -79,7 +82,8 @@ public class Pull : PlayerSkill
                 heldObject.transform.parent = null;
                 heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 heldObject.GetComponent<Rigidbody>().velocity = transform.forward * throwVelocity;
-                heldObject.gameObject.SetActive(true);
+                heldObject.DOScale(originalScale, 1f);
+                //heldObject.gameObject.SetActive(true);
                 heldObject.GetComponent<Rigidbody>().useGravity = true;
                 heldObject.GetComponent<Rigidbody>().isKinematic = false;
                 heldObject = null;
@@ -119,14 +123,32 @@ public class Pull : PlayerSkill
             //    break;
             //}
 
-            if (distanceToHand < positionDistanceThreshold)
+            var colliders = Physics.OverlapSphere(hand.position, positionDistanceThreshold);
+
+            bool isin = false;
+
+            for (int i = 0; i < colliders.Length; i++)
             {
+                if (t.Equals(colliders[i].transform))
+                {
+                    isin = true;
+
+                    break;
+                }
+            }
+
+            if (isin)
+            {
+                
                 t.position = hand.position;
                 t.parent = hand;
                 r.constraints = RigidbodyConstraints.FreezePosition;
                 heldObject = t;
-                
-                heldObject.gameObject.SetActive(false);
+
+                originalScale = heldObject.localScale.normalized.x;
+
+                heldObject.DOScale(0f, 0.4f);
+                //heldObject.gameObject.SetActive(false);
                 
                 break;
             }

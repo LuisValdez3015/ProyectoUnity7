@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     //Cambios nuevos
     [SerializeField] Canvas characterAimCanvas;
 
+    [SerializeField] Canvas characterCanvas;
+
     public Canvas CharacterAimCanvas => characterAimCanvas;
 
     private void Awake()
@@ -79,6 +81,7 @@ public class PlayerController : MonoBehaviour
         this.enabled = true;
         playerSkill.enabled = true;
         playerSkill.SetActive(true);
+        characterCanvas.enabled = true;
     }
 
     public void LoseControl()
@@ -86,5 +89,6 @@ public class PlayerController : MonoBehaviour
         this.enabled = false;
         playerSkill.enabled = false;
         playerSkill.SetActive(false);
+        characterCanvas.enabled = false;
     }
 }

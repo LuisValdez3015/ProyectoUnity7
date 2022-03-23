@@ -28,6 +28,8 @@ public class SwitchVCam : MonoBehaviour
 
     public event Action aimCamActivated;
 
+    private PlayerController currentPlayer;
+
     private void Start()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
@@ -73,6 +75,12 @@ public class SwitchVCam : MonoBehaviour
         if (aimCanvas != null)
         {
             aimCanvas.SetActive(boosted);
+            currentPlayer.CharacterAimCanvas.gameObject.SetActive(boosted);
         }                 
+    }
+
+    public void SetCurrentPlayer(PlayerController player)
+    {
+        currentPlayer = player;
     }
 }

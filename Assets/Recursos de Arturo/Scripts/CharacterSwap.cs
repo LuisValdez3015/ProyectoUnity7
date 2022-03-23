@@ -17,13 +17,13 @@ public class CharacterSwap : MonoBehaviour
     private void OnEnable()
     {
         camAim.GetComponent<SwitchVCam>().aimCamActivated += PlayCamAudio;
-        camAim.GetComponent<SwitchVCam>().aimCamActivated += CharacterAimUI;
+        //camAim.GetComponent<SwitchVCam>().aimCamActivated += CharacterAimUI;
     }
 
     private void OnDisable()
     {
         camAim.GetComponent<SwitchVCam>().aimCamActivated -= PlayCamAudio;
-        camAim.GetComponent<SwitchVCam>().aimCamActivated -= CharacterAimUI;
+        //camAim.GetComponent<SwitchVCam>().aimCamActivated -= CharacterAimUI;
 
     }
 
@@ -33,10 +33,10 @@ public class CharacterSwap : MonoBehaviour
         AudioSource.PlayClipAtPoint(player.AimAudio, Camera.main.transform.position);
     }
 
-    private void CharacterAimUI()
-    {
-        PlayerController player = character.GetComponent<PlayerController>();        
-    }
+    //private void CharacterAimUI()
+    //{
+    //    PlayerController player = character.GetComponent<PlayerController>();        
+    //}
 
     void Start()
     {
@@ -82,5 +82,7 @@ public class CharacterSwap : MonoBehaviour
 
         camAim.LookAt = lookAt;
         camAim.Follow = lookAt;
+
+        camAim.GetComponent<SwitchVCam>().SetCurrentPlayer(character.GetComponent<PlayerController>());
     }
 }
