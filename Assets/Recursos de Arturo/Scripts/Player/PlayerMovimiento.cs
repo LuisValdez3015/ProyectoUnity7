@@ -36,12 +36,15 @@ public class PlayerMovimiento : MonoBehaviour
     private Transform camAim;
     private Transform cameraTransform;
 
+    Animator anim;
+
     //[SerializeField] private float rotationSpeed = 5f;
 
 
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
+        anim = GetComponentInChildren<Animator>();
     }
     private void Start()
     {
@@ -67,7 +70,12 @@ public class PlayerMovimiento : MonoBehaviour
 
             var currentSpeed = playerController.PlayerSkill.IsBeingUse ? playerSpeedWhenUsingSkill : playerSpeed;
             controller.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
+            anim.SetBool("IsWalking", true);
 
+        }
+        else
+        {
+            anim.SetBool("IsWalking", false);
         }
     }
 

@@ -179,6 +179,8 @@ MonoBehaviour:
   jumpHeight: 4
   groundRaycastOrigin: {fileID: 31527189}
   groundRaycastDistance: 0.5
+  playerSpeedWhenUsingSkill: 3
+  playerJumpWhenUsingSkill: 0.5
   groundedPlayer: 0
   controller: {fileID: 1128406587516580597}
   cam: {fileID: 0}
@@ -196,6 +198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraLookAt: {fileID: 55100581}
   aimAudio: {fileID: 8300000, guid: 68d3e2586ff1caa4998528f5cb019168, type: 3}
+  characterAimCanvas: {fileID: 0}
+  characterCanvas: {fileID: 0}
 --- !u!114 &1128406587516580598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +238,7 @@ MonoBehaviour:
   maxVelocity: 10
   throwVelocity: 3.62
   pullCamera: {fileID: 0}
+  originalScale: 0
 --- !u!1 &4349828306384496841
 GameObject:
   m_ObjectHideFlags: 0
