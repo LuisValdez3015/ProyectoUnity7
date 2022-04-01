@@ -22,18 +22,20 @@ public class ObstaclePush : MonoBehaviour
         {
             if (hit.transform.tag.Equals(pushableTag))
             {
+                anim.SetBool("Push", true);
                 Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
                 forceDirection.y = 0;
                 forceDirection.Normalize();
 
                 rigidbody.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
-                //    anim.SetBool("Push", true);
+                
 
-                //}
-                //else
-                //{
-                //    anim.SetBool("Push", false);
             }
+
+        }
+        else
+        {
+            anim.SetBool("Push", false);
         }
 
     }
