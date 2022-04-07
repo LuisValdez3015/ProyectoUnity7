@@ -38,12 +38,16 @@ public class Pull : PlayerSkill
 
     public float originalScale;
 
-   
-    
+    Animator animator;
+
+
+
     private void Start()
     {
         playerMovimiento = GetComponent<PlayerMovimiento>();
+        animator = GetComponentInChildren<Animator>();
     }
+
     [System.Obsolete]
     void Update()
     {
@@ -67,6 +71,7 @@ public class Pull : PlayerSkill
                 if (hit.transform.tag.Equals(pullableTag))
                 {
                     StartCoroutine(PullObject(hit.transform));
+                    //GameObject.Find("Player").GetComponent<Animator>().SetBool("IsWalking", false);
                 }
             }
             
@@ -82,13 +87,13 @@ public class Pull : PlayerSkill
                 heldObject.transform.parent = null;
                 heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 heldObject.GetComponent<Rigidbody>().velocity = transform.forward * throwVelocity;
-                heldObject.DOScale(originalScale, 1f);
+                heldObject.DOScale(originalScale, .2f);
                 //heldObject.gameObject.SetActive(true);
                 heldObject.GetComponent<Rigidbody>().useGravity = true;
                 heldObject.GetComponent<Rigidbody>().isKinematic = false;
                 heldObject = null;
 
-                
+
             }
         }
     }
@@ -139,15 +144,16 @@ public class Pull : PlayerSkill
 
             if (isin)
             {
-                
+                t.parent = null;
+                originalScale = t.localScale.x;
                 t.position = hand.position;
                 t.parent = hand;
                 r.constraints = RigidbodyConstraints.FreezePosition;
                 heldObject = t;
 
-                originalScale = heldObject.localScale.normalized.x;
+                
 
-                heldObject.DOScale(0f, 0.4f);
+                heldObject.DOScale(0f, 0.2f);
                 //heldObject.gameObject.SetActive(false);
                 
                 break;
