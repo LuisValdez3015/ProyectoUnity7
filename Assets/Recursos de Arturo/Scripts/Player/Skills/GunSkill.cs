@@ -104,29 +104,6 @@ public class GunSkill : PlayerSkill
     //    isReloading = false;
     //}
 
-    //private void OnEnable()
-    //{
-    //    if (isActive)
-    //    {
-    //        RockAmmoCanvas.SetActive(true);
-    //    }
-
-        
-    //    //camAim.GetComponent<SwitchVCam>().aimCamActivated += CharacterAimUI;
-    //}
-
-    //private void OnDisable()
-    //{
-    //    RockAmmoCanvas.SetActive(false);
-    //    //camAim.GetComponent<SwitchVCam>().aimCamActivated -= CharacterAimUI;
-    //}
-
-    //private void CharacterAimUI()
-    //{
-    //    PlayerController player = character.GetComponent<PlayerController>();
-        
-    //}
-
     public void FullAmmoTrigger()
     {
         currentAmmo = maxAmmo;
@@ -166,14 +143,6 @@ public class GunSkill : PlayerSkill
 
                 Debug.DrawLine(gunposition, hit2.point, Color.blue);
             }
-
-            
-
-            //Empuja una nada las cajitas
-            //if (hit.rigidbody != null)
-            //{
-            //    hit.rigidbody.AddForce(-hit.normal * impactForce);
-            //}
         }
     }
 

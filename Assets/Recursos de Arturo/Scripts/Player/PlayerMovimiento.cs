@@ -36,12 +36,19 @@ public class PlayerMovimiento : MonoBehaviour
     private Transform camAim;
     private Transform cameraTransform;
 
+    Animator animator;
+
+    [SerializeField] GameObject raycastJumpOrigin;
+
+    [SerializeField] float groundDistance;
+
     //[SerializeField] private float rotationSpeed = 5f;
 
 
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
+        animator = GetComponentInChildren<Animator>();
     }
     private void Start()
     {
@@ -53,12 +60,32 @@ public class PlayerMovimiento : MonoBehaviour
         groundedPlayer = CheckGround();
         DoGravity();
         controller.Move(playerVelocity * Time.deltaTime);
+
+        if (groundedPlayer && playerVelocity.y > 0)
+        {
+            animator.SetTrigger("Jump");
+            animator.ResetTrigger("GroundedJump");
+        }
+
+        if (!groundedPlayer && playerVelocity.y < 0)
+        {
+            animator.SetFloat("YVelocity", playerVelocity.y);
+            RaycastHit hit;
+            Debug.DrawRay(raycastJumpOrigin.transform.position, Vector3.down * groundDistance, Color.magenta);
+            if (Physics.Raycast(raycastJumpOrigin.transform.position, Vector3.down, out hit, groundDistance))
+            {
+                animator.SetTrigger("GroundedJump");
+                animator.ResetTrigger("Jump");
+            }
+            
+        }
     }
 
     public void Move(Vector3 direction)
     {
         if (direction.magnitude >= 0.1f)
         {
+            animator.SetBool("IsWalking", true);
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -67,8 +94,21 @@ public class PlayerMovimiento : MonoBehaviour
 
             var currentSpeed = playerController.PlayerSkill.IsBeingUse ? playerSpeedWhenUsingSkill : playerSpeed;
             controller.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
+            //animator.SetBool("IsWalking", false);
+
+            //animator.SetBool("IsMouthFull", true);
 
         }
+        else
+        {
+            animator.SetBool("IsWalking", false);
+        }
+        
+    }
+
+    public void Stop()
+    {
+        animator.SetBool("IsWalking", false);
     }
 
     public void DoGravity()
@@ -86,7 +126,10 @@ public class PlayerMovimiento : MonoBehaviour
     {
         if (!groundedPlayer) return;
         var currentJump = playerController.PlayerSkill.IsBeingUse ? playerJumpWhenUsingSkill : jumpHeight;
-        playerVelocity.y = Mathf.Sqrt(currentJump * -3f * (gravity * gravityScale));      
+        playerVelocity.y = Mathf.Sqrt(currentJump * -3f * (gravity * gravityScale));
+
+
+
     }
 
     public bool CheckGround()

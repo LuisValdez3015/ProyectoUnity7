@@ -6,15 +6,15 @@ public class BouncePlatform : MonoBehaviour
 {
     [SerializeField] public float bounceForce = default;
 
-    private void OnCollisionEnter(Collision collision)
-    {   
-        Debug.Log(collision.gameObject + " collision with " + collision.gameObject.name, collision.gameObject);
+    //private void OnCollisionEnter(Collision collision)
+    //{   
+    //    Debug.Log(collision.gameObject + " collision with " + collision.gameObject.name, collision.gameObject);
 
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.GetComponent<PlayerMovimiento>().Bounce(bounceForce);
-        }
-    }
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        collision.gameObject.GetComponent<PlayerMovimiento>().Bounce(bounceForce);
+    //    }
+    //}
 
     private void OnTriggerEnter(Collider other)
     {

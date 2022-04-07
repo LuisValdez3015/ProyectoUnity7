@@ -99,8 +99,6 @@ MonoBehaviour:
   fireRate: 1.5
   maxAmmo: 5
   currentAmmo: 0
-  reloadTime: 1
-  isReloading: 0
   tpsGun: {fileID: 0}
   impactEffect: {fileID: 6115123945634696493, guid: ebee6fd434e7ac347a6a0ec55571e2c1,
     type: 3}
@@ -115,6 +113,7 @@ MonoBehaviour:
   - {fileID: 0}
   rock: {fileID: 21300000, guid: 584fe0aebfcf82544ae60d90530afc94, type: 3}
   emptyRock: {fileID: 21300000, guid: f149252e37ce57b4f8013c35825b6c39, type: 3}
+  RockAmmoCanvas: {fileID: 0}
 --- !u!1 &626718153
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,6 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3806577864716665460}
+  - component: {fileID: 1983333511004264521}
   - component: {fileID: 3700013974179292565}
   - component: {fileID: 3700013974179292570}
   - component: {fileID: 3700013974179292571}
@@ -325,6 +325,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1983333511004264521
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582552030236448974}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 63379a7404b5ec140871754170e4d5e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!143 &3700013974179292565
 CharacterController:
   m_ObjectHideFlags: 0
@@ -373,6 +392,8 @@ MonoBehaviour:
   jumpHeight: 4
   groundRaycastOrigin: {fileID: 626718154}
   groundRaycastDistance: 0.5
+  playerSpeedWhenUsingSkill: 3
+  playerJumpWhenUsingSkill: 0.5
   groundedPlayer: 0
   controller: {fileID: 3700013974179292565}
   cam: {fileID: 0}
@@ -390,6 +411,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraLookAt: {fileID: 942674540}
   aimAudio: {fileID: 8300000, guid: 68d3e2586ff1caa4998528f5cb019168, type: 3}
+  characterAimCanvas: {fileID: 0}
+  characterNormalCanvas: {fileID: 0}
 --- !u!114 &3700013974179292569
 MonoBehaviour:
   m_ObjectHideFlags: 0
