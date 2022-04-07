@@ -8,9 +8,13 @@ public class Llave : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(this.gameObject);
+        Debug.Log("1");
+        var playercontroller = other.gameObject.GetComponent<PlayerController>();
+        if (playercontroller == null)
+            return;
+        Debug.Log("2");
+        playercontroller.Addkey(id);
 
-        GameManager gamemanager = FindObjectOfType<GameManager>();
-        gamemanager.AddKey(id);
+        Destroy(this.gameObject);
     }
 }

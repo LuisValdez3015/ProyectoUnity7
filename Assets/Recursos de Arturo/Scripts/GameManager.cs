@@ -22,45 +22,4 @@ public class GameManager : MonoBehaviour
         player.Respawn();
     }
 
-    public void AddKey(int id)
-    {
-        if (id == 1)
-        {
-            Key1++;
-            //Destornillador.enabled = true;          
-        }
-        if (id == 2)
-        {
-            Key2++;
-            //Llavecita.enabled = true;
-        }
-    }
-
-    public void ConsumeKey(int id)
-    {
-        if (id == 1)
-        {
-            Key1--;
-            //Destornillador.enabled = false;
-        }
-        if (id == 2)
-        {
-            Key2--;
-            //Llavecita.enabled = false;
-        }
-    }
-
-    public bool HasKey(int id)
-    {
-        int count = 0;
-
-        if (id == 1)
-            count = Key1;
-        if (id == 2)
-            count = Key2;
-        if (count > 0)
-            return true;
-        else
-            return false;
-    }
 }

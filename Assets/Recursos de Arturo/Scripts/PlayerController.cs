@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public List<int> Keys = new List<int>();
+
+    [SerializeField] public int playerId;
+
     private PlayerMovimiento playerMovimiento;
 
     private PlayerSkill playerSkill;
@@ -91,4 +95,25 @@ public class PlayerController : MonoBehaviour
         playerSkill.SetActive(false);
         characterCanvas.enabled = false;
     }
+
+    //Llaves
+
+    public void Addkey(int id)
+    {
+        Keys.Add(id);
+    }
+
+    public bool HasKey(int id)
+    {
+        return Keys.Contains(id);
+    }
+
+    public bool ConsumeKey(int id)
+    {
+        if (!HasKey(id))
+            return false;
+        Keys.Remove(id);
+        return true;
+    }
 }
+

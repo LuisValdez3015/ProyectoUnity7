@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Cerrojo : MonoBehaviour
 {
-    public float speed;
-    //public GameObject door;
     bool isDooropen;
     public int id;
     //public AudioClip clip;
@@ -18,22 +16,27 @@ public class Cerrojo : MonoBehaviour
 
     public void OpenDoor()
     {
-        //door.transform.position += transform.up * speed * Time.deltaTime;
         anim.SetBool("Abrir", true);
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("1");
         if (!isDooropen)
         {
-            GameManager gamemanager = FindObjectOfType<GameManager>();
-            if (gamemanager.HasKey(id))
+            Debug.Log("2");
+            var playercontroller = other.gameObject.GetComponent<PlayerController>();
+            if (playercontroller == null)
             {
-                gamemanager.ConsumeKey(id);
+                return;
+            }
+            Debug.Log("3");
+            if (playercontroller.HasKey(id))
+            {
+                Debug.Log("4");
+                playercontroller.ConsumeKey(id);
                 OpenDoor();
                 isDooropen = true;
-                this.gameObject.SetActive(false);
-
             }
         }
     }
