@@ -20,7 +20,7 @@ public class TextOnScreen : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             textoOnScreen.SetActive(true);
-            textoOnScreen.GetComponent<TextMeshProUGUI>().DOFade(1f, 2.5f);
+            textoOnScreen.GetComponent<TextMeshProUGUI>().DOFade(1f, 3f);
         }
     }
 
@@ -28,7 +28,7 @@ public class TextOnScreen : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            textoOnScreen.GetComponent<TextMeshProUGUI>().DOFade(0f, 2.5f);
+            textoOnScreen.GetComponent<TextMeshProUGUI>().DOFade(0f, 3f);
 
             StartCoroutine(WaitForSec());
         }
@@ -36,7 +36,7 @@ public class TextOnScreen : MonoBehaviour
 
     IEnumerator WaitForSec()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(3.5f);
         textoOnScreen.SetActive(false);
     }
 }
