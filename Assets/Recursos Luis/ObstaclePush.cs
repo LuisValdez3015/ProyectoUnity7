@@ -7,12 +7,12 @@ public class ObstaclePush : MonoBehaviour
     public string pushableTag;
     [SerializeField] private float forceMagnitude;
 
-    Animator anim;
+    //Animator anim;
 
-    private void Awake()
-    {
-        anim = GetComponentInChildren<Animator>();
-    }
+    //private void Awake()
+    //{
+    //    anim = GetComponentInChildren<Animator>();
+    //}
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
@@ -20,23 +20,23 @@ public class ObstaclePush : MonoBehaviour
 
         if (rigidbody != null && Input.GetKeyDown(KeyCode.E))
         {
+
             if (hit.transform.tag.Equals(pushableTag))
             {
-                anim.SetBool("Push", true);
+                
                 Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
                 forceDirection.y = 0;
                 forceDirection.Normalize();
-
                 rigidbody.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
-                
+                //anim.SetTrigger("Push");
 
             }
 
         }
-        else
-        {
-            anim.SetBool("Push", false);
-        }
+        //else
+        //{
+        //    anim.SetTrigger("Push");
+        //}
 
     }
 }

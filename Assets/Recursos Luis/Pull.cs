@@ -150,6 +150,7 @@ public class Pull : PlayerSkill
                 t.parent = hand;
                 r.constraints = RigidbodyConstraints.FreezePosition;
                 heldObject = t;
+                //heldObject.GetComponent<Collider>().enabled = false;
 
                 
 
