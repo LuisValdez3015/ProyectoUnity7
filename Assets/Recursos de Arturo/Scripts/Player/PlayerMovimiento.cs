@@ -16,6 +16,12 @@ public class PlayerMovimiento : MonoBehaviour
 
     [SerializeField] private float playerJumpWhenUsingSkill = 0.5f;
 
+
+    //diseño
+    [SerializeField] int reachRange = 100;
+    [SerializeField] GameObject Lever;
+
+
     private float gravity = -9.81f;
 
     private float turnSmoothTime = 0.1f;
@@ -78,6 +84,12 @@ public class PlayerMovimiento : MonoBehaviour
                 animator.ResetTrigger("Jump");
             }
             
+        }
+
+        //diseño
+        if (Input.GetMouseButtonDown(0))
+        {
+            CheckHitObj();
         }
     }
 
@@ -149,5 +161,15 @@ public class PlayerMovimiento : MonoBehaviour
         playerVelocity.y = Mathf.Sqrt(force * -3f * (gravity * gravityScale));
     }
 
-   
+    //diseño
+    public void CheckHitObj()
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, reachRange))
+        {
+            Lever.transform.Rotate(0, 0, 0, Space.World);
+        }
+    }
 }
