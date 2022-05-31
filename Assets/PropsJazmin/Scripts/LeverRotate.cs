@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using DG.Tweening;
 
 public class LeverRotate : MonoBehaviour
 {
-    public static event Action<string, int> Rotate = delegate { };
+    [SerializeField] int reachRange = 50;
+
+    [SerializeField] GameObject[] colors;
+
+    public static event Action<string, int> Rotated = delegate { };
 
     private bool coroutineAllowed;
 
@@ -14,35 +19,36 @@ public class LeverRotate : MonoBehaviour
     private void Start()
     {
         coroutineAllowed = true;
-        numberShown = 1;
+        numberShown = 0;
+
+        RotateLever(0);
     }
 
     private void OnMouseDown()
     {
-        if(coroutineAllowed)
+        if (coroutineAllowed)
         {
-            StartCoroutine("RotateLever");
+            RotateLever(1);
         }
     }
 
-    private IEnumerator RotateLever()
+    private void RotateLever(int direction)
     {
-        coroutineAllowed = false;
-
-        for(int i = 0; i <= 11; i++)
-        {
-            transform.Rotate(50f, 0f, 0f);
-            yield return new WaitForSeconds(.01f);
-        }
+        colors[numberShown].SetActive(false);
 
         coroutineAllowed = true;
-        numberShown += 1;
+        numberShown += direction;
 
-        if(numberShown > 4)
+        if (numberShown > 2)
         {
             numberShown = 0;
         }
 
-        Rotate(name, numberShown);
+        var Rotation = new Vector3(20 * numberShown, 0f, 0f);
+        transform.DORotate(Rotation, .3f);
+
+        colors[numberShown].SetActive(true);
+
+        Rotated(name, numberShown);
     }
 }

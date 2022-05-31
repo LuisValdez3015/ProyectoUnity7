@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CuerdaIdle
+  m_Name: CuerdaIDLE
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 97.39, y: 17.15, z: -131.52}
+        value: {x: 61.28, y: -33.13, z: -44.04}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -75,7 +75,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 97.39
+        value: 61.28
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -94,7 +94,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 17.15
+        value: -33.13
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -113,7 +113,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -131.52
+        value: -44.04
         inSlope: 0
         outSlope: 0
         tangentMode: 136
