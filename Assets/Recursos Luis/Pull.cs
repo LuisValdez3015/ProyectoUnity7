@@ -40,7 +40,7 @@ public class Pull : PlayerSkill
 
     Animator animator;
 
-
+    public ParticleSystem tornadoPull;
 
     private void Start()
     {
@@ -56,20 +56,28 @@ public class Pull : PlayerSkill
             return;
         }
 
+        if (!Input.GetMouseButton(1))
+        {
+            return;
+        }
 
-        if (Input.GetKey(KeyCode.J))
-            Screen.lockCursor = false;
-        else
-            Screen.lockCursor = true;
+        //if (Input.GetKey(KeyCode.J))
+        //    Screen.lockCursor = false;
+        //else
+        //    Screen.lockCursor = true;
 
         RaycastHit hit;
         Debug.DrawRay(pullCamera.transform.position, pullCamera.transform.forward * Mathf.Infinity, Color.blue);
         if (Input.GetMouseButtonDown(0))
         {
+            tornadoPull.Play();
+
+            animator.SetTrigger("Pulling");
+
             if (Physics.Raycast(pullCamera.transform.position, pullCamera.transform.forward, out hit, Mathf.Infinity))
             {
                 if (hit.transform.tag.Equals(pullableTag))
-                {
+                {                   
                     StartCoroutine(PullObject(hit.transform));
                     //GameObject.Find("Player").GetComponent<Animator>().SetBool("IsWalking", false);
                 }

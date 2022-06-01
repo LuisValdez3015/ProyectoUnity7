@@ -35,10 +35,13 @@ public class PlayerController : MonoBehaviour
 
     public bool IsInControl {get; private set;}
 
+    public Animator Animator { get; private set; }
+
     private void Awake()
     {
         playerSkill = GetComponentInChildren<PlayerSkill>();
         playerMovimiento = GetComponent<PlayerMovimiento>();
+        Animator = GetComponentInChildren<Animator>();
     }
 
     private void Start()

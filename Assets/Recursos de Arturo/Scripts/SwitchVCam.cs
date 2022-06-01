@@ -30,10 +30,12 @@ public class SwitchVCam : MonoBehaviour
 
     private PlayerController currentPlayer;
 
+    [SerializeField] private Transform character;
+
     private void Start()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         cameraTransform = Camera.main.transform;
         //aimAction = playerInput.actions["Aim"];
         //aimCanvas.enabled = false;
@@ -49,8 +51,14 @@ public class SwitchVCam : MonoBehaviour
             }
 
             bool aiming = Input.GetMouseButton(1);
+
+            currentPlayer.Animator.SetBool("IsAiming", aiming);
+
             if (aiming)
             {
+                PlayerController player = character.GetComponent<PlayerController>();
+                currentPlayer.transform.rotation = Camera.main.transform.rotation;
+
                 if (!boosted)
                 {
                     virtualCamera.Priority += priorityBoostAmount;
