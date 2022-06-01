@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 2678745025722342075}
   - component: {fileID: 1333923099108267294}
   - component: {fileID: 3848322257342013908}
+  - component: {fileID: 110606134777883321}
+  - component: {fileID: 1524251420065862968}
+  - component: {fileID: 9203806086297665139}
   m_Layer: 0
   m_Name: Porta lapices
   m_TagString: Untagged
@@ -25,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3343642090641162241}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.57, y: 0.0000009536743, z: 63.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -81,3 +84,42 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &110606134777883321
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3343642090641162241}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3329751, y: 0.76395905, z: 0.9803147}
+  m_Center: {x: -0.00026368027, y: 0.37570387, z: 0.0008297752}
+--- !u!65 &1524251420065862968
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3343642090641162241}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3329751, y: 0.39659476, z: 0.5618346}
+  m_Center: {x: -0.00026361554, y: 0.95899516, z: 0.21007101}
+--- !u!65 &9203806086297665139
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3343642090641162241}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3329751, y: 0.2864113, z: 0.17337781}
+  m_Center: {x: -0.00026359427, y: 1.292124, z: 0.40429974}
