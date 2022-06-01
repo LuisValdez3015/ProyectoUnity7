@@ -77,8 +77,8 @@ public class CharacterSwap : MonoBehaviour
                 possibleCharacters[i].GetComponent<PlayerController>().LoseControl();
             }           
         }
-        camV.LookAt = character;
-        camV.Follow = character;
+        camV.LookAt = character.GetChild(5);
+        camV.Follow = character.GetChild(5);
 
         camAim.LookAt = lookAt;
         camAim.Follow = lookAt;

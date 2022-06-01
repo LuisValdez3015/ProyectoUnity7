@@ -7,11 +7,6 @@ public class NewCheckpoint : MonoBehaviour
 
     private PlayerController playerController;
 
-    private void Start()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         PlayerController player = other.GetComponent<PlayerController>();
