@@ -13,7 +13,8 @@ public class BotonElevador : MonoBehaviour
     [SerializeField] GameObject verde1;
     [SerializeField] GameObject verde2;
 
-    //public Animator anim;
+    public Animator anim;
+    public Animator anim2;
 
     public void Update()
     {
@@ -40,13 +41,15 @@ public class BotonElevador : MonoBehaviour
             if (hit.transform.name == "Boton1")
             {
                 boton1 = true;
-                //anim.SetBool("Boton1", true);
+                anim2.SetBool("Click", true);
                 verde1.SetActive(true);
+                anim.SetBool("Cerrar", true);
             }
             if (hit.transform.name == "Boton2")
             {
-                //anim.SetBool("Boton2", true);
+                anim2.SetBool("Click", true);
                 verde2.SetActive(true);
+                anim.SetBool("Cerrar", true);
                 boton2 = true;
             }
         }

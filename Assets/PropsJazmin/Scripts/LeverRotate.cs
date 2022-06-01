@@ -6,8 +6,6 @@ using DG.Tweening;
 
 public class LeverRotate : MonoBehaviour
 {
-    [SerializeField] int reachRange = 50;
-
     [SerializeField] GameObject[] colors;
 
     public static event Action<string, int> Rotated = delegate { };
