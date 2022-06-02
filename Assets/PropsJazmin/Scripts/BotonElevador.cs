@@ -18,7 +18,7 @@ public class BotonElevador : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Pressed");
 
