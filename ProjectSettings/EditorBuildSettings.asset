@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 3c5c3e5da814c684a8118530d915f4d0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Arturo.unity
     guid: 01ab9020cc8d01b409dc8e9d78fc35c4
+  - enabled: 1
+    path: Assets/Scenes/LVL1.unity
+    guid: 8f461f1d6169b9945ba4f95a24f80faa
+  - enabled: 1
+    path: Assets/Scenes/LVL2.unity
+    guid: 63dbe8d1ad65e644ba96e5fd4bac9cb7
   m_configObjects: {}

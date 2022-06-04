@@ -59,7 +59,11 @@ public class BotonElevador : MonoBehaviour
 
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
 
+
+        RewriteData rewriteData = new RewriteData();
+
+        rewriteData.SaveLevel(1);
     }
 }
