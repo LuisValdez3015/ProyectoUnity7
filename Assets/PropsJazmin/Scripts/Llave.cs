@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Llave : MonoBehaviour
 {
     public int id;
+    //public Image llave;
 
     private void OnTriggerEnter(Collider other)
     {
