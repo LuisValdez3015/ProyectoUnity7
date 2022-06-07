@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 4769483942250993092}
   - component: {fileID: 8475572143168674401}
   - component: {fileID: 5943538457024605867}
-  m_Layer: 0
-  m_Name: Pedestal para libro grande (1)
+  - component: {fileID: 3219339855466892351}
+  m_Layer: 7
+  m_Name: Pedestal para libro grande
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4769483942250993092
 Transform:
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5294910228938919806}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 38.488415, y: 0, z: 66.328995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &3219339855466892351
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294910228938919806}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.205394
+  m_Height: 7.0136514
+  m_Direction: 1
+  m_Center: {x: 0.000030517578, y: 3.5068257, z: -0.030712612}

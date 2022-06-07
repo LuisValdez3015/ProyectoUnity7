@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class Cerrojo : MonoBehaviour
 {
-    //public GameObject door;
+    [SerializeField] GameObject destornillador;
+    [SerializeField] GameObject llave;
+
     bool isDooropen;
     public int id;
-    //public AudioClip clip;
     public Animator anim;
 
-    //public void Awake()
-    //{
-    //    anim = GetComponent<Animator>();
-    //}
 
     public void OpenDoor()
     {
@@ -32,9 +29,35 @@ public class Cerrojo : MonoBehaviour
             if (playercontroller.HasKey(id))
             {
                 playercontroller.ConsumeKey(id);
+                destornillador.SetActive(false);
+                llave.SetActive(false);
                 OpenDoor();
                 isDooropen = true;
             }
+        }
+
+        if (other.gameObject.name == "Weaver")
+        {
+            destornillador.SetActive(true);
+        }
+
+        if (other.gameObject.name == "Toolbag")
+        {
+            llave.SetActive(true);
+        }
+
+
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "Weaver")
+        {
+            destornillador.SetActive(false);
+        }
+        if (other.gameObject.name == "Toolbag")
+        {
+            llave.SetActive(false);
         }
     }
 }
