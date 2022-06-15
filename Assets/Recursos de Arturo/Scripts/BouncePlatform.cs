@@ -18,10 +18,9 @@ public class BouncePlatform : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject + " trigger with " + other.gameObject.name, other.gameObject);
-
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log(other.gameObject + " trigger with " + other.gameObject.name, other.gameObject);
             other.gameObject.GetComponent<PlayerMovimiento>().Bounce(bounceForce);
         }
     }

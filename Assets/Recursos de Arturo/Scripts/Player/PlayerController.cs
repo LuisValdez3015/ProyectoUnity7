@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class PlayerController : MonoBehaviour
 {
@@ -37,6 +38,12 @@ public class PlayerController : MonoBehaviour
 
     public Animator Animator { get; private set; }
 
+    [SerializeField] Rig characterRig;
+
+    public Rig CharacterRig => characterRig;
+
+    [SerializeField] Transform friend = default;
+
     private void Awake()
     {
         playerSkill = GetComponentInChildren<PlayerSkill>();
@@ -60,11 +67,23 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             playerMovimiento.Jump();
-        }        
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            LookAtFriend();
+        }
 
         //Esto es para que rote el player
         //Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
         //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    public void LookAtFriend()
+    {
+        transform.LookAt(friend);
+
+        Animator.SetTrigger("Hello");
     }
 
     public void Kill()

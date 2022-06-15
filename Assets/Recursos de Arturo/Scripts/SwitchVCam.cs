@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
 using System;
+using UnityEngine.Animations.Rigging;
 
 public class SwitchVCam : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class SwitchVCam : MonoBehaviour
 
     [SerializeField] private Transform character;
 
+    //[SerializeField] private Rig aimRig;
+
     private void Start()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
@@ -53,32 +56,31 @@ public class SwitchVCam : MonoBehaviour
             bool aiming = Input.GetMouseButton(1);
 
             currentPlayer.Animator.SetBool("IsAiming", aiming);
-
+           
             if (aiming)
             {
-                PlayerController player = character.GetComponent<PlayerController>();
-                currentPlayer.transform.rotation = Camera.main.transform.rotation;
+                //PlayerController player = character.GetComponent<PlayerController>();
+                currentPlayer.transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
+                currentPlayer.CharacterRig.weight = .5f;
+                //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                //aimRig.weight = 0.5f;
 
                 if (!boosted)
                 {
                     virtualCamera.Priority += priorityBoostAmount;
                     boosted = true;
-
-                    //Player.GetComponent<PlayerMovimiento>();
-                    //Esto es para que el player rote junto a la camara Aim
-                    //Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
-                    //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                    //aimRig.weight = 0f;
                 }
             }
             else if (boosted)
             {
                 virtualCamera.Priority -= priorityBoostAmount;
                 boosted = false;
+                currentPlayer.CharacterRig.weight = 0f;
             }
 
             gunSkill.enabled = aiming;
             
-
         }
         if (aimCanvas != null)
         {

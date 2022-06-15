@@ -16,6 +16,8 @@ public class BotonElevador : MonoBehaviour
     public Animator anim;
     public Animator anim2;
 
+    [SerializeField] int nextLevelIndex; //Es el indice en el build settings
+    [SerializeField] int savedLevelIndex; //Es para guardarlo en un arreglo de 0, 1 y 2
     public void Update()
     {
         if (Input.GetMouseButton(0))
@@ -26,7 +28,7 @@ public class BotonElevador : MonoBehaviour
 
             if (boton1 && boton2 == true)
             {
-                StartCoroutine("Scene");
+                StartCoroutine(Scene());
             }
         }
     }
@@ -59,11 +61,11 @@ public class BotonElevador : MonoBehaviour
 
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(nextLevelIndex);
 
 
         RewriteData rewriteData = new RewriteData();
 
-        rewriteData.SaveLevel(1);
+        rewriteData.SaveLevel(savedLevelIndex);
     }
 }

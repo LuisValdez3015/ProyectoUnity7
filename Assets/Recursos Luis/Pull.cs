@@ -42,6 +42,10 @@ public class Pull : PlayerSkill
 
     public ParticleSystem tornadoPull;
 
+    [SerializeField] GameObject aimTarget;
+
+    [SerializeField] float ikSmoothness = 10f;
+
     private void Start()
     {
         playerMovimiento = GetComponent<PlayerMovimiento>();
@@ -67,25 +71,33 @@ public class Pull : PlayerSkill
         //    Screen.lockCursor = true;
 
         RaycastHit hit;
+
         Debug.DrawRay(pullCamera.transform.position, pullCamera.transform.forward * Mathf.Infinity, Color.blue);
-        if (Input.GetMouseButtonDown(0))
-        {
-            tornadoPull.Play();
-
-            animator.SetTrigger("Pulling");
-
-            if (Physics.Raycast(pullCamera.transform.position, pullCamera.transform.forward, out hit, Mathf.Infinity))
+        if (Physics.Raycast(pullCamera.transform.position, pullCamera.transform.forward, out hit, Mathf.Infinity))
+        {           
+            if (Input.GetMouseButtonDown(0))
             {
+                tornadoPull.Play();
+
+                animator.SetTrigger("Pulling");
+
                 if (hit.transform.tag.Equals(pullableTag))
-                {                   
+                {
                     StartCoroutine(PullObject(hit.transform));
                     //GameObject.Find("Player").GetComponent<Animator>().SetBool("IsWalking", false);
                 }
+
             }
-            
+            Vector3 direction = (hit.point - hand.position).normalized;
+            Vector3 position = hit.point; //= hand.position + direction;
+            aimTarget.transform.position = Vector3.Lerp(aimTarget.transform.position, position, ikSmoothness * Time.deltaTime);
         }
 
         
+        
+
+        
+
         if (Input.GetKey(KeyCode.E))
         {
             if (heldObject != null)

@@ -22,7 +22,7 @@ public class GunSkill : PlayerSkill
 
     [SerializeField] private GameObject impactEffect;
 
-    [SerializeField] private GameObject gun;
+    [SerializeField] private Transform gun;
 
     [SerializeField] public AudioClip impactAudio;
 
@@ -39,10 +39,16 @@ public class GunSkill : PlayerSkill
 
     [SerializeField] GameObject RockAmmoCanvas;
 
+    [SerializeField] Animator animator;
+
+    [SerializeField] GameObject aimTarget;
+
+    [SerializeField] float ikSmoothness = 10f;
 
     private void Start()
     {
         currentAmmo = maxAmmo;
+        
     }
 
     void Update()
@@ -64,11 +70,12 @@ public class GunSkill : PlayerSkill
             return;
         }
 
-        Debug.DrawRay(tpsGun.transform.position, tpsGun.transform.forward * range, Color.red);
+        
         if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             AudioSource.PlayClipAtPoint(flybyAudio, transform.position, 0.6f);
+            animator.SetTrigger("Shooting");
             ShootSkill();
         }
 
@@ -114,6 +121,7 @@ public class GunSkill : PlayerSkill
         currentAmmo--;
 
         RaycastHit hit;
+        Debug.DrawRay(tpsGun.transform.position, tpsGun.transform.forward * range, Color.red);
 
         if (Physics.Raycast(tpsGun.transform.position, tpsGun.transform.forward, out hit, range))
         {
@@ -143,6 +151,9 @@ public class GunSkill : PlayerSkill
 
                 Debug.DrawLine(gunposition, hit2.point, Color.blue);
             }
+            direction = (hit.point - gun.position).normalized;
+            Vector3 position = hit.point;
+            aimTarget.transform.position = Vector3.Lerp(aimTarget.transform.position, position, ikSmoothness * Time.deltaTime);
         }
     }
 

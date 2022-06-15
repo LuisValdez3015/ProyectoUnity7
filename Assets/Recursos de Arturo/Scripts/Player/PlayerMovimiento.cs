@@ -8,7 +8,15 @@ public class PlayerMovimiento : MonoBehaviour
 
     [SerializeField] public float jumpHeight = 1.0f;
 
-    [SerializeField] Transform groundRaycastOrigin;
+    [SerializeField] Transform groundRaycastOriginCenter;
+
+    [SerializeField] Transform groundRaycastOriginFront;
+
+    [SerializeField] Transform groundRaycastOriginBack;
+
+    [SerializeField] Transform groundRaycastOriginLeft;
+
+    [SerializeField] Transform groundRaycastOriginRight;
 
     [SerializeField] float groundRaycastDistance;
 
@@ -38,7 +46,15 @@ public class PlayerMovimiento : MonoBehaviour
 
     Animator animator;
 
-    [SerializeField] GameObject raycastJumpOrigin;
+    [SerializeField] GameObject raycastJumpOriginCenter;
+
+    [SerializeField] GameObject raycastJumpOriginFront;
+
+    [SerializeField] GameObject raycastJumpOriginBack;
+
+    [SerializeField] GameObject raycastJumpOriginLeft;
+
+    [SerializeField] GameObject raycastJumpOriginRight;
 
     [SerializeField] float groundDistance;
 
@@ -71,13 +87,46 @@ public class PlayerMovimiento : MonoBehaviour
         {
             animator.SetFloat("YVelocity", playerVelocity.y);
             RaycastHit hit;
-            Debug.DrawRay(raycastJumpOrigin.transform.position, Vector3.down * groundDistance, Color.magenta);
-            if (Physics.Raycast(raycastJumpOrigin.transform.position, Vector3.down, out hit, groundDistance))
+            Debug.DrawRay(raycastJumpOriginCenter.transform.position, Vector3.down * groundDistance, Color.magenta);
+
+            Debug.DrawRay(raycastJumpOriginFront.transform.position, Vector3.down * groundDistance, Color.magenta);
+
+            Debug.DrawRay(raycastJumpOriginBack.transform.position, Vector3.down * groundDistance, Color.magenta);
+
+            Debug.DrawRay(raycastJumpOriginLeft.transform.position, Vector3.down * groundDistance, Color.magenta);
+
+            Debug.DrawRay(raycastJumpOriginRight.transform.position, Vector3.down * groundDistance, Color.magenta);
+
+            if (Physics.Raycast(raycastJumpOriginCenter.transform.position, Vector3.down, out hit, groundDistance))
             {
                 animator.SetTrigger("GroundedJump");
                 animator.ResetTrigger("Jump");
             }
-            
+
+            if (Physics.Raycast(raycastJumpOriginFront.transform.position, Vector3.down, out hit, groundDistance))
+            {
+                animator.SetTrigger("GroundedJump");
+                animator.ResetTrigger("Jump");
+            }
+
+            if (Physics.Raycast(raycastJumpOriginBack.transform.position, Vector3.down, out hit, groundDistance))
+            {
+                animator.SetTrigger("GroundedJump");
+                animator.ResetTrigger("Jump");
+            }
+
+            if (Physics.Raycast(raycastJumpOriginLeft.transform.position, Vector3.down, out hit, groundDistance))
+            {
+                animator.SetTrigger("GroundedJump");
+                animator.ResetTrigger("Jump");
+            }
+
+            if (Physics.Raycast(raycastJumpOriginRight.transform.position, Vector3.down, out hit, groundDistance))
+            {
+                animator.SetTrigger("GroundedJump");
+                animator.ResetTrigger("Jump");
+            }
+
         }
     }
 
@@ -135,9 +184,37 @@ public class PlayerMovimiento : MonoBehaviour
     public bool CheckGround()
     {
         RaycastHit hit;
-        Debug.DrawRay(groundRaycastOrigin.position, Vector3.down * groundRaycastDistance, Color.red);
+        Debug.DrawRay(groundRaycastOriginCenter.position, Vector3.down * groundRaycastDistance, Color.red);
 
-        if (Physics.Raycast(groundRaycastOrigin.position, Vector3.down, out hit, groundRaycastDistance))
+        Debug.DrawRay(groundRaycastOriginFront.position, Vector3.down * groundRaycastDistance, Color.red);
+
+        Debug.DrawRay(groundRaycastOriginBack.position, Vector3.down * groundRaycastDistance, Color.red);
+
+        Debug.DrawRay(groundRaycastOriginLeft.position, Vector3.down * groundRaycastDistance, Color.red);
+
+        Debug.DrawRay(groundRaycastOriginRight.position, Vector3.down * groundRaycastDistance, Color.red);
+
+        if (Physics.Raycast(groundRaycastOriginCenter.position, Vector3.down, out hit, groundRaycastDistance))
+        {
+            return true;
+        }
+
+        if (Physics.Raycast(groundRaycastOriginFront.position, Vector3.down, out hit, groundRaycastDistance))
+        {
+            return true;
+        }
+
+        if (Physics.Raycast(groundRaycastOriginBack.position, Vector3.down, out hit, groundRaycastDistance))
+        {
+            return true;
+        }
+
+        if (Physics.Raycast(groundRaycastOriginLeft.position, Vector3.down, out hit, groundRaycastDistance))
+        {
+            return true;
+        }
+
+        if (Physics.Raycast(groundRaycastOriginRight.position, Vector3.down, out hit, groundRaycastDistance))
         {
             return true;
         }
