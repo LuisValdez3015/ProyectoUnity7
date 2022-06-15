@@ -102,7 +102,7 @@ MonoBehaviour:
   tpsGun: {fileID: 0}
   impactEffect: {fileID: 6115123945634696493, guid: ebee6fd434e7ac347a6a0ec55571e2c1,
     type: 3}
-  gun: {fileID: 831117304}
+  gun: {fileID: 247675568}
   impactAudio: {fileID: 8300000, guid: e939009acd26a634c9c6e8fd533639d1, type: 3}
   flybyAudio: {fileID: 8300000, guid: eec90d282c12d7d4c86e10b2b2abfce5, type: 3}
   rocksAmmo:
@@ -115,6 +115,8 @@ MonoBehaviour:
   emptyRock: {fileID: 21300000, guid: f149252e37ce57b4f8013c35825b6c39, type: 3}
   RockAmmoCanvas: {fileID: 0}
   animator: {fileID: 66479351498598345}
+  aimTarget: {fileID: 1598179927}
+  ikSmoothness: 10
 --- !u!1 &626718153
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942674539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.04, y: 1.906, z: 1.13}
+  m_LocalPosition: {x: 0.7, y: 1.2, z: 1.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3806577864716665460}
@@ -744,7 +746,7 @@ CharacterController:
   m_Height: 1.9
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.1
+  m_StepOffset: 1
   m_SkinWidth: 0.076
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: -0.05}
@@ -758,10 +760,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: ab1b0b0ed55906a4f918d38095bfc591, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.25
+  m_Radius: 0.56943893
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0.025622368, y: 1, z: -0.021015167}
 --- !u!114 &3700013974179292571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,7 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
-  jumpHeight: 4
+  jumpHeight: 5
   groundRaycastOriginCenter: {fileID: 626718154}
   groundRaycastOriginFront: {fileID: 5269855604296857092}
   groundRaycastOriginBack: {fileID: 5176768615061817928}
@@ -812,7 +814,7 @@ MonoBehaviour:
   characterAimCanvas: {fileID: 0}
   characterNormalCanvas: {fileID: 0}
   characterRig: {fileID: 2106596149}
-  friend: {fileID: 0}
+  fren: {fileID: 0}
 --- !u!114 &3700013974179292569
 MonoBehaviour:
   m_ObjectHideFlags: 0

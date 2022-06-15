@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     public Rig CharacterRig => characterRig;
 
-    [SerializeField] Transform friend = default;
+    [SerializeField] Transform fren = default;
 
     private void Awake()
     {
@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
     public void LookAtFriend()
     {
-        transform.LookAt(friend);
+        transform.LookAt(fren);
 
         Animator.SetTrigger("Hello");
     }

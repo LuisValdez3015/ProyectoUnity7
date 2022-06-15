@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 55100580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7, y: 2.05, z: 0}
+  m_LocalPosition: {x: 1, y: 2.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 586135000473113883}
@@ -424,7 +424,7 @@ CharacterController:
   m_Height: 2.85
   m_Radius: 0.75
   m_SlopeLimit: 45
-  m_StepOffset: 0.1
+  m_StepOffset: 1
   m_SkinWidth: 0.075
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.5, z: 0}
@@ -438,10 +438,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: ab1b0b0ed55906a4f918d38095bfc591, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.95
+  m_Radius: 0.8191588
+  m_Height: 2.9499998
   m_Direction: 1
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0.021942317, y: 1.5, z: 0.06280596}
 --- !u!114 &1128406587516580596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,13 +486,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Keys: 
-  playerId: 0
+  playerId: 2
   cameraLookAt: {fileID: 55100581}
   aimAudio: {fileID: 8300000, guid: 68d3e2586ff1caa4998528f5cb019168, type: 3}
   characterAimCanvas: {fileID: 0}
   characterNormalCanvas: {fileID: 0}
   characterRig: {fileID: 135693058}
-  friend: {fileID: 0}
+  fren: {fileID: 0}
 --- !u!114 &1128406587516580598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,7 +633,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841634953858494969}
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalPosition: {x: 0, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 586135000473113883}
