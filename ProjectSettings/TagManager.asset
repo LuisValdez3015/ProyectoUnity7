@@ -9,11 +9,12 @@ TagManager:
   - Pushable
   - Checkpoint
   - Destornillador
+  - Suelo
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Players
   - Water
   - UI
   - RaycastHitable
@@ -22,8 +23,8 @@ TagManager:
   - Biteable
   - Shootable
   - Post Processing
-  - pendejoRaycasts
-  - 
+  - Cojin
+  - Collider
   - 
   - 
   - 

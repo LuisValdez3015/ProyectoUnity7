@@ -30,7 +30,7 @@ public class TextOnScreen : MonoBehaviour
         {
             textoOnScreen.GetComponent<TextMeshProUGUI>().DOFade(0f, 3f);
 
-            Destroy(textoOnScreen);
+            Destroy(textoOnScreen.gameObject);
         }
     }
 

@@ -42,10 +42,13 @@ public class BotonElevador : MonoBehaviour
         {
             if (hit.transform.name == "Boton1")
             {
-                boton1 = true;
-                anim2.SetBool("Click", true);
-                verde1.SetActive(true);
-                anim.SetBool("Cerrar", true);
+                if(Input.GetKey(KeyCode.G))
+                {
+                    boton1 = true;
+                    anim2.SetBool("Click", true);
+                    verde1.SetActive(true);
+                    anim.SetBool("Cerrar", true);
+                }
             }
             if (hit.transform.name == "Boton2")
             {

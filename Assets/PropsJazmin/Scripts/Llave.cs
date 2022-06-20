@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Llave : MonoBehaviour
 {
+    [SerializeField] GameObject imgPlayer;
 
     public int id;
 
@@ -15,6 +16,7 @@ public class Llave : MonoBehaviour
         if (playercontroller == null)
             return;
         playercontroller.Addkey(id);
+        imgPlayer.gameObject.SetActive(true);
         Destroy(this.gameObject);
     }
 

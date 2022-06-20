@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cerrojo : MonoBehaviour
 {
-    [SerializeField] GameObject destornillador;
-    [SerializeField] GameObject llave;
+    [SerializeField] public int id;
+    [SerializeField] public int playerId;
+
+    [SerializeField] Image imgPlayerHUD;
+
+    [SerializeField] GameObject pressG;
+
+    [SerializeField] Image imgNeedKey;
 
     bool isDooropen;
-    public int id;
     public Animator anim;
 
 
@@ -17,7 +23,7 @@ public class Cerrojo : MonoBehaviour
         anim.SetBool("Abrir", true);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (!isDooropen)
         {
@@ -28,36 +34,36 @@ public class Cerrojo : MonoBehaviour
             }
             if (playercontroller.HasKey(id))
             {
-                playercontroller.ConsumeKey(id);
-                destornillador.SetActive(false);
-                llave.SetActive(false);
-                OpenDoor();
-                isDooropen = true;
+                pressG.gameObject.SetActive(true);
+                imgNeedKey.gameObject.SetActive(false);
+                if (Input.GetKey(KeyCode.G))
+                {
+                    pressG.gameObject.SetActive(false);
+                    playercontroller.ConsumeKey(id);
+                    imgPlayerHUD.gameObject.SetActive(false);
+                    OpenDoor();
+                    isDooropen = true;
+                }
             }
         }
-
-        if (other.gameObject.name == "Weaver")
-        {
-            destornillador.SetActive(true);
-        }
-
-        if (other.gameObject.name == "Toolbag")
-        {
-            llave.SetActive(true);
-        }
-
-
     }
 
-    public void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Weaver")
-        {
-            destornillador.SetActive(false);
-        }
-        if (other.gameObject.name == "Toolbag")
-        {
-            llave.SetActive(false);
-        }
+        var playercontroller = other.gameObject.GetComponent<PlayerController>();
+        if (playercontroller == null)
+            return;
+
+        imgNeedKey.gameObject.SetActive(true);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        var playercontroller = other.gameObject.GetComponent<PlayerController>();
+        if (playercontroller == null)
+            return;
+
+        imgNeedKey.gameObject.SetActive(false);
+        pressG.gameObject.SetActive(false);
     }
 }
