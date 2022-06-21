@@ -70,7 +70,8 @@ public class GunSkill : PlayerSkill
             return;
         }
 
-        
+        Debug.DrawRay(tpsGun.transform.position, tpsGun.transform.forward * range, Color.red);
+
         if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
@@ -120,8 +121,7 @@ public class GunSkill : PlayerSkill
     {
         currentAmmo--;
 
-        RaycastHit hit;
-        Debug.DrawRay(tpsGun.transform.position, tpsGun.transform.forward * range, Color.red);
+        RaycastHit hit;        
 
         if (Physics.Raycast(tpsGun.transform.position, tpsGun.transform.forward, out hit, range))
         {
@@ -149,10 +149,10 @@ public class GunSkill : PlayerSkill
 
                 AudioSource.PlayClipAtPoint(impactAudio, hitpoint);
 
-                Debug.DrawLine(gunposition, hit2.point, Color.blue);
+                Debug.DrawRay(gunposition, hit2.point, Color.blue);
             }
             direction = (hit.point - gun.position).normalized;
-            Vector3 position = hit.point;
+            Vector3 position = hitpoint;
             aimTarget.transform.position = Vector3.Lerp(aimTarget.transform.position, position, ikSmoothness * Time.deltaTime);
         }
     }

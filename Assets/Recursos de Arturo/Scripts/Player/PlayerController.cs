@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Transform fren = default;
 
+    [SerializeField] private bool isWaving = false;
+
     private void Awake()
     {
         playerSkill = GetComponentInChildren<PlayerSkill>();
@@ -69,9 +71,14 @@ public class PlayerController : MonoBehaviour
             playerMovimiento.Jump();
         }
 
+        if (isWaving)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.H))
         {
-            LookAtFriend();
+            StartCoroutine(PosponerSaludo());
         }
 
         //Esto es para que rote el player
@@ -84,6 +91,19 @@ public class PlayerController : MonoBehaviour
         transform.LookAt(fren);
 
         Animator.SetTrigger("Hello");
+    }
+
+    IEnumerator PosponerSaludo()
+    {
+        isWaving = true;
+
+        LookAtFriend();
+
+        yield return new WaitForSeconds(1.3f);
+
+        //nextTimeToPunch = Time.time + 1f / punchRate; 
+
+        isWaving = false;
     }
 
     public void Kill()
