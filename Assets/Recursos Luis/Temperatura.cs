@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Temperatura : MonoBehaviour
 {
     [SerializeField] public float TemperatureOnPoint = 0;
-    [SerializeField] int TemperatureMax = 1;
     public Animator OpenGate;
     float randomNumber;
     float lastNumber;
