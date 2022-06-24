@@ -46,6 +46,10 @@ public class Pull : PlayerSkill
 
     [SerializeField] float ikSmoothness = 10f;
 
+    [SerializeField] private float fireRate = 5f;
+
+    private float nextTimeToFire = 0f;
+
     private void Start()
     {
         playerMovimiento = GetComponent<PlayerMovimiento>();
@@ -75,8 +79,10 @@ public class Pull : PlayerSkill
         Debug.DrawRay(pullCamera.transform.position, pullCamera.transform.forward * Mathf.Infinity, Color.blue);
         if (Physics.Raycast(pullCamera.transform.position, pullCamera.transform.forward, out hit, Mathf.Infinity))
         {           
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire)
             {
+                nextTimeToFire = Time.time + 1f / fireRate;
+
                 tornadoPull.Play();
 
                 animator.SetTrigger("Pulling");
