@@ -72,13 +72,8 @@ public class GunSkill : PlayerSkill
 
         Debug.DrawRay(tpsGun.transform.position, tpsGun.transform.forward * range, Color.red);
 
-        if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire)
-        {
-            nextTimeToFire = Time.time + 1f / fireRate;
-            AudioSource.PlayClipAtPoint(flybyAudio, transform.position, 0.6f);
-            animator.SetTrigger("Shooting");
-            ShootSkill();
-        }
+        
+        ShootSkill();
 
         if (currentAmmo > maxAmmo)
         {
@@ -119,7 +114,9 @@ public class GunSkill : PlayerSkill
 
     private void ShootSkill()
     {
-        currentAmmo--;
+       
+
+        
 
         RaycastHit hit;        
 
@@ -137,23 +134,32 @@ public class GunSkill : PlayerSkill
 
             if (Physics.Raycast (gunposition, direction, out hit2, range))
             {
-                Target target = hit2.transform.GetComponent<Target>();
-                if (target != null && target.IsShootable)
+                if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire)
                 {
-                    target.HitTarget(ShootTarget);                 
+                    currentAmmo--;
+                    nextTimeToFire = Time.time + 1f / fireRate;
+                    AudioSource.PlayClipAtPoint(flybyAudio, transform.position, 0.6f);
+                    animator.SetTrigger("Shooting");
+
+                    Target target = hit2.transform.GetComponent<Target>();
+                    if (target != null && target.IsShootable)
+                    {
+                        target.HitTarget(ShootTarget);
+                    }
+
+                    GameObject impactGo = Instantiate(impactEffect, hit2.point + hit2.normal * 0.0001f, Quaternion.LookRotation(hit2.normal));
+
+                    Destroy(impactGo, 2f);
+
+                    AudioSource.PlayClipAtPoint(impactAudio, hitpoint);
+
                 }
-                
-                GameObject impactGo = Instantiate(impactEffect, hit2.point + hit2.normal * 0.0001f, Quaternion.LookRotation(hit2.normal));
 
-                Destroy(impactGo, 2f);
-
-                AudioSource.PlayClipAtPoint(impactAudio, hitpoint);
+                aimTarget.transform.position = Vector3.Lerp(aimTarget.transform.position, hit2.point, ikSmoothness * Time.deltaTime);
 
                 Debug.DrawRay(gunposition, hit2.point, Color.blue);
             }
-            direction = (hit.point - gun.position).normalized;
-            Vector3 position = hitpoint;
-            aimTarget.transform.position = Vector3.Lerp(aimTarget.transform.position, position, ikSmoothness * Time.deltaTime);
+            
         }
     }
 
