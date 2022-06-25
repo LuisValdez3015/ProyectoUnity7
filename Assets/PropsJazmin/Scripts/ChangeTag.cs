@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChangeTag : MonoBehaviour
 {
+    [SerializeField] GameObject activarRebote;
 
     public string newTag;
 
@@ -17,6 +18,7 @@ public class ChangeTag : MonoBehaviour
         if(col.gameObject.tag == "Suelo")
         {
             gameObject.tag = newTag;
+            activarRebote.SetActive(true);
         }
     }
 

@@ -14,6 +14,8 @@ public class Cerrojo : MonoBehaviour
 
     [SerializeField] Image imgNeedKey;
 
+    [SerializeField] GameObject cerrojoDesactivarlo;
+
     bool isDooropen;
     public Animator anim;
 
@@ -43,6 +45,7 @@ public class Cerrojo : MonoBehaviour
                     imgPlayerHUD.gameObject.SetActive(false);
                     OpenDoor();
                     isDooropen = true;
+                    cerrojoDesactivarlo.SetActive(false);
                 }
             }
         }

@@ -15,6 +15,8 @@ public class ColocarLlave : MonoBehaviour
 
     [SerializeField] Image imgNeedKey;
 
+    [SerializeField] GameObject desactivarColocarLlave;
+
     public bool hasKey;
 
     private void OnTriggerExit(Collider other)
@@ -47,6 +49,7 @@ public class ColocarLlave : MonoBehaviour
                     hasKey = true;
                     pressG.gameObject.SetActive(false);
                     imgPlayerHUD.gameObject.SetActive(false);
+                    desactivarColocarLlave.SetActive(false);
                 }
             }
             else

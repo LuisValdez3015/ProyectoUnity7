@@ -9,7 +9,7 @@ public class Cerrojo2 : MonoBehaviour
     [SerializeField] public int id;
     [SerializeField] public int playerId;
 
-    bool isDooropen;
+    bool isDooropen2;
     public Animator anim;
 
     [SerializeField] Image imgPlayerHUD;
@@ -18,21 +18,21 @@ public class Cerrojo2 : MonoBehaviour
 
     [SerializeField] Image imgNeedKey;
 
-    [SerializeField] GameObject llave2Cocina;
+    [SerializeField] Cerrojo cerrojo;
 
-    [SerializeField] GameObject llave1Cocina;
+    [SerializeField] GameObject cerrojoEscondido;
+
+    [SerializeField] GameObject cerrojoDesactivarlo;
 
     public void OpenDoor()
     {
         anim.SetTrigger("Idle");
         //Sonido 
-        llave2Cocina.SetActive(true);
-        llave1Cocina.SetActive(false);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (!isDooropen)
+        if (!isDooropen2)
         {
             var playercontroller = other.gameObject.GetComponent<PlayerController>();
             if (playercontroller == null)
@@ -48,13 +48,13 @@ public class Cerrojo2 : MonoBehaviour
                     pressG.gameObject.SetActive(false);
                     playercontroller.ConsumeKey(id);
                     imgPlayerHUD.gameObject.SetActive(false);
-                    OpenDoor();
-                    isDooropen = true;
+                    cerrojoEscondido.SetActive(true);
+                    isDooropen2 = true;
+                    cerrojoDesactivarlo.SetActive(false);
                 }
             }
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
         var playercontroller = other.gameObject.GetComponent<PlayerController>();
@@ -69,7 +69,6 @@ public class Cerrojo2 : MonoBehaviour
         var playercontroller = other.gameObject.GetComponent<PlayerController>();
         if (playercontroller == null)
             return;
-
         imgNeedKey.gameObject.SetActive(false);
         pressG.gameObject.SetActive(false);
     }
