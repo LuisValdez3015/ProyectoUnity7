@@ -423,7 +423,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2.85
   m_Radius: 0.75
-  m_SlopeLimit: 45
+  m_SlopeLimit: 30
   m_StepOffset: 1
   m_SkinWidth: 0.075
   m_MinMoveDistance: 0.001
@@ -493,6 +493,7 @@ MonoBehaviour:
   characterNormalCanvas: {fileID: 0}
   characterRig: {fileID: 135693058}
   fren: {fileID: 0}
+  isWaving: 0
 --- !u!114 &1128406587516580598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,6 +537,7 @@ MonoBehaviour:
   tornadoPull: {fileID: 5328630320099709762}
   aimTarget: {fileID: 300217633}
   ikSmoothness: 10
+  fireRate: 1
 --- !u!114 &406054817
 MonoBehaviour:
   m_ObjectHideFlags: 0

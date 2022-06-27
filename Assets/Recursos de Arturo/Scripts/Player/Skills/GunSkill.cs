@@ -113,17 +113,11 @@ public class GunSkill : PlayerSkill
     }
 
     private void ShootSkill()
-    {
-       
-
-        
-
+    {       
         RaycastHit hit;        
 
         if (Physics.Raycast(tpsGun.transform.position, tpsGun.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
-
             Vector3 hitpoint = hit.point;
 
             Vector3 gunposition = gun.transform.position;
