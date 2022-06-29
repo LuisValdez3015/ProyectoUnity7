@@ -5204,6 +5204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e696f4f9781e1fc42945bf27fd0374e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 1
   bounceForce: 10
 --- !u!54 &2109810384
 Rigidbody:

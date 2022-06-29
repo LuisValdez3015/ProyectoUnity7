@@ -108,7 +108,12 @@ public class Pull : PlayerSkill
         {
             if (heldObject != null)
             {
-
+                heldObject.GetComponent<Rigidbody>().mass = 1;
+                //BouncePlatform bouncePlatform = heldObject.GetComponentInChildren<BouncePlatform>();
+                //if (bouncePlatform != null)
+                //{
+                //    bouncePlatform.isActive = true;
+                //}
                 IsBeingUse = false;
                 heldObject.transform.parent = null;
                 heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
@@ -131,6 +136,13 @@ public class Pull : PlayerSkill
         r.useGravity = false;
         r.isKinematic = true;
         IsBeingUse = true;
+        r.mass = 0;
+        //BouncePlatform bouncePlatform = r.GetComponentInChildren<BouncePlatform>();
+        //if (bouncePlatform != null)
+        //{
+        //    bouncePlatform.isActive = false;
+        //}
+        //t.GetComponent<Collider>().enabled = false;
 
         while (true)
         {
@@ -141,6 +153,13 @@ public class Pull : PlayerSkill
                 IsBeingUse = false;
                 r.useGravity = true;
                 r.isKinematic = false;
+                r.mass = 1;
+                //if (bouncePlatform != null)
+                //{
+                //    bouncePlatform.isActive = true;
+                //}
+                r.GetComponentInChildren<BouncePlatform>().isActive = true;
+                //t.GetComponent<Collider>().enabled = true;
                 break;
             }
             float distanceToHand = Vector3.Distance(t.position, hand.position);
@@ -178,7 +197,7 @@ public class Pull : PlayerSkill
                 heldObject = t;
                 //heldObject.GetComponent<Collider>().enabled = false;
 
-                
+
 
                 heldObject.DOScale(0f, 0.2f);
                 //heldObject.gameObject.SetActive(false);
@@ -206,7 +225,7 @@ public class Pull : PlayerSkill
             //    r.velocity = pullDirection.normalized * maxVelocity;
             //}
 
-            r.MovePosition(Vector3.Lerp(t.position, hand.position, Time.deltaTime * 100f));
+            r.MovePosition(Vector3.Lerp(t.position, hand.position, Time.deltaTime * 100f));          
 
             yield return null;
         }

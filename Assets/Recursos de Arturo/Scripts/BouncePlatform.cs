@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BouncePlatform : MonoBehaviour
 {
+    //public bool isActive = true;
+
     [SerializeField] public float bounceForce = default;
 
     //private void OnCollisionEnter(Collision collision)
@@ -16,8 +18,17 @@ public class BouncePlatform : MonoBehaviour
     //    }
     //}
 
+    //private void Awake()
+    //{
+    //    isActive = true;
+    //}
+
     private void OnTriggerEnter(Collider other)
     {
+        //if (!isActive)
+        //{
+        //    return;
+        //}
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log(other.gameObject + " trigger with " + other.gameObject.name, other.gameObject);
