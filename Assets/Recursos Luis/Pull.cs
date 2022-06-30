@@ -158,7 +158,7 @@ public class Pull : PlayerSkill
                 //{
                 //    bouncePlatform.isActive = true;
                 //}
-                r.GetComponentInChildren<BouncePlatform>().isActive = true;
+                //r.GetComponentInChildren<BouncePlatform>().isActive = true;
                 //t.GetComponent<Collider>().enabled = true;
                 break;
             }
