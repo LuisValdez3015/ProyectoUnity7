@@ -32,13 +32,13 @@ public class RecogerLlave : MonoBehaviour
 
         if (playerId == playercontroller.playerId)
         {
-            if (!playercontroller.HasKey(id))
+            if (colocarLlave.hasKey)
             {
                 pressG.gameObject.SetActive(true);
                 if (Input.GetKey(KeyCode.G))
                 {
                     playercontroller.ConsumeKey(id);
-                    playercontroller.Addkey(id);                   
+                    playercontroller.Addkey(id);
                     key.gameObject.SetActive(false);
                     colocarLlave.hasKey = false;
                     imgPlayerHUD.gameObject.SetActive(true);

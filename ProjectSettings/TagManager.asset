@@ -12,6 +12,8 @@ TagManager:
   - Suelo
   - MasTemperatura
   - MenosTemperatura
+  - Boton1
+  - Boton2
   layers:
   - Default
   - TransparentFX

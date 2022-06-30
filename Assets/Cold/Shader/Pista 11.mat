@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pista 11
+  m_Shader: {fileID: -6465566751694194690, guid: 757c7e75b725c4d44ab43b7935e10c73,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_2057f35eaa634d748d1bc4ccd0b48368:
+        m_Texture: {fileID: 2800000, guid: d373676a5d4b2154897bab5d26115e50, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_26fe6f86ae894d4bbfb436c8a8c2d191:
+        m_Texture: {fileID: 2800000, guid: eea1d05bf1e0f6245a502b428af229f0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_b08c48efa3ab48048c6cd184f603a7f5:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_11dc87806b4f432eba7a96561bae74e5: 90
+    m_Colors:
+    - Color_325a51b941684858a9bb82befdcee43c: {r: 1, g: 0.71942544, b: 0, a: 0}
+    - Color_6dcde0937b3344e59e05112c02cd4044: {r: 0.46226418, g: 0.46226418, b: 0.46226418,
+        a: 0}
+    - Vector3_f331c5a01e064af3bb83c8d564e26df0: {r: 0, g: 0, b: 1, a: 0}
+  m_BuildTextureStacks: []

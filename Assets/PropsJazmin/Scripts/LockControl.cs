@@ -12,7 +12,7 @@ public class LockControl : MonoBehaviour
     private void Start()
     {
         result = new int[] { 0, 0, 0, /*1 */};
-        correctCombination = new int[] { 2, 2, 2, /*3*/ };
+        correctCombination = new int[] { 2, 1, 1, /*3*/ };
         LeverRotate.Rotated += CheckResults;
     }
 

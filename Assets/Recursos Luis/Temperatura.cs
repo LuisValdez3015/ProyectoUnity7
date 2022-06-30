@@ -14,13 +14,13 @@ public class Temperatura : MonoBehaviour
     {
 
         NewRandomNumber();
-        if (TemperatureOnPoint >= 2.60 && TemperatureOnPoint <= 2.70)
-        {
-            OpenGate.SetBool("Nombre de la animacion ", true);
-        }
 
         barra.transform.localScale = new Vector3(1,1,TemperatureOnPoint);
-        
+
+        if (TemperatureOnPoint >= 2.60 && TemperatureOnPoint <= 2.65)
+        {
+            OpenGate.SetBool("AbrirHorno", true);
+        }
 
     }
     void NewRandomNumber()

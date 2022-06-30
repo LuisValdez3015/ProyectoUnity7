@@ -9,10 +9,6 @@ public class EnterTrigger : MonoBehaviour
 
     [SerializeField] Image imgPlayerHUD;
 
-    [SerializeField] GameObject pressG;
-
-    [SerializeField] Image imgNeedKey;
-
     public void AnimacionLlave()
     {
         anim.SetTrigger("LlaveT");
