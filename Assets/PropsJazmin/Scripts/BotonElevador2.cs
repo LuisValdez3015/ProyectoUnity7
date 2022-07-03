@@ -27,6 +27,11 @@ public class BotonElevador2 : MonoBehaviour
         }
     }
 
+    public void OnTriggerExit(Collider other)
+    {
+        pressG.SetActive(false);
+    }
+
     public IEnumerator Scene()
 
     {

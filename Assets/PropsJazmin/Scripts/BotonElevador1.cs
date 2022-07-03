@@ -24,4 +24,9 @@ public class BotonElevador1 : MonoBehaviour
             puertaAbrir.SetBool("Abrir", true);
         }
     }
+
+    public void OnTriggerExit(Collider other)
+    {
+        pressG.SetActive(false);
+    }
 }

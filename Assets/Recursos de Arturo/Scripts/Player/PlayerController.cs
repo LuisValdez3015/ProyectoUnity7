@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
     public void LookAtFriend()
     {
-        transform.LookAt(fren);
+        transform.LookAt(new Vector3(fren.position.x, transform.position.y, fren.position.z));
 
         Animator.SetTrigger("Hello");
     }
