@@ -35,6 +35,8 @@ public class SwitchVCam : MonoBehaviour
 
     //[SerializeField] private Rig aimRig;
 
+    //int aimAnimation;
+
     private void Start()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
@@ -42,6 +44,7 @@ public class SwitchVCam : MonoBehaviour
         cameraTransform = Camera.main.transform;
         //aimAction = playerInput.actions["Aim"];
         //aimCanvas.enabled = false;
+        //aimAnimation = Animator.StringToHash("AimPreparation");
     }
 
     public void Update()
@@ -56,12 +59,15 @@ public class SwitchVCam : MonoBehaviour
             bool aiming = Input.GetMouseButton(1);
 
             currentPlayer.Animator.SetBool("IsAiming", aiming);
-           
+
+            //currentPlayer.Animator.CrossFade(aimAnimation, 0.15f);
+
             if (aiming)
             {
                 //PlayerController player = character.GetComponent<PlayerController>();
                 currentPlayer.transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
                 currentPlayer.CharacterRig.weight = .5f;
+                currentPlayer.GetComponent<PlayerController>().enabled = false;
                 //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
                 //aimRig.weight = 0.5f;
 
@@ -74,6 +80,7 @@ public class SwitchVCam : MonoBehaviour
             }
             else if (boosted)
             {
+                currentPlayer.GetComponent<PlayerController>().enabled = true;
                 virtualCamera.Priority -= priorityBoostAmount;
                 boosted = false;
                 currentPlayer.CharacterRig.weight = 0f;

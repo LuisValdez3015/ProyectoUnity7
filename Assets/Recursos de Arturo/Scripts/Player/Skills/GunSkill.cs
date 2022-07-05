@@ -45,10 +45,12 @@ public class GunSkill : PlayerSkill
 
     [SerializeField] float ikSmoothness = 10f;
 
+    //int shootAnimation;
+
     private void Start()
     {
         currentAmmo = maxAmmo;
-        
+        //shootAnimation = Animator.StringToHash("shootAnimation");
     }
 
     void Update()
@@ -134,6 +136,7 @@ public class GunSkill : PlayerSkill
                     nextTimeToFire = Time.time + 1f / fireRate;
                     AudioSource.PlayClipAtPoint(flybyAudio, transform.position, 0.6f);
                     animator.SetTrigger("Shooting");
+                    //animator.CrossFade(shootAnimation, 0.15f);
 
                     Target target = hit2.transform.GetComponent<Target>();
                     if (target != null && target.IsShootable)
@@ -146,7 +149,6 @@ public class GunSkill : PlayerSkill
                     Destroy(impactGo, 2f);
 
                     AudioSource.PlayClipAtPoint(impactAudio, hitpoint);
-
                 }
 
                 aimTarget.transform.position = Vector3.Lerp(aimTarget.transform.position, hit2.point, ikSmoothness * Time.deltaTime);

@@ -176,9 +176,6 @@ public class PlayerMovimiento : MonoBehaviour
         if (!groundedPlayer) return;
         var currentJump = playerController.PlayerSkill.IsBeingUse ? playerJumpWhenUsingSkill : jumpHeight;
         playerVelocity.y = Mathf.Sqrt(currentJump * -3f * (gravity * gravityScale));
-
-
-
     }
 
     public bool CheckGround()

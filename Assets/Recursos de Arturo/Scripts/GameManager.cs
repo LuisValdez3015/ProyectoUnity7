@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator RespawnCoroutine(PlayerController player)
     {
-        yield return new WaitForSeconds(respawnTime);
+        yield return new WaitForSeconds(respawnTime);       
         player.Respawn();
     }
 

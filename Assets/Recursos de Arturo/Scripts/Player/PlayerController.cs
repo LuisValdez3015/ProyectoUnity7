@@ -5,6 +5,12 @@ using UnityEngine.Animations.Rigging;
 
 public class PlayerController : MonoBehaviour
 {
+    public Material normalMaterials;
+
+    public Material deathMaterials;
+
+    public Renderer rend;
+
     public List<int> Keys = new List<int>();
 
     [SerializeField] public int playerId;
@@ -12,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private PlayerMovimiento playerMovimiento;
 
     private PlayerSkill playerSkill;
-   
+
     private Vector3 spawnPoint;
 
     [SerializeField] Transform cameraLookAt;
@@ -34,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     public Canvas CharacterAimCanvas => characterAimCanvas;
 
-    public bool IsInControl {get; private set;}
+    public bool IsInControl { get; private set; }
 
     public Animator Animator { get; private set; }
 
@@ -56,6 +62,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         SetNewSpawnPoint(transform.position);
+        rend = GetComponentInChildren<Renderer>();
+        //rend.material.shader = Shader.Find("CutoffHeight");
     }
 
     private void Update()
@@ -88,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     public void LookAtFriend()
     {
-        transform.LookAt(fren);
+        transform.LookAt(new Vector3(fren.position.x, transform.position.y, fren.position.z));
 
         Animator.SetTrigger("Hello");
     }
@@ -113,8 +121,26 @@ public class PlayerController : MonoBehaviour
         FindObjectOfType<GameManager>().RespawnCharacter(this);
     }
 
+    public IEnumerator PosponerKill()
+    {
+        Debug.Log("Que onda");
+
+        rend.sharedMaterial = deathMaterials;
+        //rend.material.SetFloat("_CutoffHeight", 3f);
+
+        GetComponent<PlayerController>().enabled = false;
+        GetComponentInChildren<Animator>().enabled = false;
+
+        yield return new WaitForSeconds(2);
+
+        Debug.Log("Me murí");
+        Kill();
+    }
+
     public void Respawn()
     {
+        rend.sharedMaterial = normalMaterials;
+        GetComponentInChildren<Animator>().enabled = true;
         transform.position = spawnPoint;
         gameObject.SetActive(true);
     }

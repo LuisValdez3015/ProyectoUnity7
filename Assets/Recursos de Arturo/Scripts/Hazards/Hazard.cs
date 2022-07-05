@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Hazard : MonoBehaviour
 {
+    [SerializeField] PlayerController playerController;
+
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player"))
@@ -13,6 +15,12 @@ public class Hazard : MonoBehaviour
 
         PlayerController player = other.GetComponent<PlayerController>();
 
-        player.Kill();
+        //player.Kill();
+
+        playerController = player;
+
+        player.StartCoroutine(playerController.PosponerKill());
     }
+
+    
 }
