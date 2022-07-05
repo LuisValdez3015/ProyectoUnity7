@@ -17,10 +17,11 @@ public class Temperatura : MonoBehaviour
 
         barra.transform.localScale = new Vector3(1,1,TemperatureOnPoint);
 
-        if (TemperatureOnPoint >= 2.60 && TemperatureOnPoint <= 2.65)
+        if(TemperatureOnPoint >= 2.60 && TemperatureOnPoint <= 2.65)
         {
             OpenGate.SetBool("AbrirHorno", true);
         }
+
 
     }
     void NewRandomNumber()

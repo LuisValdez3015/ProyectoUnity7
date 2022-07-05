@@ -25,11 +25,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_26fe6f86ae894d4bbfb436c8a8c2d191:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 07abb6c79a1007a408d33100403b70b2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_b08c48efa3ab48048c6cd184f603a7f5:
-        m_Texture: {fileID: 2800000, guid: 5f327ef9c11c3154e9199636bb6c5201, type: 3}
+        m_Texture: {fileID: 2800000, guid: d5b86552b4a63cd41bb590b7abc150f7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:

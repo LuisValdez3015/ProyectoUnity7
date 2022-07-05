@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class Pull : PlayerSkill
 {
+
     [Tooltip("Es a donde va a ir el objeto que jale")]
     public Transform hand;
 
@@ -53,7 +54,7 @@ public class Pull : PlayerSkill
     private void Start()
     {
         playerMovimiento = GetComponent<PlayerMovimiento>();
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponentInChildren<Animator>();  
     }
 
     [System.Obsolete]
@@ -115,6 +116,7 @@ public class Pull : PlayerSkill
                 //    bouncePlatform.isActive = true;
                 //}
                 IsBeingUse = false;
+                
                 heldObject.transform.parent = null;
                 heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 heldObject.GetComponent<Rigidbody>().velocity = transform.forward * throwVelocity;
@@ -137,6 +139,7 @@ public class Pull : PlayerSkill
         r.isKinematic = true;
         IsBeingUse = true;
         r.mass = 0;
+        
         //BouncePlatform bouncePlatform = r.GetComponentInChildren<BouncePlatform>();
         //if (bouncePlatform != null)
         //{
@@ -146,7 +149,6 @@ public class Pull : PlayerSkill
 
         while (true)
         {
-
             // right-clicks, stop pulling
             if (Input.GetKey(KeyCode.E))
             {
