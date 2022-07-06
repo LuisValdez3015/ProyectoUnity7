@@ -7,36 +7,54 @@ public class ObstaclePush : MonoBehaviour
     public string pushableTag;
     [SerializeField] private float forceMagnitude;
 
-    //Animator anim;
+    Animator anim;
 
-    //private void Awake()
-    //{
-    //    anim = GetComponentInChildren<Animator>();
-    //}
+    bool isPushing;
+
+    float timeOfLastPushing;
+    float pushingResetTime = .1f;
+
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
+    private void FixedUpdate()
+    {
+        anim.SetBool("Pushin", isPushing);
+
+        if (Time.time > timeOfLastPushing + pushingResetTime)
+            isPushing = false;
+    }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody rigidbody = hit.collider.attachedRigidbody;
 
-        if (rigidbody != null && Input.GetKeyDown(KeyCode.E))
+        if(rigidbody == null)
         {
-
-            if (hit.transform.tag.Equals(pushableTag))
-            {
-                
-                Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
-                forceDirection.y = 0;
-                forceDirection.Normalize();
-                rigidbody.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
-                //anim.SetTrigger("Push");
-
-            }
-
+            return;
         }
-        //else
-        //{
-        //    anim.SetTrigger("Push");
-        //}
+
+        if(!hit.gameObject.CompareTag(pushableTag))
+        {
+            return;
+        }
+
+        if(Input.GetKey(KeyCode.E))
+        {
+            Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
+            forceDirection.y = 0;
+            forceDirection.Normalize();
+            rigidbody.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
+            //anim.SetTrigger("Push");
+            isPushing = true;
+            timeOfLastPushing = Time.time;
+        }
+        else
+        {
+            isPushing = false;
+        }
 
     }
 }
