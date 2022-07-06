@@ -12,9 +12,4 @@ public class Respawn : MonoBehaviour
         cojin.transform.position = respawnPoint.transform.position;
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    cojin.transform.position = respawnPoint.transform.position;
-    //}
-
 }

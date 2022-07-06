@@ -6,6 +6,8 @@ using DG.Tweening;
 
 public class LeverRotate : MonoBehaviour
 {
+    [SerializeField] GameObject pressG;
+
     [SerializeField] GameObject[] colors;
 
     public static event Action<string, int> Rotated = delegate { };
@@ -22,13 +24,41 @@ public class LeverRotate : MonoBehaviour
         RotateLever(0);
     }
 
-    private void OnMouseDown()
+    private void OnTriggerStay(Collider other)
     {
-        if (coroutineAllowed)
+        var playercontroller = other.gameObject.GetComponent<PlayerController>();
+        if (playercontroller == null)
         {
-            RotateLever(1);
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            if (coroutineAllowed)
+            {
+                RotateLever(1);
+                pressG.SetActive(false);
+            }
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        pressG.SetActive(true);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        pressG.SetActive(false);
+    }
+
+    //private void OnMouseDown()
+    //{
+    //    if (coroutineAllowed)
+    //    {
+    //        RotateLever(1);
+    //    }
+    //}
 
     private void RotateLever(int direction)
     {

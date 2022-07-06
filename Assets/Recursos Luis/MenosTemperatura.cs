@@ -5,8 +5,9 @@ using UnityEngine;
 public class MenosTemperatura : MonoBehaviour
 {
     [SerializeField] Temperatura temperatura;
-    
-    
+
+    [SerializeField] GameObject pressG;
+
     private void OnTriggerStay(Collider other)
     {
        
@@ -15,13 +16,21 @@ public class MenosTemperatura : MonoBehaviour
         if (playercontroller == null)
             return;
 
+        pressG.SetActive(true);
+
         if (tag == "MenosTemperatura")
         {
             if (Input.GetKey(KeyCode.G) && temperatura.TemperatureOnPoint >= 0)
             {
                 temperatura.TemperatureOnPoint = (float)(temperatura.TemperatureOnPoint - 0.1);
+                pressG.SetActive(false);
             }
         }
 
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        pressG.SetActive(false);
     }
 }

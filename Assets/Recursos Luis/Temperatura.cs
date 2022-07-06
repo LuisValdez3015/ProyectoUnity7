@@ -6,10 +6,14 @@ using UnityEngine.UI;
 public class Temperatura : MonoBehaviour
 {
     [SerializeField] public float TemperatureOnPoint = 0;
-    public Animator OpenGate;
+    public Animator openGate;
+    public Animator hornoLlamas;
     float randomNumber;
     float lastNumber;
     [SerializeField] GameObject barra;
+
+    [SerializeField] GameObject pressG;
+
     private void Update()
     {
 
@@ -19,7 +23,9 @@ public class Temperatura : MonoBehaviour
 
         if(TemperatureOnPoint >= 2.60 && TemperatureOnPoint <= 2.65)
         {
-            OpenGate.SetBool("AbrirHorno", true);
+            openGate.SetBool("AbrirHorno", true);
+            hornoLlamas.SetBool("LlamasBajas", true);
+            pressG.SetActive(false);
         }
 
 
@@ -40,6 +46,8 @@ public class Temperatura : MonoBehaviour
         if (playercontroller == null)
             return;
 
+        pressG.SetActive(true);
+
         if (tag == "MasTemperatura")
         {
             if (Input.GetKey(KeyCode.G) && TemperatureOnPoint <= 3)
@@ -50,6 +58,12 @@ public class Temperatura : MonoBehaviour
 
 
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        pressG.SetActive(false);
+    }
+
     void Calculo()
     {
         TemperatureOnPoint = TemperatureOnPoint + randomNumber;

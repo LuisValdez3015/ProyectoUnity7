@@ -98,12 +98,7 @@ public class Pull : PlayerSkill
             Vector3 direction = (hit.point - hand.position).normalized;
             Vector3 position = hit.point; //= hand.position + direction;
             aimTarget.transform.position = Vector3.Lerp(aimTarget.transform.position, position, ikSmoothness * Time.deltaTime);
-        }
-
-        
-        
-
-        
+        }   
 
         if (Input.GetKey(KeyCode.E))
         {
