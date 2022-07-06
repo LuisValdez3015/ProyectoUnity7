@@ -21,7 +21,7 @@ public class ObstaclePush : MonoBehaviour
 
     private void FixedUpdate()
     {
-        anim.SetBool("Pushin", isPushing);
+        anim.SetBool("Pushing", isPushing);
 
         if (Time.time > timeOfLastPushing + pushingResetTime)
             isPushing = false;
