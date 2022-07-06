@@ -98,23 +98,13 @@ public class Pull : PlayerSkill
             Vector3 direction = (hit.point - hand.position).normalized;
             Vector3 position = hit.point; //= hand.position + direction;
             aimTarget.transform.position = Vector3.Lerp(aimTarget.transform.position, position, ikSmoothness * Time.deltaTime);
-        }
-
-        
-        
-
-        
+        }        
 
         if (Input.GetKey(KeyCode.E))
         {
             if (heldObject != null)
             {
                 heldObject.GetComponent<Rigidbody>().mass = 1;
-                //BouncePlatform bouncePlatform = heldObject.GetComponentInChildren<BouncePlatform>();
-                //if (bouncePlatform != null)
-                //{
-                //    bouncePlatform.isActive = true;
-                //}
                 IsBeingUse = false;
                 
                 heldObject.transform.parent = null;
@@ -125,27 +115,17 @@ public class Pull : PlayerSkill
                 heldObject.GetComponent<Rigidbody>().useGravity = true;
                 heldObject.GetComponent<Rigidbody>().isKinematic = false;
                 heldObject = null;
-
-
             }
         }
     }
 
     IEnumerator PullObject(Transform t)
     {
-
         Rigidbody r = t.GetComponent<Rigidbody>();
         r.useGravity = false;
         r.isKinematic = true;
         IsBeingUse = true;
         r.mass = 0;
-        
-        //BouncePlatform bouncePlatform = r.GetComponentInChildren<BouncePlatform>();
-        //if (bouncePlatform != null)
-        //{
-        //    bouncePlatform.isActive = false;
-        //}
-        //t.GetComponent<Collider>().enabled = false;
 
         while (true)
         {
@@ -156,12 +136,6 @@ public class Pull : PlayerSkill
                 r.useGravity = true;
                 r.isKinematic = false;
                 r.mass = 1;
-                //if (bouncePlatform != null)
-                //{
-                //    bouncePlatform.isActive = true;
-                //}
-                //r.GetComponentInChildren<BouncePlatform>().isActive = true;
-                //t.GetComponent<Collider>().enabled = true;
                 break;
             }
             float distanceToHand = Vector3.Distance(t.position, hand.position);

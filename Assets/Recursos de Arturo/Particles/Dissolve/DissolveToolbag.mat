@@ -40,8 +40,8 @@ Material:
     - BOOLEAN_15522444EC254437A40E57A4F79502E3: 0
     - REVERSE_DIRECTION: 0
     - _CutoffHeight: 0
-    - _GlowThickness: 0.05
-    - _NoiseScale: 150
+    - _GlowThickness: 0.03
+    - _NoiseScale: 75
     - _NoiseStrength: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

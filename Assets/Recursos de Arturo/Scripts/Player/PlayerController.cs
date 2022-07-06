@@ -116,31 +116,31 @@ public class PlayerController : MonoBehaviour
 
     public void Kill()
     {
-        Debug.Log("Kill");
         gameObject.SetActive(false);
         FindObjectOfType<GameManager>().RespawnCharacter(this);
     }
 
     public IEnumerator PosponerKill()
     {
-        Debug.Log("Que onda");
-
         rend.sharedMaterial = deathMaterials;
-        //rend.material.SetFloat("_CutoffHeight", 3f);
 
-        GetComponent<PlayerController>().enabled = false;
-        GetComponentInChildren<Animator>().enabled = false;
+        float alpha = 0;
 
-        yield return new WaitForSeconds(2);
+        LoseControl();
+        Animator.SetTrigger("DeathAnim");
 
-        Debug.Log("Me murí");
+        while (alpha < 1)
+        {
+            alpha += Time.deltaTime / 2f;
+            rend.material.SetFloat("_CutoffHeight", alpha);
+            yield return null;
+        }       
         Kill();
     }
 
     public void Respawn()
     {
         rend.sharedMaterial = normalMaterials;
-        GetComponentInChildren<Animator>().enabled = true;
         transform.position = spawnPoint;
         gameObject.SetActive(true);
     }
