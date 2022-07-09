@@ -7171,6 +7171,11 @@ PrefabInstance:
       propertyPath: materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 2e30c89f5cf6e804187d159aedb3559d, type: 2}
+    - target: {fileID: 3700013974179292569, guid: 8393b5725487e4d469db87e49301f58f,
+        type: 3}
+      propertyPath: forceMagnitude
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3700013974179292571, guid: 8393b5725487e4d469db87e49301f58f,
         type: 3}
       propertyPath: cam

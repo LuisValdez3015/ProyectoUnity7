@@ -9,6 +9,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] Button[] levelButtons;
     [SerializeField] int[] sceneIndexes;
 
+    public Image black;
+    public Animator anim;
+
     public void Start()
     {
         UnlockedLevels();
@@ -16,6 +19,13 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        StartCoroutine(Fading());
+    }
+
+    IEnumerator Fading()
+    {
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

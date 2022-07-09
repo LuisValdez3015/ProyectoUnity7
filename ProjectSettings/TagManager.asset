@@ -30,7 +30,7 @@ TagManager:
   - Cojin
   - Collider
   - PullableCollider
-  - 
+  - RenderTexture
   - 
   - 
   - 
@@ -51,12 +51,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Foreground
+    uniqueID: 1842883245
+    locked: 0
   - name: Background
     uniqueID: 4274298425
     locked: 0
   - name: Camera_Effect
     uniqueID: 1230468383
-    locked: 0
-  - name: Foreground
-    uniqueID: 1842883245
     locked: 0
