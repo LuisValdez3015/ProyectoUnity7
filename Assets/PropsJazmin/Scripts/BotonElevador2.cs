@@ -23,6 +23,7 @@ public class BotonElevador2 : MonoBehaviour
             botonClick.SetBool("Click", true);
             verde2.SetActive(true);
             puertaCerrar.SetBool("Cerrar", true);
+            pressG.SetActive(false);
             StartCoroutine(Scene());
         }
     }
