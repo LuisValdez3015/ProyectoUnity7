@@ -17,6 +17,9 @@ public class ColocarLlave : MonoBehaviour
 
     [SerializeField] GameObject desactivarColocarLlave;
 
+    [SerializeField] BoxCollider boxColliderRecogerLlave;
+    [SerializeField] BoxCollider boxColliderColocarLlave;
+
     public bool hasKey;
 
     private void OnTriggerExit(Collider other)
@@ -44,12 +47,13 @@ public class ColocarLlave : MonoBehaviour
                 pressG.gameObject.SetActive(true);
                 if (Input.GetKey(KeyCode.G))
                 {
+                    StartCoroutine(ActivarBoxCollider());
                     playercontroller.ConsumeKey(id);
                     key.gameObject.SetActive(true);
                     hasKey = true;
                     pressG.gameObject.SetActive(false);
                     imgPlayerHUD.gameObject.SetActive(false);
-                    desactivarColocarLlave.SetActive(false);
+                    boxColliderColocarLlave.enabled = false;
                 }
             }
             else
@@ -61,6 +65,12 @@ public class ColocarLlave : MonoBehaviour
         {
             return;
         }
+    }
+
+    public IEnumerator ActivarBoxCollider()
+    {
+        yield return new WaitForSeconds(2f);
+        boxColliderRecogerLlave.enabled = true;
     }
 
 }

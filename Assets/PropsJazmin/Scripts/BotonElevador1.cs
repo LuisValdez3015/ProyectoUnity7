@@ -13,6 +13,8 @@ public class BotonElevador1 : MonoBehaviour
     public Animator puertaCerrar;
     public Animator puertaAbrir;
 
+    [SerializeField] BoxCollider boxColliderBoton;
+
     public void OnTriggerStay(Collider other)
     {
         pressG.SetActive(true);
@@ -22,11 +24,14 @@ public class BotonElevador1 : MonoBehaviour
             verde1.SetActive(true);
             puertaCerrar.SetBool("Cerrar", true);
             puertaAbrir.SetBool("Abrir", true);
+            pressG.SetActive(false);
+            boxColliderBoton.enabled = false;
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
         pressG.SetActive(false);
+
     }
 }

@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class Pull : PlayerSkill
 {
+    [SerializeField] GameObject pesao;
 
     [Tooltip("Es a donde va a ir el objeto que jale")]
     public Transform hand;
@@ -106,7 +107,9 @@ public class Pull : PlayerSkill
             {
                 heldObject.GetComponent<Rigidbody>().mass = 1;
                 IsBeingUse = false;
-                
+
+                pesao.SetActive(false);
+
                 heldObject.transform.parent = null;
                 heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 heldObject.GetComponent<Rigidbody>().velocity = transform.forward * throwVelocity;
@@ -132,6 +135,7 @@ public class Pull : PlayerSkill
             // right-clicks, stop pulling
             if (Input.GetKey(KeyCode.E))
             {
+
                 IsBeingUse = false;
                 r.useGravity = true;
                 r.isKinematic = false;
@@ -173,7 +177,7 @@ public class Pull : PlayerSkill
                 heldObject = t;
                 //heldObject.GetComponent<Collider>().enabled = false;
 
-
+                pesao.SetActive(true);
 
                 heldObject.DOScale(0f, 0.2f);
                 //heldObject.gameObject.SetActive(false);
