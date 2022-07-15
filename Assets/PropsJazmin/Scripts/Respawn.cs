@@ -9,6 +9,12 @@ public class Respawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Rigidbody r = cojin.GetComponent<Rigidbody>();
+
+        r.useGravity = true;
+        r.isKinematic = false;
+        r.mass = 1;
+
         cojin.transform.position = respawnPoint.transform.position;
     }
 

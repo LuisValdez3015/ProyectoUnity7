@@ -142,6 +142,7 @@ public class PlayerController : MonoBehaviour
     {
         rend.sharedMaterial = normalMaterials;
         transform.position = spawnPoint;
+        playerSkill.StopSkill();
         gameObject.SetActive(true);
     }
 

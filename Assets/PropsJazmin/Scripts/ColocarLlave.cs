@@ -7,18 +7,18 @@ public class ColocarLlave : MonoBehaviour
 {
     [SerializeField] public int id;
     [SerializeField] public int playerId;
-    [SerializeField] GameObject key;
+    [SerializeField] private GameObject key;
 
     [SerializeField] Image imgPlayerHUD;
 
-    [SerializeField] GameObject pressG;
+    [SerializeField] private GameObject pressG;
 
-    [SerializeField] Image imgNeedKey;
+    [SerializeField] private Image imgNeedKey;
 
-    [SerializeField] GameObject desactivarColocarLlave;
+    [SerializeField] private GameObject desactivarColocarLlave;
 
-    [SerializeField] BoxCollider boxColliderRecogerLlave;
-    [SerializeField] BoxCollider boxColliderColocarLlave;
+    [SerializeField] private BoxCollider boxColliderRecogerLlave;
+    [SerializeField] private BoxCollider boxColliderColocarLlave;
 
     public bool hasKey;
 

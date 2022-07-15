@@ -7,6 +7,12 @@ public abstract class PlayerSkill : MonoBehaviour
     protected bool isActive;
     public virtual bool IsBeingUse { get; protected set; }
 
+
+    public virtual void StopSkill()
+    {
+
+    }
+
     public void SetActive(bool value)
     {
         isActive = value;

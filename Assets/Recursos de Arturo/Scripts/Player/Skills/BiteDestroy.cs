@@ -65,7 +65,7 @@ public class BiteDestroy : MonoBehaviour
 
     void MyCollisions()
     {
-        Debug.Log("Estoy mordiendo ");
+        //Debug.Log("Estoy mordiendo ");
         //Use the OverlapBox to detect if there are any other colliders within this box area.
         //Use the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around your GameObject.
         Collider[] hitColliders = Physics.OverlapBox(origin.position, transform.localScale / 2, Quaternion.identity, LayerMask);
@@ -80,7 +80,7 @@ public class BiteDestroy : MonoBehaviour
                 target.HitTarget(1);
             }
             //Output all of the collider names
-            Debug.Log("Hit : " + hitColliders[i].name + i);
+            //Debug.Log("Hit : " + hitColliders[i].name + i);
             //Increase the number of Colliders in the array
             i++;
         }
