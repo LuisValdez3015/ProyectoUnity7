@@ -41,7 +41,7 @@ public class Temperatura : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Pressed");
+        //Debug.Log("Pressed");
         var playercontroller = other.gameObject.GetComponent<PlayerController>();
         if (playercontroller == null)
             return;

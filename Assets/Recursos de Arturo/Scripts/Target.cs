@@ -6,10 +6,16 @@ public class Target : MonoBehaviour
 {
     [SerializeField] bool isShootable;
 
+    [SerializeField] private GameObject destroyParticles = default;
+
     public bool IsShootable => isShootable;
 
     public void HitTarget (float amount)
     {
-        Destroy(gameObject);
+        GameObject particles = Instantiate(destroyParticles, transform.position, Quaternion.identity);
+        Destroy(particles, 1f);
+
+        Destroy(gameObject, .1f) ;
+
     }
 }
