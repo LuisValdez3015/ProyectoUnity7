@@ -8,6 +8,9 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] Button[] levelButtons;
     [SerializeField] int[] sceneIndexes;
+    //[SerializeField] Button[] menuButtons;
+
+    [SerializeField] Button continueButton;
 
     public Image black;
     public Animator anim;
@@ -19,15 +22,25 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        StartCoroutine(Fading());
+        //DisableAllButtons();
+        StartCoroutine(Fading());      
     }
 
     IEnumerator Fading()
-    {
-        anim.SetBool("Fade", true);
+    {       
+        anim.SetBool("Fade", true);      
         yield return new WaitUntil(() => black.color.a == 1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    //private void DisableAllButtons()
+    //{
+    //    menuButtons[0].interactable = true;
+    //    for (int i = 0; i < menuButtons.Length; i++)
+    //    {
+    //        menuButtons[i].interactable = menuButtons[i + 1];
+    //    }
+    //}
 
     public void QuitGame()
     {
@@ -43,6 +56,7 @@ public class MainMenu : MonoBehaviour
     private void UnlockedLevels()
     {
         SavedData savedData = FindObjectOfType<LoadData>().LoadGame();
+        continueButton.interactable = savedData.levelIndex[0];
         levelButtons[0].interactable = true;
         for (int i = 1; i < savedData.levelIndex.Length; i++)
         {
@@ -59,8 +73,7 @@ public class MainMenu : MonoBehaviour
             if (savedData.levelIndex[i])
             {
                 lastUnlockedIndex = i;
-            }
-            
+            }           
         }
 
         LoadLevel(sceneIndexes[lastUnlockedIndex]);
