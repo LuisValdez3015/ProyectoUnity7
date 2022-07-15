@@ -20,7 +20,6 @@ public class LoadData : MonoBehaviour
              data = JsonUtility.FromJson<SavedData>(File.ReadAllText(Application.persistentDataPath + "/" + fileName));
         }
 
-
         return data;
         //string json = ReadFile();
         //Debug.Log("Saved Json:\n" + json);

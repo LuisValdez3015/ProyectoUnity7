@@ -34922,12 +34922,6 @@ MonoBehaviour:
   - {fileID: 1567637276}
   - {fileID: 1316620521}
   sceneIndexes: 010000000200000003000000
-  menuButtons:
-  - {fileID: 1165578388}
-  - {fileID: 978441687}
-  - {fileID: 737830892}
-  - {fileID: 1371947621}
-  - {fileID: 837396921}
   continueButton: {fileID: 978441687}
   black: {fileID: 2126568284}
   anim: {fileID: 2126568283}
