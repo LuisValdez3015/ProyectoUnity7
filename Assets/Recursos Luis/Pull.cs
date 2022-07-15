@@ -58,7 +58,6 @@ public class Pull : PlayerSkill
         animator = GetComponentInChildren<Animator>();  
     }
 
-    [System.Obsolete]
     void Update()
     {
         if (!isActive)
@@ -120,6 +119,21 @@ public class Pull : PlayerSkill
                 heldObject = null;
             }
         }
+    }
+
+    public override void StopSkill()
+    {
+        IsBeingUse = false;
+
+        if (!IsBeingUse)
+            return;
+        if (heldObject == null)
+            return;
+        Rigidbody r = heldObject.GetComponent<Rigidbody>();
+    
+        r.useGravity = true;
+        r.isKinematic = false;
+        r.mass = 1;
     }
 
     IEnumerator PullObject(Transform t)

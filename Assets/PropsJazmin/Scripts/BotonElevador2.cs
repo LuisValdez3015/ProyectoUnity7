@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BotonElevador2 : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class BotonElevador2 : MonoBehaviour
 
     public Animator botonClick;
     public Animator puertaCerrar;
+
+    public Image black;
+    public Animator anim;
 
     [SerializeField] int nextLevelIndex; //Es el indice en el build settings
     [SerializeField] int savedLevelIndex;
@@ -34,13 +38,13 @@ public class BotonElevador2 : MonoBehaviour
     }
 
     public IEnumerator Scene()
-
     {
-        yield return new WaitForSeconds(2f);
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
+        //yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(nextLevelIndex);
 
-
-        RewriteData rewriteData = new RewriteData();
+        RewriteData rewriteData = FindObjectOfType<RewriteData>();
 
         rewriteData.SaveLevel(savedLevelIndex);
     }

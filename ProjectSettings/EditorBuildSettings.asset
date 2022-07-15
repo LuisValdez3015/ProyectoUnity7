@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LVL2.unity
     guid: 63dbe8d1ad65e644ba96e5fd4bac9cb7
+  - enabled: 1
+    path: Assets/Scenes/LVLFinal.unity
+    guid: 387597a647175a5428fb50afc7261399
   m_configObjects: {}
