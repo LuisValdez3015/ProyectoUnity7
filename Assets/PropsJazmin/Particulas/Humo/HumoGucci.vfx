@@ -49,7 +49,7 @@ MonoBehaviour:
   m_ImportDependencies: []
   m_GraphVersion: 6
   m_ResourceVersion: 1
-  m_saved: 1
+  m_saved: 0
   m_SubgraphDependencies: []
   m_CategoryPath: 
 --- !u!2058629511 &8926484042661614527
@@ -1763,7 +1763,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.3820754885673523,"g":0.8110335469245911,"b":1.0,"a":1.0},"time":0.0},{"color":{"r":0.8160377144813538,"g":1.0,"b":0.9292200803756714,"a":1.0},"time":0.9970549941062927}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":0.08627451211214066,"time":0.4735332131385803},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.3820754885673523,"g":0.8110335469245911,"b":1.0,"a":1.0},"time":0.0},{"color":{"r":0.8160377144813538,"g":1.0,"b":0.9292200803756714,"a":1.0},"time":0.9970549941062927}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":0.0235294122248888,"time":0.5088273286819458},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: Color
