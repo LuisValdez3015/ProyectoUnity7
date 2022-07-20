@@ -108,6 +108,7 @@ public class Pull : PlayerSkill
                 IsBeingUse = false;
 
                 pesao.SetActive(false);
+                //animator.SetBool("IsWalkingPesao", false);
 
                 heldObject.transform.parent = null;
                 heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
@@ -192,6 +193,8 @@ public class Pull : PlayerSkill
                 //heldObject.GetComponent<Collider>().enabled = false;
 
                 pesao.SetActive(true);
+                //animator.SetBool("IsWalkingPesao", true);
+
 
                 heldObject.DOScale(0f, 0.2f);
                 //heldObject.gameObject.SetActive(false);

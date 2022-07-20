@@ -12,6 +12,8 @@ public class PauseMenu : MonoBehaviour
 
     public CinemachineBrain cinemachineBrain;
 
+    public GameObject virtualCamera;
+
     public void Start()
     {
         Cursor.visible = Cursor.visible = false;
@@ -39,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused = false;
         Cursor.visible = Cursor.visible = false;
         cinemachineBrain.enabled = true;
+        virtualCamera.SetActive(true);
     }
 
     public void Pause()
@@ -48,6 +51,7 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused = true;
         Cursor.visible = Cursor.visible = true;
         cinemachineBrain.enabled = false;
+        virtualCamera.SetActive(false);
     }
 
     public void LoadMenu()

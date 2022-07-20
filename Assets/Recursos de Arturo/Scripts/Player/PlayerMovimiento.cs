@@ -8,15 +8,23 @@ public class PlayerMovimiento : MonoBehaviour
 
     [SerializeField] public float jumpHeight = 1.0f;
 
-    [SerializeField] Transform groundRaycastOriginCenter;
+    [HideInInspector] [SerializeField] Transform groundRaycastOriginCenter;
 
-    [SerializeField] Transform groundRaycastOriginFront;
+    [HideInInspector] [SerializeField] Transform groundRaycastOriginFront;
 
-    [SerializeField] Transform groundRaycastOriginBack;
+    [HideInInspector] [SerializeField] Transform groundRaycastOriginBack;
 
-    [SerializeField] Transform groundRaycastOriginLeft;
+    [HideInInspector] [SerializeField] Transform groundRaycastOriginLeft;
 
-    [SerializeField] Transform groundRaycastOriginRight;
+    [HideInInspector] [SerializeField] Transform groundRaycastOriginRight;
+
+    [HideInInspector] [SerializeField] Transform groundRaycastFrontLeft;
+
+    [HideInInspector] [SerializeField] Transform groundRaycastFrontRight;
+
+    [HideInInspector] [SerializeField] Transform groundRaycastBackLeft;
+
+    [HideInInspector] [SerializeField] Transform groundRaycastBackRight;
 
     [SerializeField] float groundRaycastDistance;
 
@@ -46,20 +54,27 @@ public class PlayerMovimiento : MonoBehaviour
 
     Animator animator;
 
-    [SerializeField] GameObject raycastJumpOriginCenter;
+    [HideInInspector] [SerializeField] GameObject raycastJumpOriginCenter;
 
-    [SerializeField] GameObject raycastJumpOriginFront;
+    [HideInInspector] [SerializeField] GameObject raycastJumpOriginFront;
 
-    [SerializeField] GameObject raycastJumpOriginBack;
+    [HideInInspector] [SerializeField] GameObject raycastJumpOriginBack;
 
-    [SerializeField] GameObject raycastJumpOriginLeft;
+    [HideInInspector] [SerializeField] GameObject raycastJumpOriginLeft;
 
-    [SerializeField] GameObject raycastJumpOriginRight;
+    [HideInInspector] [SerializeField] GameObject raycastJumpOriginRight;
+
+    [HideInInspector] [SerializeField] GameObject raycastJumpOriginFrontLeft;
+
+    [HideInInspector] [SerializeField] GameObject raycastJumpOriginFrontRight;
+
+    [HideInInspector] [SerializeField] GameObject raycastJumpOriginBackLeft;
+
+    [HideInInspector] [SerializeField] GameObject raycastJumpOriginBackRight;
 
     [SerializeField] float groundDistance;
 
     //[SerializeField] private float rotationSpeed = 5f;
-
 
     private void Awake()
     {
@@ -97,6 +112,14 @@ public class PlayerMovimiento : MonoBehaviour
 
             Debug.DrawRay(raycastJumpOriginRight.transform.position, Vector3.down * groundDistance, Color.magenta);
 
+            Debug.DrawRay(raycastJumpOriginFrontLeft.transform.position, Vector3.down * groundDistance, Color.magenta);
+
+            Debug.DrawRay(raycastJumpOriginFrontRight.transform.position, Vector3.down * groundDistance, Color.magenta);
+
+            Debug.DrawRay(raycastJumpOriginBackLeft.transform.position, Vector3.down * groundDistance, Color.magenta);
+
+            Debug.DrawRay(raycastJumpOriginBackRight.transform.position, Vector3.down * groundDistance, Color.magenta);
+
             if (Physics.Raycast(raycastJumpOriginCenter.transform.position, Vector3.down, out hit, groundDistance))
             {
                 animator.SetTrigger("GroundedJump");
@@ -127,6 +150,29 @@ public class PlayerMovimiento : MonoBehaviour
                 animator.ResetTrigger("Jump");
             }
 
+            if (Physics.Raycast(raycastJumpOriginFrontLeft.transform.position, Vector3.down, out hit, groundDistance))
+            {
+                animator.SetTrigger("GroundedJump");
+                animator.ResetTrigger("Jump");
+            }
+
+            if (Physics.Raycast(raycastJumpOriginFrontRight.transform.position, Vector3.down, out hit, groundDistance))
+            {
+                animator.SetTrigger("GroundedJump");
+                animator.ResetTrigger("Jump");
+            }
+
+            if (Physics.Raycast(raycastJumpOriginBackLeft.transform.position, Vector3.down, out hit, groundDistance))
+            {
+                animator.SetTrigger("GroundedJump");
+                animator.ResetTrigger("Jump");
+            }
+
+            if (Physics.Raycast(raycastJumpOriginBackRight.transform.position, Vector3.down, out hit, groundDistance))
+            {
+                animator.SetTrigger("GroundedJump");
+                animator.ResetTrigger("Jump");
+            }
         }
     }
 
@@ -191,6 +237,14 @@ public class PlayerMovimiento : MonoBehaviour
 
         Debug.DrawRay(groundRaycastOriginRight.position, Vector3.down * groundRaycastDistance, Color.red);
 
+        Debug.DrawRay(groundRaycastFrontLeft.position, Vector3.down * groundRaycastDistance, Color.red);
+
+        Debug.DrawRay(groundRaycastFrontRight.position, Vector3.down * groundRaycastDistance, Color.red);
+
+        Debug.DrawRay(groundRaycastBackLeft.position, Vector3.down * groundRaycastDistance, Color.red);
+
+        Debug.DrawRay(groundRaycastBackRight.position, Vector3.down * groundRaycastDistance, Color.red);
+
         if (Physics.Raycast(groundRaycastOriginCenter.position, Vector3.down, out hit, groundRaycastDistance))
         {
             return true;
@@ -212,6 +266,26 @@ public class PlayerMovimiento : MonoBehaviour
         }
 
         if (Physics.Raycast(groundRaycastOriginRight.position, Vector3.down, out hit, groundRaycastDistance))
+        {
+            return true;
+        }
+
+        if (Physics.Raycast(groundRaycastFrontLeft.position, Vector3.down, out hit, groundRaycastDistance))
+        {
+            return true;
+        }
+
+        if (Physics.Raycast(groundRaycastFrontRight.position, Vector3.down, out hit, groundRaycastDistance))
+        {
+            return true;
+        }
+
+        if (Physics.Raycast(groundRaycastBackLeft.position, Vector3.down, out hit, groundRaycastDistance))
+        {
+            return true;
+        }
+
+        if (Physics.Raycast(groundRaycastBackRight.position, Vector3.down, out hit, groundRaycastDistance))
         {
             return true;
         }

@@ -8,6 +8,11 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] Button[] levelButtons;
     [SerializeField] int[] sceneIndexes;
+    //[SerializeField] Button startGameBttn;
+    //[SerializeField] Button continueBttn;
+    //[SerializeField] Button selectLevelBttn;
+    //[SerializeField] Button optionsBttn;
+    //[SerializeField] Button quitBttn;
     //[SerializeField] Button[] menuButtons;
 
     [SerializeField] Button continueButton;
@@ -22,24 +27,30 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        //DisableAllButtons();
-        StartCoroutine(Fading());      
+        StartCoroutine(Fading());
     }
 
     IEnumerator Fading()
-    {       
+    {
         anim.SetBool("Fade", true);      
         yield return new WaitUntil(() => black.color.a == 1);
+        //DisableAllButtons();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     //private void DisableAllButtons()
     //{
-    //    menuButtons[0].interactable = true;
-    //    for (int i = 0; i < menuButtons.Length; i++)
-    //    {
-    //        menuButtons[i].interactable = menuButtons[i + 1];
-    //    }
+    //    startGameBttn.enabled = false;
+    //    continueBttn.interactable = false;
+    //    selectLevelBttn.interactable = false;
+    //    optionsBttn.interactable = false;
+    //    quitBttn.interactable = false;
+
+    //    //menuButtons[0].enabled = false;
+    //    //for (int i = 0; i < menuButtons.Length; i++)
+    //    //{
+    //    //    menuButtons[i].interactable = menuButtons[i - 1];
+    //    //}
     //}
 
     public void QuitGame()
