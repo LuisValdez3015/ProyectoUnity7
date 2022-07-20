@@ -13,9 +13,9 @@ public class Target : MonoBehaviour
     public void HitTarget (float amount)
     {
         GameObject particles = Instantiate(destroyParticles, transform.position, Quaternion.identity);
-        Destroy(particles, 1f);
+        Destroy(particles, 5f);
 
-        Destroy(gameObject, .1f) ;
+        Destroy(this.gameObject) ;
 
     }
 }
