@@ -111,8 +111,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  rock: {fileID: 21300000, guid: 584fe0aebfcf82544ae60d90530afc94, type: 3}
-  emptyRock: {fileID: 21300000, guid: f149252e37ce57b4f8013c35825b6c39, type: 3}
+  rock: {fileID: 21300000, guid: 2922604ca12e5534982adfdbdac3c944, type: 3}
+  emptyRock: {fileID: 21300000, guid: ad70bc5515885f24bad2a8fe12a63e7c, type: 3}
   RockAmmoCanvas: {fileID: 0}
   animator: {fileID: 66479351498598345}
   aimTarget: {fileID: 1598179927}
