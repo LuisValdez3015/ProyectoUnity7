@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &802689706328660836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 802689706328660842}
+  - component: {fileID: 802689706328660843}
+  - component: {fileID: 802689706328660841}
+  m_Layer: 0
+  m_Name: PrecipitationSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &802689706328660842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802689706328660836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.1881814, y: 4.513975, z: 1.1174885}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &802689706328660843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802689706328660836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d28edc034d248b48a065da10d9a51f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSize: 10
+  playerTransform: {fileID: 0}
+--- !u!114 &802689706328660841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802689706328660836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2edae8f07256fa24eb948215464f67b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainTexture: {fileID: 2800000, guid: 1571069739ee02a45874735fa640406c, type: 3}
+  noiseTexture: {fileID: 2800000, guid: 0d2baf31e44f6944a9b939c20d1c2157, type: 3}
+  windStrength: 0.2
+  windYRotation: 0
+  meshSubdivisions: 57
+  rain:
+    amount: 0.14
+    color: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
+    colorVariation: {r: 0.4227483, g: 0.7002365, b: 0.9433962, a: 1}
+    fallSpeed: 8.73
+    cameraRange: {x: 0, y: 15}
+    flutterFrequency: {x: 0.988, y: 1.234}
+    flutterSpeed: {x: 0.01, y: 0.01}
+    flutterMagnitude: {x: 0.35, y: 0.25}
+    sizeRange: {x: 0.15, y: 0.75}
+  snow:
+    amount: 0
+    color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
+    colorVariation: {r: 0.5235849, g: 0.60021496, b: 1, a: 1}
+    fallSpeed: 0.25
+    cameraRange: {x: 0, y: 10}
+    flutterFrequency: {x: 0.988, y: 1.234}
+    flutterSpeed: {x: 1, y: 0.5}
+    flutterMagnitude: {x: 0.35, y: 0.25}
+    sizeRange: {x: 0.05, y: 0.01}
