@@ -145,6 +145,8 @@ public class Pull : PlayerSkill
         IsBeingUse = true;
         r.mass = 0;
 
+        GetComponent<CharacterController>().enabled = false;
+
         while (true)
         {
             // right-clicks, stop pulling
@@ -195,6 +197,7 @@ public class Pull : PlayerSkill
                 pesao.SetActive(true);
                 //animator.SetBool("IsWalkingPesao", true);
 
+                GetComponent<CharacterController>().enabled = true;
 
                 heldObject.DOScale(0f, 0.2f);
                 //heldObject.gameObject.SetActive(false);

@@ -47,6 +47,7 @@ public class ObstaclePush : MonoBehaviour
             forceDirection.y = 0;
             forceDirection.Normalize();
             rigidbody.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
+            //rigidbody.velocity = forceDirection * forceMagnitude;
             //anim.SetTrigger("Push");
             isPushing = true;
             timeOfLastPushing = Time.time;
@@ -54,6 +55,7 @@ public class ObstaclePush : MonoBehaviour
         else
         {
             isPushing = false;
+            //rigidbody.velocity = Vector3.zero;
         }
 
     }
