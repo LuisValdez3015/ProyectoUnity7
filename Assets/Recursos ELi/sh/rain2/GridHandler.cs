@@ -49,7 +49,7 @@ public class GridHandler : MonoBehaviour
 
     // calculate the center position of a certain grid coordinate
     public Vector3 GetGridCenter(Vector3Int grid) {
-        float halfGrid = gridSize * .5f;
+        float halfGrid = gridSize * .1f;
         return new Vector3(
             grid.x * gridSize + halfGrid, 
             grid.y * gridSize + halfGrid,

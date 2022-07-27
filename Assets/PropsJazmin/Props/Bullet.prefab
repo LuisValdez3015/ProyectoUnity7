@@ -13,8 +13,10 @@ GameObject:
   - component: {fileID: 1052317153164586167}
   - component: {fileID: 5948790703492851913}
   - component: {fileID: 2559076374631360457}
-  - component: {fileID: 7901046737225175279}
-  m_Layer: 0
+  - component: {fileID: 6290380079604237892}
+  - component: {fileID: 4663129297841165056}
+  - component: {fileID: 1652335734093505559}
+  m_Layer: 10
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +101,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &2559076374631360457
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -108,12 +110,12 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6714169820655353662}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7901046737225175279
+--- !u!114 &6290380079604237892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +124,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 6714169820655353662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc34123dd37435c4ebfe200f4ccdcd39, type: 3}
+  m_Script: {fileID: 11500000, guid: b0b141b9aab05514487ea9d5f59d2157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  playerController: {fileID: 0}
+--- !u!114 &4663129297841165056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6714169820655353662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a227f05518974a49884b6162deb0ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1652335734093505559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6714169820655353662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b9a749f42fc1c4b95eca810eb380c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isShootable: 1
+  destroyParticles: {fileID: 6381074745629339178, guid: a1ee0925a65787e42893647b644abc5e,
+    type: 3}
