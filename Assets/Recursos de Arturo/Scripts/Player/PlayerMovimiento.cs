@@ -74,6 +74,8 @@ public class PlayerMovimiento : MonoBehaviour
 
     [SerializeField] float groundDistance;
 
+    public GameObject footstep;
+
     //[SerializeField] private float rotationSpeed = 5f;
 
     private void Awake()
@@ -84,6 +86,7 @@ public class PlayerMovimiento : MonoBehaviour
     private void Start()
     {
         cameraTransform = Camera.main.transform;
+        footstep.SetActive(false);
     }
 
     private void Update()
@@ -98,10 +101,17 @@ public class PlayerMovimiento : MonoBehaviour
             animator.ResetTrigger("GroundedJump");
         }
 
+        if (!groundedPlayer && playerVelocity.y > 0)
+        {
+            StopFootsteps();
+        }
+
         if (!groundedPlayer && playerVelocity.y < 0)
         {
             animator.SetFloat("YVelocity", playerVelocity.y);
             RaycastHit hit;
+            StopFootsteps();
+
             Debug.DrawRay(raycastJumpOriginCenter.transform.position, Vector3.down * groundDistance, Color.magenta);
 
             Debug.DrawRay(raycastJumpOriginFront.transform.position, Vector3.down * groundDistance, Color.magenta);
@@ -181,6 +191,7 @@ public class PlayerMovimiento : MonoBehaviour
         if (direction.magnitude >= 0.1f)
         {
             animator.SetBool("IsWalking", true);
+            Footsteps();
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -197,6 +208,7 @@ public class PlayerMovimiento : MonoBehaviour
         else
         {
             animator.SetBool("IsWalking", false);
+            StopFootsteps();
         }
         
     }
@@ -297,4 +309,13 @@ public class PlayerMovimiento : MonoBehaviour
         playerVelocity.y = Mathf.Sqrt(force * -3f * (gravity * gravityScale));
     }
 
+    public void Footsteps()
+    {
+        footstep.SetActive(true);
+    }
+
+    public void StopFootsteps()
+    {
+        footstep.SetActive(false);
+    }
 }

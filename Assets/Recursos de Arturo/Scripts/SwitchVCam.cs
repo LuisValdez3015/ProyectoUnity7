@@ -37,11 +37,14 @@ public class SwitchVCam : MonoBehaviour
 
     //int aimAnimation;
 
+    private PlayerMovimiento playerMovimiento;
+
     private void Start()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
         //Cursor.lockState = CursorLockMode.Locked;
         cameraTransform = Camera.main.transform;
+        playerMovimiento = GetComponent<PlayerMovimiento>();
         //aimAction = playerInput.actions["Aim"];
         //aimCanvas.enabled = false;
         //aimAnimation = Animator.StringToHash("AimPreparation");
@@ -68,6 +71,7 @@ public class SwitchVCam : MonoBehaviour
                 currentPlayer.transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
                 currentPlayer.CharacterRig.weight = .5f;
                 currentPlayer.GetComponent<PlayerController>().enabled = false;
+                currentPlayer.GetComponent<PlayerMovimiento>().StopFootsteps();
                 //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
                 //aimRig.weight = 0.5f;
 
