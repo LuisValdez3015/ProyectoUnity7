@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using DG.Tweening;
 
 public class CharacterSwap : MonoBehaviour
 {
@@ -12,7 +13,10 @@ public class CharacterSwap : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera camV;
     [SerializeField] private CinemachineVirtualCamera camAim;
 
+    [SerializeField] private AudioSource characterBgMusic;
 
+    /*[SerializeField] float fadeOut = 5f;*/ //Cosas nuevas
+    /*[SerializeField] float fadeIn = 5f;*/ //Cosas nuevas
 
     private void OnEnable()
     {
@@ -24,7 +28,6 @@ public class CharacterSwap : MonoBehaviour
     {
         camAim.GetComponent<SwitchVCam>().aimCamActivated -= PlayCamAudio;
         //camAim.GetComponent<SwitchVCam>().aimCamActivated -= CharacterAimUI;
-
     }
 
     private void PlayCamAudio()
@@ -33,11 +36,6 @@ public class CharacterSwap : MonoBehaviour
         AudioSource.PlayClipAtPoint(player.AimAudio, Camera.main.transform.position);
     }
 
-    //private void CharacterAimUI()
-    //{
-    //    PlayerController player = character.GetComponent<PlayerController>();        
-    //}
-
     void Start()
     {
         if (character == null && possibleCharacters.Count >= 1)
@@ -45,6 +43,7 @@ public class CharacterSwap : MonoBehaviour
             character = possibleCharacters[0];
         }
         Swap();
+        characterBgMusic.DOFade(1f, 2.5f); //Cosas nuevas
     }
 
     void Update()
@@ -69,12 +68,14 @@ public class CharacterSwap : MonoBehaviour
         character = possibleCharacters[wichCharacter];
         character.GetComponent<PlayerController>().GiveControl();
         Transform lookAt = character.GetComponent<PlayerController>().CameraLookAt;
+        
 
         for (int i = 0; i < possibleCharacters.Count; i++)
         {
             if (possibleCharacters[i] != character)
             {
                 possibleCharacters[i].GetComponent<PlayerController>().LoseControl();
+                characterBgMusic.DOFade(0.0f, 2.5f); //Cosas Nuevas
             }           
         }
         camV.LookAt = character.GetChild(5);
@@ -83,6 +84,21 @@ public class CharacterSwap : MonoBehaviour
         camAim.LookAt = lookAt;
         camAim.Follow = lookAt;
 
+        characterBgMusic = character.GetComponentInChildren<AudioSource>(characterBgMusic); //Cosas nuevas
+        characterBgMusic.DOFade(1.0f, 2.5f); //Cosas Nuevas
+
         camAim.GetComponent<SwitchVCam>().SetCurrentPlayer(character.GetComponent<PlayerController>());
     }
+
+    //public IEnumerator MusicFade()
+    //{
+    //    Swap();
+    //    characterBgMusic.DOFade(0.0f, 2f);
+    //    //characterBgMusic.DOFade, fadeIn del otro personaje //TODO
+    //    yield return new WaitForSeconds(2f);
+
+    //    characterBgMusic.DOFade(1.0f, 2f);
+
+    //    yield return null;
+    //}
 }

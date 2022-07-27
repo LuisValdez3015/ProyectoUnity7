@@ -126,6 +126,8 @@ public class PlayerController : MonoBehaviour
 
         float alpha = 0;
 
+        GetComponent<CharacterController>().enabled = false;
+        playerMovimiento.StopFootsteps();
         LoseControl();
         Animator.SetTrigger("DeathAnim");
 
@@ -143,6 +145,7 @@ public class PlayerController : MonoBehaviour
         rend.sharedMaterial = normalMaterials;
         transform.position = spawnPoint;
         playerSkill.StopSkill();
+        GetComponent<CharacterController>().enabled = true;
         gameObject.SetActive(true);
     }
 
@@ -170,6 +173,7 @@ public class PlayerController : MonoBehaviour
         characterNormalCanvas.enabled = false;
         IsInControl = false;
         playerMovimiento.Stop();
+        playerMovimiento.StopFootsteps();
     }
 
 

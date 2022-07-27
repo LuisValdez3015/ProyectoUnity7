@@ -20,6 +20,8 @@ public class BiteDestroy : MonoBehaviour
 
     private PlayerController playerController;
 
+    public Animator biteAnimator;
+
     //Agregue los isBiting como arreglo rapido para que la corutina no se reproduzca dos veces, mas no se si es la mejor solucion 
 
     void Start()
@@ -54,6 +56,8 @@ public class BiteDestroy : MonoBehaviour
         isBiting = true;
 
         animator.SetTrigger("Bite");
+
+        biteAnimator.SetTrigger("JawBite");
 
         yield return new WaitForSeconds(.3f);
 
