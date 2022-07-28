@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ExitTrigger : MonoBehaviour
 {
-    [SerializeField] Animator anim;
+    [SerializeField] private UnityEvent animaciones = default;
 
     private void OnDestroy()
-    {
-        anim.SetTrigger("Tornilloo");
-        anim.SetTrigger("Falling");
+    {       
+        animaciones?.Invoke();
     }
 }

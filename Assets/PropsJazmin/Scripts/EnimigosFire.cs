@@ -8,6 +8,8 @@ public class EnimigosFire : MonoBehaviour
     [SerializeField] Transform bulletOrigin;
     [SerializeField] GameObject target;
 
+    [SerializeField] Animator anim;
+
     public float range = 5f;
 
     float fireRate;
@@ -26,6 +28,11 @@ public class EnimigosFire : MonoBehaviour
         if (distance < range)
         {
             CheckTimeToFire();
+            anim.SetBool("Attack", true);
+        }
+        else
+        {
+            anim.SetBool("Attack", false);
         }
     }
 
