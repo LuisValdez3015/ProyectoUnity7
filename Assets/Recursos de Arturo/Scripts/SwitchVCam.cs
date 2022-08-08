@@ -25,7 +25,7 @@ public class SwitchVCam : MonoBehaviour
 
     //public GameObject Player;
 
-    [SerializeField] GunSkill gunSkill;
+    [SerializeField] public GunSkill gunSkill;
 
     public event Action aimCamActivated;
 
