@@ -9,14 +9,16 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Star_Bright
   m_Shader: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
-  m_ShaderKeywords: _ALPHABLEND_ON _FLIPBOOKBLENDING_OFF
-  m_LightmapFlags: 0
+  m_ShaderKeywords: _ALPHATEST_ON
+  m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses:
   - ALWAYS
+  - SHADOWCASTER
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -70,7 +72,7 @@ Material:
     - Vector1_951a4f75d4864874b4230e85f13a7b70: 1
     - Vector1_b6c2762885af4816b8e75225fbe65013: 1
     - Vector1_ee77726a28fb4fb195ec7d2466c0059e: 1
-    - _AlphaClip: 0
+    - _AlphaClip: 1
     - _Blend: 2
     - _BlendOp: 0
     - _BumpScale: 1
