@@ -31,7 +31,6 @@ public class BouncePlatform : MonoBehaviour
         //}
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log(other.gameObject + " trigger with " + other.gameObject.name, other.gameObject);
             other.gameObject.GetComponent<PlayerMovimiento>().Bounce(bounceForce);
         }
     }
