@@ -14,6 +14,7 @@ TagManager:
   - MenosTemperatura
   - Boton1
   - Boton2
+  - Spawneable
   layers:
   - Default
   - TransparentFX
