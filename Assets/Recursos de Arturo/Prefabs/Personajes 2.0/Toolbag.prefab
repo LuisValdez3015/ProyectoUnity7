@@ -1288,9 +1288,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.56943893
-  m_Height: 2
+  m_Height: 1.8663406
   m_Direction: 1
-  m_Center: {x: 0.025622368, y: 1, z: -0.021015167}
+  m_Center: {x: 0.025622368, y: 1.0668297, z: -0.021015167}
 --- !u!114 &3700013974179292571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1355,6 +1355,7 @@ MonoBehaviour:
   characterRig: {fileID: 2106596149}
   fren: {fileID: 0}
   isWaving: 0
+  isCharacterSkillEnabled: 0
 --- !u!114 &3700013974179292569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1368,7 +1369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushableTag: Pushable
-  forceMagnitude: 1
+  forceMagnitude: 1.5
 --- !u!1 &4842737951295508807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1779,6 +1780,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853130360596473500, guid: feb130dacd8d9194498efd69ea512027,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1880911339635694072, guid: feb130dacd8d9194498efd69ea512027,
         type: 3}

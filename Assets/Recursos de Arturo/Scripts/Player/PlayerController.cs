@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool isWaving = false;
 
+    public bool isCharacterSkillEnabled;
+
     private void Awake()
     {
         playerSkill = GetComponentInChildren<PlayerSkill>();
