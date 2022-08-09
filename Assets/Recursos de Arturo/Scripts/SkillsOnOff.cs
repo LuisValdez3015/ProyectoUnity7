@@ -10,8 +10,8 @@ public class SkillsOnOff : MonoBehaviour
 
     public void Start()
     {
-        GunSkill gunSkill = GetComponentInChildren<GunSkill>();
-        BiteDestroy biteDestroy = GetComponent<BiteDestroy>();
+        //GunSkill gunSkill = GetComponentInChildren<GunSkill>();
+        //BiteDestroy biteDestroy = GetComponent<BiteDestroy>();
 
         Scene currentScene = SceneManager.GetActiveScene();
 

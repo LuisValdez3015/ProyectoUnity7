@@ -15,6 +15,8 @@ public class BotonElevador1 : MonoBehaviour
 
     [SerializeField] BoxCollider boxColliderBoton;
 
+    //public GameObject characterSwap;
+
     public void OnTriggerStay(Collider other)
     {
         pressG.SetActive(true);
@@ -26,6 +28,8 @@ public class BotonElevador1 : MonoBehaviour
             puertaAbrir.SetBool("Abrir", true);
             pressG.SetActive(false);
             boxColliderBoton.enabled = false;
+
+            //characterSwap.GetComponent<CharacterSwap>().Swap();
         }
     }
 
