@@ -7,6 +7,7 @@ public class SkillsOnOff : MonoBehaviour
 {
     public GameObject weaver;
     public GameObject toolBag;
+    public SwitchVCam switchVCam;
 
     public void Start()
     {
@@ -20,27 +21,25 @@ public class SkillsOnOff : MonoBehaviour
         if (buildIndex == 2)
         {
             weaver.GetComponent<BiteDestroy>().enabled = false;
-            toolBag.gameObject.GetComponent<SwitchVCam>().gunSkill.enabled = false;
+            weaver.GetComponent<PlayerController>().isCharacterSkillEnabled = true;
+            toolBag.GetComponent<PlayerController>().isCharacterSkillEnabled = false;
+            switchVCam.gunSkill.enabled = false;
         }
 
         if (buildIndex == 3)
         {
             weaver.GetComponent<BiteDestroy>().enabled = true;
-            toolBag.gameObject.GetComponent<SwitchVCam>().gunSkill.enabled = false;
+            weaver.GetComponent<PlayerController>().isCharacterSkillEnabled = true;
+            toolBag.GetComponent<PlayerController>().isCharacterSkillEnabled = false;
+            switchVCam.gunSkill.enabled = false;
         }
 
         if (buildIndex == 4)
         {
             weaver.GetComponent<BiteDestroy>().enabled = true;
-            toolBag.gameObject.GetComponent<SwitchVCam>().gunSkill.enabled = false;
+            weaver.GetComponent<PlayerController>().isCharacterSkillEnabled = true;
+            toolBag.GetComponent<PlayerController>().isCharacterSkillEnabled = true;
+            switchVCam.gunSkill.enabled = true;
         }
     }
-
-    //public void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Player"))
-    //    {
-    //        toolBag.gameObject.GetComponent<SwitchVCam>().gunSkill.enabled = true;
-    //    }
-    //}
 }

@@ -1661,7 +1661,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isShootable: 0
-  destroyParticles: {fileID: 0}
+  destroyParticles: {fileID: 6381074745629339178, guid: a1ee0925a65787e42893647b644abc5e,
+    type: 3}
 --- !u!1 &600591148
 GameObject:
   m_ObjectHideFlags: 0
@@ -5789,7 +5790,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-28950
+  m_Name: pb_Mesh-27568
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6048,7 +6049,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-28962
+  m_Name: pb_Mesh-27580
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

@@ -78,7 +78,7 @@ public class Pull : PlayerSkill
         RaycastHit hit;
 
         Debug.DrawRay(pullCamera.transform.position, pullCamera.transform.forward * Mathf.Infinity, Color.blue);
-        if (Physics.Raycast(pullCamera.transform.position, pullCamera.transform.forward, out hit, Mathf.Infinity))
+        if (heldObject == null && Physics.Raycast(pullCamera.transform.position, pullCamera.transform.forward, out hit, Mathf.Infinity))
         {           
             if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire)
             {

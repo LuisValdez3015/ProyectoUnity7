@@ -54,12 +54,16 @@ public class SwitchVCam : MonoBehaviour
     {
         if (virtualCamera != null)
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) && currentPlayer.isCharacterSkillEnabled)
             {
                 aimCamActivated?.Invoke();
             }
 
             bool aiming = Input.GetMouseButton(1);
+            if (!currentPlayer.isCharacterSkillEnabled)
+            {
+                aiming = false;
+            }
 
             currentPlayer.Animator.SetBool("IsAiming", aiming);
 
