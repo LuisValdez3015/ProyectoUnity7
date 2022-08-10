@@ -41,5 +41,13 @@ public class SkillsOnOff : MonoBehaviour
             toolBag.GetComponent<PlayerController>().isCharacterSkillEnabled = true;
             switchVCam.gunSkill.enabled = true;
         }
+
+        if (buildIndex == 5)
+        {
+            weaver.GetComponent<BiteDestroy>().enabled = true;
+            weaver.GetComponent<PlayerController>().isCharacterSkillEnabled = true;
+            toolBag.GetComponent<PlayerController>().isCharacterSkillEnabled = true;
+            switchVCam.gunSkill.enabled = true;
+        }
     }
 }
