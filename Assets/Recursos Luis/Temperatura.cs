@@ -14,6 +14,9 @@ public class Temperatura : MonoBehaviour
 
     [SerializeField] GameObject pressG;
 
+    public AudioSource botonSonido;
+    public AudioSource hornoPuerta;
+
     private void Update()
     {
 
@@ -24,6 +27,7 @@ public class Temperatura : MonoBehaviour
         if(TemperatureOnPoint >= 2.55 && TemperatureOnPoint <= 2.70)
         {
             openGate.SetBool("AbrirHorno", true);
+            hornoPuerta.Play();
             hornoLlamas.SetBool("LlamasBajas", true);
             pressG.SetActive(false);
         }
@@ -53,6 +57,7 @@ public class Temperatura : MonoBehaviour
             if (Input.GetKey(KeyCode.G) && TemperatureOnPoint <= 3)
             {
                 Calculo();
+                botonSonido.Play();
             }
         }
 

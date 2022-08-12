@@ -16,6 +16,8 @@ public class LeverRotate : MonoBehaviour
 
     private int numberShown;
 
+    public AudioSource palancaSonido;
+
     private void Start()
     {
         coroutineAllowed = true;
@@ -73,6 +75,7 @@ public class LeverRotate : MonoBehaviour
         }
 
         var Rotation = new Vector3(20 * numberShown, 0f, 0f);
+        palancaSonido.Play();
         transform.DORotate(Rotation, .3f);
 
         colors[numberShown].SetActive(true);

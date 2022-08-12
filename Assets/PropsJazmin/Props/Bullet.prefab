@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 943214319144423550}
   - component: {fileID: 1052317153164586167}
   - component: {fileID: 5948790703492851913}
-  - component: {fileID: 8030188305398693912}
+  - component: {fileID: 2559076374631360457}
   - component: {fileID: 6290380079604237892}
   - component: {fileID: 4663129297841165056}
   - component: {fileID: 1652335734093505559}
@@ -102,7 +102,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!135 &8030188305398693912
+--- !u!135 &2559076374631360457
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

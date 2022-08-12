@@ -41,7 +41,5 @@ public class SkillsOnOff : MonoBehaviour
             toolBag.GetComponent<PlayerController>().isCharacterSkillEnabled = true;
             switchVCam.gunSkill.enabled = true;
         }
-
-       
     }
 }
