@@ -15,6 +15,8 @@ public class RecogerLlave : MonoBehaviour
 
     [SerializeField] ColocarLlave colocarLlave;
 
+    public AudioSource recogerLlave;
+
     private void OnTriggerExit(Collider other)
     {
         var playercontroller = other.gameObject.GetComponent<PlayerController>();
@@ -40,6 +42,7 @@ public class RecogerLlave : MonoBehaviour
                     playercontroller.ConsumeKey(id);
                     playercontroller.Addkey(id);
                     key.gameObject.SetActive(false);
+                    recogerLlave.Play();
                     colocarLlave.hasKey = false;
                     imgPlayerHUD.gameObject.SetActive(true);
                 }

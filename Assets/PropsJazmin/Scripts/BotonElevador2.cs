@@ -19,6 +19,8 @@ public class BotonElevador2 : MonoBehaviour
     [SerializeField] int nextLevelIndex; //Es el indice en el build settings
     [SerializeField] int savedLevelIndex;
 
+    public AudioSource subennivel;
+
     public void OnTriggerStay(Collider other)
     {
         pressG.SetActive(true);
@@ -39,6 +41,7 @@ public class BotonElevador2 : MonoBehaviour
 
     public IEnumerator Scene()
     {
+        subennivel.Play();
         anim.SetBool("Fade", true);
         yield return new WaitUntil(() => black.color.a == 1);
         //yield return new WaitForSeconds(2f);

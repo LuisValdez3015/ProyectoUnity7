@@ -15,6 +15,10 @@ public class BotonElevador1 : MonoBehaviour
 
     [SerializeField] BoxCollider boxColliderBoton;
 
+    public AudioSource elevadorSonido;
+    public AudioSource botonSonidoElevador;
+    public AudioSource bibliotecaAbre;
+
     //public GameObject characterSwap;
 
     public void OnTriggerStay(Collider other)
@@ -23,9 +27,12 @@ public class BotonElevador1 : MonoBehaviour
         if (Input.GetKey(KeyCode.G))
         {
             botonClick.SetBool("Click", true);
+            botonSonidoElevador.Play();
             verde1.SetActive(true);
             puertaCerrar.SetBool("Cerrar", true);
+            elevadorSonido.Play();
             puertaAbrir.SetBool("Abrir", true);
+            bibliotecaAbre.Play();
             pressG.SetActive(false);
             boxColliderBoton.enabled = false;
 

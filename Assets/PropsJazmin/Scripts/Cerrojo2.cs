@@ -24,6 +24,9 @@ public class Cerrojo2 : MonoBehaviour
 
     [SerializeField] GameObject cerrojoDesactivarlo;
 
+    public AudioSource algoFaltante;
+    public AudioSource entraLlave;
+
     public void OpenDoor()
     {
         anim.SetTrigger("Idle");
@@ -45,6 +48,7 @@ public class Cerrojo2 : MonoBehaviour
                 imgNeedKey.gameObject.SetActive(false);
                 if (Input.GetKey(KeyCode.G))
                 {
+                    entraLlave.Play();
                     pressG.gameObject.SetActive(false);
                     playercontroller.ConsumeKey(id);
                     imgPlayerHUD.gameObject.SetActive(false);
@@ -60,6 +64,11 @@ public class Cerrojo2 : MonoBehaviour
         var playercontroller = other.gameObject.GetComponent<PlayerController>();
         if (playercontroller == null)
             return;
+
+        if (!playercontroller.HasKey(id))
+        {
+            algoFaltante.Play();
+        }
 
         imgNeedKey.gameObject.SetActive(true);
     }

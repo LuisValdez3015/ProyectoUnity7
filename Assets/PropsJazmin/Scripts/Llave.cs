@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Llave : MonoBehaviour
 {
     [SerializeField] GameObject imgPlayer;
+    public AudioSource tomaLlaveHorno;
 
     public int id;
 
@@ -16,6 +17,7 @@ public class Llave : MonoBehaviour
         if (playercontroller == null)
             return;
         playercontroller.Addkey(id);
+        tomaLlaveHorno.Play();
         imgPlayer.gameObject.SetActive(true);
         Destroy(this.gameObject);
     }

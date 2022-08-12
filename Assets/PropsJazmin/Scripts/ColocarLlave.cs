@@ -20,6 +20,9 @@ public class ColocarLlave : MonoBehaviour
     [SerializeField] private BoxCollider boxColliderRecogerLlave;
     [SerializeField] private BoxCollider boxColliderColocarLlave;
 
+    public AudioSource colocarLlave;
+    public AudioSource algoFaltante;
+    
     public bool hasKey;
 
     private void OnTriggerExit(Collider other)
@@ -50,6 +53,7 @@ public class ColocarLlave : MonoBehaviour
                     StartCoroutine(ActivarBoxCollider());
                     playercontroller.ConsumeKey(id);
                     key.gameObject.SetActive(true);
+                    colocarLlave.Play();
                     hasKey = true;
                     pressG.gameObject.SetActive(false);
                     imgPlayerHUD.gameObject.SetActive(false);
@@ -71,6 +75,18 @@ public class ColocarLlave : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         boxColliderRecogerLlave.enabled = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var playercontroller = other.gameObject.GetComponent<PlayerController>();
+        if (playercontroller == null)
+            return;
+        if (!playercontroller.HasKey(id))
+        {
+            algoFaltante.Play();
+        }
+
     }
 
 }
