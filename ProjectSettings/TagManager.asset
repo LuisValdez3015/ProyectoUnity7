@@ -15,6 +15,7 @@ TagManager:
   - Boton1
   - Boton2
   - Spawneable
+  - Enimigo
   layers:
   - Default
   - TransparentFX
