@@ -7,22 +7,19 @@ public class EnimigosFire : MonoBehaviour
     [SerializeField] GameObject bulletEnimigo;
     [SerializeField] Transform bulletOrigin;
     [SerializeField] GameObject target;
+    [SerializeField] Transform target2;
 
     [SerializeField] Animator anim;
 
+    [SerializeField] float timeBetweenShoots;
+    float timeOfLastShoot;
+
     public float range = 5f;
-
-    float fireRate;
-    float nextFire;
-
-    private void Start()
-    {
-        fireRate = 3f;
-        nextFire = Time.time;
-    }
 
     private void Update()
     {
+        transform.LookAt(target2);
+
         float distance = Vector3.Distance(transform.position, target.transform.position);
 
         if (distance < range)
@@ -38,10 +35,10 @@ public class EnimigosFire : MonoBehaviour
 
     void CheckTimeToFire()
     {
-        if (Time.time > nextFire)
+        if(Time.time > timeOfLastShoot + timeBetweenShoots)
         {
             Instantiate(bulletEnimigo, bulletOrigin.position, Quaternion.identity);
-            nextFire = Time.time + fireRate;
+            timeOfLastShoot = Time.time;
         }
     }
 
