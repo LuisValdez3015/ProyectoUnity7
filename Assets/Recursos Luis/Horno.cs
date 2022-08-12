@@ -6,7 +6,7 @@ public class Horno : MonoBehaviour
 {
     [SerializeField] public int TemperatureOnPoint = 0;
     [SerializeField] GameObject barra;
-    public bool Completado;
+    //public bool Completado;
     
     // Start is called before the first frame update
     void Start()

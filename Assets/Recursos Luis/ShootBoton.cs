@@ -8,13 +8,13 @@ public class ShootBoton : MonoBehaviour
 
     [SerializeField] private GameObject destroyParticles = default;
 
-    Animator boton;
+    [SerializeField] Animator boton;
 
-    public bool IsShootable => isShootable;
+    public bool IsShootBoton => isShootable;
 
-    public void HitTarget(float amount)
+    public void HitBoton(float amount)
     {
-        boton.SetBool("puerta", true);
-
+        boton.SetBool("Puerta1", true);
+        Destroy(this.gameObject);
     }
 }
