@@ -2745,12 +2745,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &775987520 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1302252745, guid: 03674e1ed21b1504ebf494fb234957dd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1914232564}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &794907934
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,8 +4108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dba785df1f33a24595dfa8761350154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutes: 1
-  seconds: 0
+  minutes: 0
+  seconds: 5
   timerText: {fileID: 114055182}
 --- !u!1 &1141429166
 GameObject:
@@ -5871,7 +5865,7 @@ GameObject:
   - component: {fileID: 1542859180}
   - component: {fileID: 1542859179}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CunetaRegresiva
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6083,12 +6077,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689377719}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1716187904 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1158797549, guid: 8393b5725487e4d469db87e49301f58f,
-    type: 3}
-  m_PrefabInstance: {fileID: 3700013974749227549}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1720100328
 GameObject:
   m_ObjectHideFlags: 0
@@ -6798,7 +6786,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-28932
+  m_Name: pb_Mesh-91742
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7063,7 +7051,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-28944
+  m_Name: pb_Mesh-91754
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7323,18 +7311,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1302252747, guid: 03674e1ed21b1504ebf494fb234957dd, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1302252747, guid: 03674e1ed21b1504ebf494fb234957dd, type: 3}
-      propertyPath: MaxDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1302252747, guid: 03674e1ed21b1504ebf494fb234957dd, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 245883793761619873, guid: 03674e1ed21b1504ebf494fb234957dd,
         type: 3}
       propertyPath: m_Name
@@ -7400,11 +7376,6 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1403790702}
-    - target: {fileID: 1128406587516580596, guid: 03674e1ed21b1504ebf494fb234957dd,
-        type: 3}
-      propertyPath: footstep
-      value: 
-      objectReference: {fileID: 775987520}
     - target: {fileID: 1128406587516580599, guid: 03674e1ed21b1504ebf494fb234957dd,
         type: 3}
       propertyPath: fren
@@ -7413,11 +7384,6 @@ PrefabInstance:
     - target: {fileID: 1128406587516580599, guid: 03674e1ed21b1504ebf494fb234957dd,
         type: 3}
       propertyPath: characterMusic
-      value: 
-      objectReference: {fileID: 2032558907}
-    - target: {fileID: 1128406587516580599, guid: 03674e1ed21b1504ebf494fb234957dd,
-        type: 3}
-      propertyPath: characterBgMusic
       value: 
       objectReference: {fileID: 2032558907}
     - target: {fileID: 1128406587516580599, guid: 03674e1ed21b1504ebf494fb234957dd,
@@ -7440,16 +7406,6 @@ PrefabInstance:
       propertyPath: pullCamera
       value: 
       objectReference: {fileID: 1403790705}
-    - target: {fileID: 3633547766913433357, guid: 03674e1ed21b1504ebf494fb234957dd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4951170663195425136, guid: 03674e1ed21b1504ebf494fb234957dd,
-        type: 3}
-      propertyPath: MaxDistance
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03674e1ed21b1504ebf494fb234957dd, type: 3}
 --- !u!4 &1914232565 stripped
@@ -8182,6 +8138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 10
+  cojinbota: {fileID: 0}
 --- !u!54 &2109810384
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8721,23 +8678,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1158797551, guid: 8393b5725487e4d469db87e49301f58f, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1158797551, guid: 8393b5725487e4d469db87e49301f58f, type: 3}
-      propertyPath: MaxDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1158797551, guid: 8393b5725487e4d469db87e49301f58f, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1062490154753112215, guid: 8393b5725487e4d469db87e49301f58f,
-        type: 3}
-      propertyPath: MaxDistance
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3700013974179292568, guid: 8393b5725487e4d469db87e49301f58f,
         type: 3}
       propertyPath: fren
@@ -8746,11 +8686,6 @@ PrefabInstance:
     - target: {fileID: 3700013974179292568, guid: 8393b5725487e4d469db87e49301f58f,
         type: 3}
       propertyPath: characterMusic
-      value: 
-      objectReference: {fileID: 1343077871}
-    - target: {fileID: 3700013974179292568, guid: 8393b5725487e4d469db87e49301f58f,
-        type: 3}
-      propertyPath: characterBgMusic
       value: 
       objectReference: {fileID: 1343077871}
     - target: {fileID: 3700013974179292568, guid: 8393b5725487e4d469db87e49301f58f,
@@ -8768,11 +8703,6 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1403790702}
-    - target: {fileID: 3700013974179292571, guid: 8393b5725487e4d469db87e49301f58f,
-        type: 3}
-      propertyPath: footstep
-      value: 
-      objectReference: {fileID: 1716187904}
     - target: {fileID: 3806577864716665460, guid: 8393b5725487e4d469db87e49301f58f,
         type: 3}
       propertyPath: m_RootOrder
@@ -8867,11 +8797,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Toolbag
-      objectReference: {fileID: 0}
-    - target: {fileID: 4652779453315685305, guid: 8393b5725487e4d469db87e49301f58f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8393b5725487e4d469db87e49301f58f, type: 3}

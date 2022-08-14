@@ -30,6 +30,7 @@ public class GameControl : MonoBehaviour
     public void endGame()
     {
         timer.stopTimer();
+        SceneManager.LoadScene("BadEnding");
         //player.SetActive(false);
         //characterSwap.Swap();
         //canvasObject.SetActive(true);
