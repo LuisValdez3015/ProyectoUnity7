@@ -22,6 +22,8 @@ public class EventoDeTriggers : MonoBehaviour
 
     private bool RequiredTriggers()
     {
+        if (triggerNeeded.Length == 0) return false;
+
         for (int i = 0; i < triggerNeeded.Length; i++)
         {
             if (!triggerNeeded[i].WasTriggered)

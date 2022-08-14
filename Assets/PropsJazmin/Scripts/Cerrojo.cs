@@ -15,6 +15,9 @@ public class Cerrojo : MonoBehaviour
     [SerializeField] Image imgNeedKey;
 
     [SerializeField] GameObject cerrojoDesactivarlo;
+    public AudioSource algoFaltante;
+    public AudioSource seAbrePuerta;
+    public AudioSource entraLlave;
 
     bool isDooropen;
     public Animator anim;
@@ -23,6 +26,7 @@ public class Cerrojo : MonoBehaviour
     public void OpenDoor()
     {
         anim.SetBool("Abrir", true);
+        seAbrePuerta.Play();
     }
 
     private void OnTriggerStay(Collider other)
@@ -38,14 +42,16 @@ public class Cerrojo : MonoBehaviour
             {
                 pressG.gameObject.SetActive(true);
                 imgNeedKey.gameObject.SetActive(false);
-                if (Input.GetKey(KeyCode.G))
+                if (Input.GetKeyDown(KeyCode.G))
                 {
+                    entraLlave.Play();
                     pressG.gameObject.SetActive(false);
                     playercontroller.ConsumeKey(id);
                     imgPlayerHUD.gameObject.SetActive(false);
                     OpenDoor();
                     isDooropen = true;
                     cerrojoDesactivarlo.SetActive(false);
+
                 }
             }
         }
@@ -58,6 +64,10 @@ public class Cerrojo : MonoBehaviour
             return;
 
         imgNeedKey.gameObject.SetActive(true);
+        if (!playercontroller.HasKey(id))
+        {
+            algoFaltante.Play();
+        }
     }
 
     private void OnTriggerExit(Collider other)

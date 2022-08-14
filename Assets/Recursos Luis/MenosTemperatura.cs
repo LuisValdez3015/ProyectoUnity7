@@ -8,6 +8,8 @@ public class MenosTemperatura : MonoBehaviour
 
     [SerializeField] GameObject pressG;
 
+    public AudioSource botonSonido;
+
     private void OnTriggerStay(Collider other)
     {
        
@@ -24,6 +26,7 @@ public class MenosTemperatura : MonoBehaviour
             {
                 temperatura.TemperatureOnPoint = (float)(temperatura.TemperatureOnPoint - 0.1);
                 pressG.SetActive(false);
+                botonSonido.Play();
             }
         }
 
