@@ -54,6 +54,8 @@ public class PlayerController : MonoBehaviour
 
     public bool isCharacterSkillEnabled;
 
+    public AudioSource characterMusic;
+
     private void Awake()
     {
         playerSkill = GetComponentInChildren<PlayerSkill>();
