@@ -15,6 +15,7 @@ public class CharacterSwap : MonoBehaviour
 
     [SerializeField] private AudioSource characterBgMusic;
 
+    private PlayerMovimiento playerMovimiento;
     /*[SerializeField] float fadeOut = 5f;*/ //Cosas nuevas
     /*[SerializeField] float fadeIn = 5f;*/ //Cosas nuevas
 
@@ -84,8 +85,9 @@ public class CharacterSwap : MonoBehaviour
         camAim.LookAt = lookAt;
         camAim.Follow = lookAt;
 
-        characterBgMusic = character.GetComponentInChildren<AudioSource>(characterBgMusic); //Cosas nuevas
+        characterBgMusic = character.GetComponent<PlayerController>().characterMusic; //Cosas nuevas
         characterBgMusic.DOFade(1.0f, 2.5f); //Cosas Nuevas
+        //character.GetComponent<PlayerMovimiento>().StopFootsteps();
 
         camAim.GetComponent<SwitchVCam>().SetCurrentPlayer(character.GetComponent<PlayerController>());
     }

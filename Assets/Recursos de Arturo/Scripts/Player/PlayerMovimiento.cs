@@ -86,11 +86,11 @@ public class PlayerMovimiento : MonoBehaviour
     private void Start()
     {
         cameraTransform = Camera.main.transform;
-        footstep.SetActive(false);
+        StopFootsteps();
     }
 
     private void Update()
-    {
+    {        
         groundedPlayer = CheckGround();
         DoGravity();
         controller.Move(playerVelocity * Time.deltaTime);
@@ -99,12 +99,15 @@ public class PlayerMovimiento : MonoBehaviour
         {
             animator.SetTrigger("Jump");
             animator.ResetTrigger("GroundedJump");
+            StopFootsteps();
         }
 
         if (!groundedPlayer && playerVelocity.y > 0)
         {
             StopFootsteps();
         }
+
+
 
         if (!groundedPlayer && playerVelocity.y < 0)
         {
@@ -191,7 +194,7 @@ public class PlayerMovimiento : MonoBehaviour
         if (direction.magnitude >= 0.1f)
         {
             animator.SetBool("IsWalking", true);
-            Footsteps();
+            
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -200,6 +203,8 @@ public class PlayerMovimiento : MonoBehaviour
 
             var currentSpeed = playerController.PlayerSkill.IsBeingUse ? playerSpeedWhenUsingSkill : playerSpeed;
             controller.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
+
+            Footsteps();
             //animator.SetBool("IsWalking", false);
 
             //animator.SetBool("IsMouthFull", true);
@@ -234,6 +239,7 @@ public class PlayerMovimiento : MonoBehaviour
         if (!groundedPlayer) return;
         var currentJump = playerController.PlayerSkill.IsBeingUse ? playerJumpWhenUsingSkill : jumpHeight;
         playerVelocity.y = Mathf.Sqrt(currentJump * -3f * (gravity * gravityScale));
+        StopFootsteps();
     }
 
     public bool CheckGround()
