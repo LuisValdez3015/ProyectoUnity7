@@ -9,6 +9,9 @@ public class FinalLvl2 : MonoBehaviour
     [SerializeField] int nextLevelIndex; //Es el indice en el build settings
     [SerializeField] int savedLevelIndex;
 
+    [SerializeField] GameObject noReturn1;
+    [SerializeField] GameObject noReturn2;
+
     public Image black;
     public Animator anim;
 
@@ -21,19 +24,20 @@ public class FinalLvl2 : MonoBehaviour
     {
         if(other.gameObject.name == "Toolbag")
         {
+            characterSwap.GetComponent<CharacterSwap>().Swap();
             toolbag = true;
-            Debug.Log("Tool");
+            noReturn1.SetActive(true);
         }
         if(other.gameObject.name == "Weaver")
         {
+            characterSwap.GetComponent<CharacterSwap>().Swap();
             weaver = true;
-            Debug.Log("wea");
+            noReturn2.SetActive(true);
         }
 
         if(toolbag == true && weaver == true)
         {
             StartCoroutine(Scene3());
-            Debug.Log("Hola?");
         }
     }
 

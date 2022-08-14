@@ -45,6 +45,10 @@ public class NewBullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if(other)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 
