@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NewCheckpoint : MonoBehaviour
 {
+    [SerializeField] GameObject luciernagas;
 
     private PlayerController playerController;
 
@@ -11,11 +12,10 @@ public class NewCheckpoint : MonoBehaviour
     {
         PlayerController player = other.GetComponent<PlayerController>();
 
-        Debug.Log("checkpoint trigger with " + other.gameObject.name, other.gameObject);
-
         if (other.CompareTag("Player"))
         {
             player.SetNewSpawnPoint(transform.position);
+            luciernagas.SetActive(true);
         }        
 
         //PlayerController player = other.GetComponent<PlayerController>();
