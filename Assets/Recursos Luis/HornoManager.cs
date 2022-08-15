@@ -7,13 +7,7 @@ public class HornoManager : MonoBehaviour
     [SerializeField] Horno horno1;
     [SerializeField] Horno horno2;
     [SerializeField] Horno horno3;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
 
