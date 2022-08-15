@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BadEnding.unity
     guid: cf8ec6d0164110749a78b42e5d197d9c
+  - enabled: 1
+    path: Assets/Scenes/Lvl2Cutscenes.unity
+    guid: 9c35e7bc042682e41b65a5b77c084a9a
   m_configObjects: {}

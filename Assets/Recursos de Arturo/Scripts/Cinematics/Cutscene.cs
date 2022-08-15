@@ -17,6 +17,6 @@ public class Cutscene : MonoBehaviour
 
     void CheckOver(VideoPlayer vp)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Lvl1");
     }
 }

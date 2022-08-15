@@ -45,7 +45,7 @@ public class BotonElevador2 : MonoBehaviour
         anim.SetBool("Fade", true);
         yield return new WaitUntil(() => black.color.a == 1);
         //yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(nextLevelIndex);
+        SceneManager.LoadScene("Lvl2Cutscenes");
 
         RewriteData rewriteData = FindObjectOfType<RewriteData>();
 
