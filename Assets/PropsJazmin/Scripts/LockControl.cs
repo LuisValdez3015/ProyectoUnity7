@@ -8,6 +8,8 @@ public class LockControl : MonoBehaviour
 
     [SerializeField] GameObject door;
 
+    public AudioSource abrirPuerta;
+
 
     private void Start()
     {
@@ -36,6 +38,7 @@ public class LockControl : MonoBehaviour
         if (result[0] == correctCombination[0] && result[1] == correctCombination[1] && result[2] == correctCombination[2])
         {
             door.transform.Rotate(new Vector3(0, 90, 0));
+            abrirPuerta.Play();
         }
     }
 
