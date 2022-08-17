@@ -33,6 +33,7 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
+
                 Pause();
             }
         }
@@ -46,6 +47,13 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = Cursor.visible = false;
         cinemachineBrain.enabled = true;
         virtualCamera.SetActive(true);
+
+        AudioSource[] audios = FindObjectsOfType<AudioSource>();
+
+        foreach (AudioSource a in audios)
+        {
+            a.UnPause();
+        }
     }
 
     public void Pause()
@@ -56,7 +64,29 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = Cursor.visible = true;
         cinemachineBrain.enabled = false;
         virtualCamera.SetActive(false);
+
+
+        //AudioSource[] audios = FindObjectsOfType<AudioSource>();
+
+        //foreach (AudioSource a in audios)
+        //{
+        //    a.Pause();
+        //}
+        PosponerSonidoPausa();
+    }
+
+    IEnumerator PosponerSonidoPausa()
+    {
         pauseAudio.Play();
+
+        yield return new WaitForSeconds(2f);
+
+        AudioSource[] audios = FindObjectsOfType<AudioSource>();
+
+        foreach (AudioSource a in audios)
+        {
+            a.Pause();
+        }
     }
 
     public void LoadMenu()

@@ -44,7 +44,7 @@ public class CharacterSwap : MonoBehaviour
             character = possibleCharacters[0];
         }
         Swap();
-        characterBgMusic.DOFade(.65f, 2.5f); //Cosas nuevas
+        characterBgMusic.DOFade(.30f, 2.5f); //Cosas nuevas
     }
 
     void Update()
@@ -86,7 +86,7 @@ public class CharacterSwap : MonoBehaviour
         camAim.Follow = lookAt;
 
         characterBgMusic = character.GetComponent<PlayerController>().characterMusic; //Cosas nuevas
-        characterBgMusic.DOFade(.65f, 2.5f); //Cosas Nuevas
+        characterBgMusic.DOFade(.30f, 2.5f); //Cosas Nuevas
         //character.GetComponent<PlayerMovimiento>().StopFootsteps();
 
         camAim.GetComponent<SwitchVCam>().SetCurrentPlayer(character.GetComponent<PlayerController>());

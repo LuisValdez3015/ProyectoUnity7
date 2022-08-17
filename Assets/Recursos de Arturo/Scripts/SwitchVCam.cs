@@ -37,7 +37,7 @@ public class SwitchVCam : MonoBehaviour
 
     //int aimAnimation;
 
-    private PlayerMovimiento playerMovimiento;
+    public PlayerMovimiento playerMovimiento;
 
     private void Start()
     {
@@ -75,7 +75,7 @@ public class SwitchVCam : MonoBehaviour
                 currentPlayer.transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
                 currentPlayer.CharacterRig.weight = .5f;
                 currentPlayer.GetComponent<PlayerController>().enabled = false;
-                //currentPlayer.GetComponent<PlayerMovimiento>().StopFootsteps();
+                currentPlayer.GetComponent<PlayerMovimiento>().StopFootsteps();
                 //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
                 //aimRig.weight = 0.5f;
 
@@ -102,6 +102,14 @@ public class SwitchVCam : MonoBehaviour
             aimCanvas.SetActive(boosted);
             currentPlayer.CharacterAimCanvas.gameObject.SetActive(boosted);
         }                 
+    }
+
+    public void LateUpdate()
+    {
+        if (currentPlayer.Animator.GetBool("IsAiming"))
+        {
+            playerMovimiento.StopFootsteps();
+        }
     }
 
     public void SetCurrentPlayer(PlayerController player)
