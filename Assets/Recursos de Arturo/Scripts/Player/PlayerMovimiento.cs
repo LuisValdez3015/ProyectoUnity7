@@ -76,6 +76,8 @@ public class PlayerMovimiento : MonoBehaviour
 
     public GameObject footstep;
 
+    private int jumpRayCount;
+
     //[SerializeField] private float rotationSpeed = 5f;
 
     private void Awake()
@@ -86,7 +88,7 @@ public class PlayerMovimiento : MonoBehaviour
     private void Start()
     {
         cameraTransform = Camera.main.transform;
-        StopFootsteps();
+        //StopFootsteps();
     }
 
     private void Update()
@@ -99,13 +101,13 @@ public class PlayerMovimiento : MonoBehaviour
         {
             animator.SetTrigger("Jump");
             animator.ResetTrigger("GroundedJump");
-            StopFootsteps();
+            //StopFootsteps();
         }
 
-        if (!groundedPlayer && playerVelocity.y > 0)
-        {
-            StopFootsteps();
-        }
+        //if (!groundedPlayer && playerVelocity.y > 0)
+        //{
+        //    StopFootsteps();
+        //}
 
 
 
@@ -113,7 +115,7 @@ public class PlayerMovimiento : MonoBehaviour
         {
             animator.SetFloat("YVelocity", playerVelocity.y);
             RaycastHit hit;
-            StopFootsteps();
+            //StopFootsteps();
 
             Debug.DrawRay(raycastJumpOriginCenter.transform.position, Vector3.down * groundDistance, Color.magenta);
 
@@ -135,58 +137,68 @@ public class PlayerMovimiento : MonoBehaviour
 
             if (Physics.Raycast(raycastJumpOriginCenter.transform.position, Vector3.down, out hit, groundDistance))
             {
-                animator.SetTrigger("GroundedJump");
-                animator.ResetTrigger("Jump");
+                jumpRayCount++;
             }
 
             if (Physics.Raycast(raycastJumpOriginFront.transform.position, Vector3.down, out hit, groundDistance))
             {
-                animator.SetTrigger("GroundedJump");
-                animator.ResetTrigger("Jump");
+                jumpRayCount++;
             }
 
             if (Physics.Raycast(raycastJumpOriginBack.transform.position, Vector3.down, out hit, groundDistance))
             {
-                animator.SetTrigger("GroundedJump");
-                animator.ResetTrigger("Jump");
+                jumpRayCount++;
             }
 
             if (Physics.Raycast(raycastJumpOriginLeft.transform.position, Vector3.down, out hit, groundDistance))
             {
-                animator.SetTrigger("GroundedJump");
-                animator.ResetTrigger("Jump");
+                jumpRayCount++;
             }
 
             if (Physics.Raycast(raycastJumpOriginRight.transform.position, Vector3.down, out hit, groundDistance))
             {
-                animator.SetTrigger("GroundedJump");
-                animator.ResetTrigger("Jump");
+                jumpRayCount++;
             }
 
             if (Physics.Raycast(raycastJumpOriginFrontLeft.transform.position, Vector3.down, out hit, groundDistance))
             {
-                animator.SetTrigger("GroundedJump");
-                animator.ResetTrigger("Jump");
+                jumpRayCount++;
             }
 
             if (Physics.Raycast(raycastJumpOriginFrontRight.transform.position, Vector3.down, out hit, groundDistance))
             {
-                animator.SetTrigger("GroundedJump");
-                animator.ResetTrigger("Jump");
+                jumpRayCount++;
             }
 
             if (Physics.Raycast(raycastJumpOriginBackLeft.transform.position, Vector3.down, out hit, groundDistance))
             {
-                animator.SetTrigger("GroundedJump");
-                animator.ResetTrigger("Jump");
+                jumpRayCount++;
             }
 
             if (Physics.Raycast(raycastJumpOriginBackRight.transform.position, Vector3.down, out hit, groundDistance))
+            {
+                jumpRayCount++;
+            }
+
+            if (jumpRayCount > 0)
             {
                 animator.SetTrigger("GroundedJump");
                 animator.ResetTrigger("Jump");
             }
         }
+    }
+
+    public void LateUpdate()
+    {
+        if (animator.GetBool("IsWalking") && groundedPlayer)
+        {
+            Footsteps();
+        }
+        else
+        {
+            StopFootsteps();
+        }
+        
     }
 
     public void Move(Vector3 direction)
@@ -204,7 +216,7 @@ public class PlayerMovimiento : MonoBehaviour
             var currentSpeed = playerController.PlayerSkill.IsBeingUse ? playerSpeedWhenUsingSkill : playerSpeed;
             controller.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
 
-            Footsteps();
+            //Footsteps();
             //animator.SetBool("IsWalking", false);
 
             //animator.SetBool("IsMouthFull", true);
@@ -213,7 +225,7 @@ public class PlayerMovimiento : MonoBehaviour
         else
         {
             animator.SetBool("IsWalking", false);
-            StopFootsteps();
+            //StopFootsteps();
         }
         
     }
@@ -225,7 +237,6 @@ public class PlayerMovimiento : MonoBehaviour
 
     public void DoGravity()
     {
-
         if (controller.isGrounded && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
@@ -239,7 +250,7 @@ public class PlayerMovimiento : MonoBehaviour
         if (!groundedPlayer) return;
         var currentJump = playerController.PlayerSkill.IsBeingUse ? playerJumpWhenUsingSkill : jumpHeight;
         playerVelocity.y = Mathf.Sqrt(currentJump * -3f * (gravity * gravityScale));
-        StopFootsteps();
+        //StopFootsteps();
     }
 
     public bool CheckGround()

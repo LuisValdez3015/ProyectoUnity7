@@ -14,6 +14,10 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject virtualCamera;
 
+    public AudioSource pauseAudio;
+
+    //public AudioSource resumeAudio;
+
     public void Start()
     {
         Cursor.visible = Cursor.visible = false;
@@ -52,6 +56,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = Cursor.visible = true;
         cinemachineBrain.enabled = false;
         virtualCamera.SetActive(false);
+        pauseAudio.Play();
     }
 
     public void LoadMenu()
