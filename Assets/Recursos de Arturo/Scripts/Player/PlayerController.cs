@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
         float alpha = 0;
 
         GetComponent<CharacterController>().enabled = false;
-        playerMovimiento.StopFootsteps();
+        //playerMovimiento.StopFootsteps();
         LoseControl();
         Animator.SetTrigger("DeathAnim");
 

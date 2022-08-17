@@ -2224,8 +2224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56691227d7c1504982fbd64faa6e194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1874152753}
   characterSwap: {fileID: 1112328136}
+  gameControl: {fileID: 1112328140}
 --- !u!1 &669056337
 GameObject:
   m_ObjectHideFlags: 0
@@ -4096,6 +4096,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c492ecdaef4b6418d88584d2bc7b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toolbag: {fileID: 1874152753}
+  weaver: {fileID: 403736243}
 --- !u!114 &1112328141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4108,8 +4110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dba785df1f33a24595dfa8761350154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutes: 0
-  seconds: 5
+  minutes: 2
+  seconds: 0
   timerText: {fileID: 114055182}
 --- !u!1 &1141429166
 GameObject:
@@ -5525,6 +5527,12 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 2101809243}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1409973729 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5991308540371232512, guid: 72cd4a93ddb8fe94b896d1d9d8cc578c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3450094985298206214}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1423947570
 GameObject:
   m_ObjectHideFlags: 0
@@ -5776,6 +5784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ada13372209a34186f80005799648a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  luciernagas: {fileID: 0}
 --- !u!65 &1535551094
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6424,6 +6433,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765738261}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1767732249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 719161949750693136, guid: 003d9bba6ba13a14ab58470af4a3c1b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 719161949822595291}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1787471327
 GameObject:
   m_ObjectHideFlags: 0
@@ -6786,7 +6801,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-91742
+  m_Name: pb_Mesh-63072
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7051,7 +7066,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-91754
+  m_Name: pb_Mesh-63084
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8346,6 +8361,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1334491050, guid: 003d9bba6ba13a14ab58470af4a3c1b3, type: 3}
+      propertyPath: luciernagas
+      value: 
+      objectReference: {fileID: 1767732249}
     - target: {fileID: 719161949750693136, guid: 003d9bba6ba13a14ab58470af4a3c1b3,
         type: 3}
       propertyPath: m_Name
@@ -8661,6 +8680,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450094986439948470, guid: 72cd4a93ddb8fe94b896d1d9d8cc578c,
         type: 3}
+      propertyPath: pauseAudio
+      value: 
+      objectReference: {fileID: 1409973729}
+    - target: {fileID: 3450094986439948470, guid: 72cd4a93ddb8fe94b896d1d9d8cc578c,
+        type: 3}
+      propertyPath: resumeAudio
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450094986439948470, guid: 72cd4a93ddb8fe94b896d1d9d8cc578c,
+        type: 3}
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 1643532088}
@@ -8943,11 +8972,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6403208291699512022, guid: cd4b34f4c1ff17749a979a9e5f4c8bf1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6403208291699512023, guid: cd4b34f4c1ff17749a979a9e5f4c8bf1,
         type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 041e334a58cb6924293c19ca0601a584, type: 3}
+    - target: {fileID: 6403208292356459521, guid: cd4b34f4c1ff17749a979a9e5f4c8bf1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6403208292903273083, guid: cd4b34f4c1ff17749a979a9e5f4c8bf1,
         type: 3}
       propertyPath: m_Name

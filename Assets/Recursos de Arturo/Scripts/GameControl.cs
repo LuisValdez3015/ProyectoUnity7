@@ -14,6 +14,10 @@ public class GameControl : MonoBehaviour
     //public GameObject canvasObject;
     //public GameObject contador;
 
+    [SerializeField] GameObject toolbag;
+
+    [SerializeField] GameObject weaver;
+
     void Start()
     {
         //characterSwap = GetComponent<CharacterSwap>();
@@ -30,7 +34,24 @@ public class GameControl : MonoBehaviour
     public void endGame()
     {
         timer.stopTimer();
-        SceneManager.LoadScene("BadEnding");
+
+
+        if (toolbag.activeInHierarchy && weaver.activeInHierarchy)
+        {
+            SceneManager.LoadScene("BadEnding");
+        }
+        else if (!toolbag.activeInHierarchy && weaver.activeInHierarchy) //Si toolbag salio y weaver no
+        {
+            SceneManager.LoadScene("ToolbagEnding");
+        }
+        else if (toolbag.activeInHierarchy && !weaver.activeInHierarchy) //Si weaver salio y toolbag no
+        {
+            SceneManager.LoadScene("WeaverEnding");
+        }
+        else //Ending bueno
+        {
+            SceneManager.LoadScene("GoodEnding");
+        }
         //player.SetActive(false);
         //characterSwap.Swap();
         //canvasObject.SetActive(true);
