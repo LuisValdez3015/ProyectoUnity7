@@ -45,11 +45,11 @@ public class NewBullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        if(other)
+        if (other.CompareTag("Pared"))
         {
-            Destroy(this.gameObject);
+            Debug.Log("holaaaaa" + other);
+            Destroy(gameObject);
         }
     }
-
 
 }

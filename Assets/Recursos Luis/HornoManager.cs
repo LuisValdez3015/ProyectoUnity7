@@ -7,6 +7,8 @@ public class HornoManager : MonoBehaviour
     [SerializeField] Horno horno1;
     [SerializeField] Horno horno2;
     [SerializeField] Horno horno3;
+    [SerializeField] GameObject luzVerde;
+    [SerializeField] GameObject luzRoja;
 
     void Update()
     {
@@ -16,6 +18,8 @@ public class HornoManager : MonoBehaviour
         {
             Debug.Log("Humo");
             //Animacion De Humo
+            luzRoja.SetActive(true);
+            luzVerde.SetActive(true);
 
         }
         else

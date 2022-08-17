@@ -6,6 +6,7 @@ public class Luces : MonoBehaviour
 {
     [SerializeField] GameObject luces;
     [SerializeField] Animator anim;
+    [SerializeField] GameObject cosoFeo;
 
     public AudioSource puertaCerrando;
 
@@ -16,6 +17,7 @@ public class Luces : MonoBehaviour
             anim.SetBool("Cerraoo", true);
             luces.SetActive(false);
             puertaCerrando.Play();
+            cosoFeo.SetActive(false);
         }
     }
 }
