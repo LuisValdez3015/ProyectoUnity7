@@ -16,6 +16,8 @@ TagManager:
   - Boton2
   - Spawneable
   - Enimigo
+  - Pared
+  - Bullet
   layers:
   - Default
   - TransparentFX
