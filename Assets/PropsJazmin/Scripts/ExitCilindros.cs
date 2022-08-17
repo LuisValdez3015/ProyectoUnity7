@@ -9,6 +9,8 @@ public class ExitCilindros : MonoBehaviour
     bool uno;
     bool dos;
     bool tres;
+    public AudioSource experimento;
+    public AudioSource Toolbag;
 
     private void OnTriggerExit(Collider other)
     {
@@ -30,7 +32,9 @@ public class ExitCilindros : MonoBehaviour
             if (tres)
             {
                 anim.SetBool("Abrir", true);
+                experimento.Play();
                 anim2.SetBool("Abrir", true);
+                Toolbag.Play();
             }
         }
     }

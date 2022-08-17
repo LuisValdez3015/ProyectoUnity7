@@ -11,42 +11,16 @@ public class ObjSpwaner : MonoBehaviour
     [SerializeField] public int id;
     
     int obj;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-
-    }
     private void OnTriggerStay(Collider other)
     {
-        
-
-        
-            
-            
-                pressG.gameObject.SetActive(true);
                 if (Input.GetKey(KeyCode.G))
                 {
                         if (GameObject.FindGameObjectsWithTag("Pullable").Length < 5)
                         {
                              Spawn();
                         }
-                }
-            
-            
-        
-        
-        //if (GameObject.FindGameObjectsWithTag("Spawneable").Length < 10) 
-        //{
-        //    Spawn();
-        //}
-        
+                }        
     }
 
     public void Spawn()
@@ -59,5 +33,15 @@ public class ObjSpwaner : MonoBehaviour
             pts.transform.position = spawnPoint.transform.position;
         }
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        pressG.gameObject.SetActive(true);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        pressG.gameObject.SetActive(false);
     }
 }

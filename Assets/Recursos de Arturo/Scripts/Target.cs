@@ -8,6 +8,8 @@ public class Target : MonoBehaviour
 
     [SerializeField] private GameObject destroyParticles = default;
 
+    public AudioSource abreReja;
+
     public bool IsShootable => isShootable;
 
     public void HitTarget (float amount)
@@ -16,6 +18,7 @@ public class Target : MonoBehaviour
         Destroy(particles, 5f);
 
         Destroy(this.gameObject) ;
+        abreReja.Play();
 
     }
 }

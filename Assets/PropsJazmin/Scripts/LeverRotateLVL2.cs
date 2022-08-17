@@ -16,6 +16,8 @@ public class LeverRotateLVL2 : MonoBehaviour
 
     private int numberShown;
 
+    public AudioSource sonidoSwitch;
+
     private void Start()
     {
         coroutineAllowed = true;
@@ -34,6 +36,7 @@ public class LeverRotateLVL2 : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.G))
         {
+            sonidoSwitch.Play();
             if (coroutineAllowed)
             {
                 RotateLever(1);
