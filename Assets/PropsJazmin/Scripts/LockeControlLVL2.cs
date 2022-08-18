@@ -55,5 +55,7 @@ public class LockeControlLVL2 : MonoBehaviour
         yield return new WaitForSeconds(8f);
         desactivarPared.SetActive(false);
         siguienteLvl.SetActive(true);
+        Destroy(rashoLaser);
+        Destroy(particulasGuais);
     }
 }
