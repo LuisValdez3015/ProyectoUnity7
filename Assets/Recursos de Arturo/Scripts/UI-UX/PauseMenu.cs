@@ -66,28 +66,28 @@ public class PauseMenu : MonoBehaviour
         virtualCamera.SetActive(false);
 
 
-        //AudioSource[] audios = FindObjectsOfType<AudioSource>();
-
-        //foreach (AudioSource a in audios)
-        //{
-        //    a.Pause();
-        //}
-        PosponerSonidoPausa();
-    }
-
-    IEnumerator PosponerSonidoPausa()
-    {
-        pauseAudio.Play();
-
-        yield return new WaitForSeconds(2f);
-
         AudioSource[] audios = FindObjectsOfType<AudioSource>();
 
         foreach (AudioSource a in audios)
         {
             a.Pause();
         }
+        //PosponerSonidoPausa();
     }
+
+    //IEnumerator PosponerSonidoPausa()
+    //{
+    //    pauseAudio.Play();
+
+    //    yield return new WaitForSeconds(2f);
+
+    //    AudioSource[] audios = FindObjectsOfType<AudioSource>();
+
+    //    foreach (AudioSource a in audios)
+    //    {
+    //        a.Pause();
+    //    }
+    //}
 
     public void LoadMenu()
     {

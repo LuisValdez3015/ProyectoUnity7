@@ -37,14 +37,14 @@ public class SwitchVCam : MonoBehaviour
 
     //int aimAnimation;
 
-    public PlayerMovimiento playerMovimiento;
+    //public PlayerMovimiento playerMovimiento;
 
     private void Start()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
         //Cursor.lockState = CursorLockMode.Locked;
         cameraTransform = Camera.main.transform;
-        playerMovimiento = GetComponent<PlayerMovimiento>();
+        //playerMovimiento = GetComponent<PlayerMovimiento>();
         //aimAction = playerInput.actions["Aim"];
         //aimCanvas.enabled = false;
         //aimAnimation = Animator.StringToHash("AimPreparation");
@@ -108,7 +108,7 @@ public class SwitchVCam : MonoBehaviour
     {
         if (currentPlayer.Animator.GetBool("IsAiming"))
         {
-            playerMovimiento.StopFootsteps();
+            currentPlayer.GetComponent<PlayerMovimiento>().StopFootsteps();
         }
     }
 
