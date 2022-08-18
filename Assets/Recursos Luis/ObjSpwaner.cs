@@ -8,19 +8,30 @@ public class ObjSpwaner : MonoBehaviour
     [SerializeField] List<GameObject> prefabsToSpawn;
     [SerializeField] GameObject spawnPoint;
     [SerializeField] GameObject pressG;
+    [SerializeField] GameObject needToolbag;
     [SerializeField] public int id;
     
     int obj;
 
     private void OnTriggerStay(Collider other)
     {
-                if (Input.GetKey(KeyCode.G))
+        var playercontroller = other.gameObject.GetComponent<PlayerController>();
+        if (playercontroller == null)
+            return;
+        if (playercontroller.playerId == 1)
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+                if (GameObject.FindGameObjectsWithTag("Pullable").Length < 5)
                 {
-                        if (GameObject.FindGameObjectsWithTag("Pullable").Length < 5)
-                        {
-                             Spawn();
-                        }
-                }        
+                    Spawn();
+                }
+            }
+        }
+        else if(playercontroller.playerId == 2)
+        {
+            needToolbag.SetActive(true);
+        }
     }
 
     public void Spawn()
@@ -35,13 +46,34 @@ public class ObjSpwaner : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        pressG.gameObject.SetActive(true);
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    var playercontroller = other.gameObject.GetComponent<PlayerController>();
+    //    if (playercontroller == null)
+    //        return;
+    //    if (playercontroller.playerId == 1)
+    //    {
+    //        pressG.gameObject.SetActive(true);
+    //    }
+    //    else if (playercontroller.playerId == 2)
+    //    {
+    //        needToolbag.SetActive(true);
+    //    }
+
+    //}
 
     private void OnTriggerExit(Collider other)
     {
-        pressG.gameObject.SetActive(false);
+        var playercontroller = other.gameObject.GetComponent<PlayerController>();
+        if (playercontroller == null)
+            return;
+        if (playercontroller.playerId == 1)
+        {
+            pressG.gameObject.SetActive(false);
+        }
+        else if (playercontroller.playerId == 2)
+        {
+            needToolbag.SetActive(false);
+        }
     }
 }
