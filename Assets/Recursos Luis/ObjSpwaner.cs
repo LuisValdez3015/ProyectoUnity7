@@ -10,7 +10,7 @@ public class ObjSpwaner : MonoBehaviour
     [SerializeField] GameObject pressG;
     [SerializeField] GameObject needToolbag;
     [SerializeField] public int id;
-    
+    [SerializeField] Animator puertasAbrir;
     int obj;
 
     private void OnTriggerStay(Collider other)
@@ -20,10 +20,12 @@ public class ObjSpwaner : MonoBehaviour
             return;
         if (playercontroller.playerId == 1)
         {
+            pressG.gameObject.SetActive(true);
             if (Input.GetKey(KeyCode.G))
             {
                 if (GameObject.FindGameObjectsWithTag("Pullable").Length < 5)
                 {
+                    puertasAbrir.SetBool("Abrir", true);
                     Spawn();
                 }
             }
@@ -42,9 +44,11 @@ public class ObjSpwaner : MonoBehaviour
             int randomPrefab = Random.Range(0, prefabsToSpawn.Count);
             GameObject pts = Instantiate(prefabsToSpawn[randomPrefab]);
             pts.transform.position = spawnPoint.transform.position;
+            puertasAbrir.SetBool("Abrir", false);
         }
 
     }
+
 
     //private void OnTriggerEnter(Collider other)
     //{

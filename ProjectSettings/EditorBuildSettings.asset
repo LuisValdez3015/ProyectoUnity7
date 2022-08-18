@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LVLFinal.unity
     guid: 387597a647175a5428fb50afc7261399
+  - enabled: 1
+    path: Assets/Scenes/LvlFinalParte2.unity
+    guid: 21d883e4e44749247950afd1bdcf59ad
   - enabled: 0
     path: Assets/Scenes/Luis.unity
     guid: 5586cb93e29266c43a4e2804ff9ada91
