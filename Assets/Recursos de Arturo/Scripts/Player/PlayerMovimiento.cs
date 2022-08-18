@@ -78,6 +78,8 @@ public class PlayerMovimiento : MonoBehaviour
 
     private int jumpRayCount;
 
+    //[SerializeField] LayerMask layerMask;
+
     //[SerializeField] private float rotationSpeed = 5f;
 
     private void Awake()
@@ -100,6 +102,7 @@ public class PlayerMovimiento : MonoBehaviour
         if (groundedPlayer && playerVelocity.y > 0)
         {
             animator.SetTrigger("Jump");
+            Debug.Log("Hola");
             animator.ResetTrigger("GroundedJump");
             //StopFootsteps();
         }
@@ -136,7 +139,7 @@ public class PlayerMovimiento : MonoBehaviour
             Debug.DrawRay(raycastJumpOriginBackRight.transform.position, Vector3.down * groundDistance, Color.magenta);
 
             if (Physics.Raycast(raycastJumpOriginCenter.transform.position, Vector3.down, out hit, groundDistance))
-            {
+            {               
                 jumpRayCount++;
             }
 
@@ -178,12 +181,14 @@ public class PlayerMovimiento : MonoBehaviour
             if (Physics.Raycast(raycastJumpOriginBackRight.transform.position, Vector3.down, out hit, groundDistance))
             {
                 jumpRayCount++;
+                //Debug.Log("He golpeado algo");
             }
 
-            if (jumpRayCount > 0)
+            if (jumpRayCount > 1 && CheckGround())
             {
                 animator.SetTrigger("GroundedJump");
                 animator.ResetTrigger("Jump");
+                Debug.Log("He golpeado algo");
             }
         }
     }

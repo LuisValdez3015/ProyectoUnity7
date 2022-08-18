@@ -150,7 +150,7 @@ public class Pull : PlayerSkill
         while (true)
         {
             // right-clicks, stop pulling
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.R))
             {
 
                 IsBeingUse = false;
