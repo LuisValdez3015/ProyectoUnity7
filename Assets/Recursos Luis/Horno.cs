@@ -6,6 +6,7 @@ public class Horno : MonoBehaviour
 {
     [SerializeField] public int TemperatureOnPoint = 0;
     [SerializeField] GameObject barra;
+    public AudioSource objetoAfuego;
     //public bool Completado;
     
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class Horno : MonoBehaviour
         if (other.gameObject.CompareTag("Pullable"))
         {
             Destroy(other.gameObject);
+            objetoAfuego.Play();
             Calculo();
         }
     }
