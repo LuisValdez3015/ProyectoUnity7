@@ -9,6 +9,7 @@ public class Horno : MonoBehaviour
     public AudioSource objetoAfuego;
 
     [SerializeField] GameObject humoverde;
+    [SerializeField] GameObject maxObjetos;
     //public bool Completado;
 
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class Horno : MonoBehaviour
         if (TemperatureOnPoint == 3)
         {
             humoverde.SetActive(true);
+            maxObjetos.SetActive(false);
             Debug.Log("Humo");
         }
     }
