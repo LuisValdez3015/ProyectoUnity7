@@ -9,6 +9,8 @@ public class LockeControlLVL2 : MonoBehaviour
 
     [SerializeField] GameObject particulasGuais;
 
+    public AudioSource rashoLaser;
+
     private int[] result, correctCombination;
 
     private void Start()
@@ -38,6 +40,7 @@ public class LockeControlLVL2 : MonoBehaviour
         if (result[0] == correctCombination[0] && result[1] == correctCombination[1] && result[2] == correctCombination[2] && result[3] == correctCombination[3])
         {
             particulasGuais.SetActive(true);
+            rashoLaser.Play();
             StartCoroutine(siguienteLvl2());
         }
     }
