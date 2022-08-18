@@ -25468,6 +25468,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1012173943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012173941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2c4a09e6839714419da2aa163084275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonido: {fileID: 142643287}
 --- !u!1 &1013496850
 GameObject:
   m_ObjectHideFlags: 0
@@ -39738,6 +39751,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1780301118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780301116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2c4a09e6839714419da2aa163084275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonido: {fileID: 2093179257}
 --- !u!1 &1781280360
 GameObject:
   m_ObjectHideFlags: 0
@@ -44387,6 +44413,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2005987125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005987123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2c4a09e6839714419da2aa163084275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonido: {fileID: 361447444}
 --- !u!1 &2006595144
 GameObject:
   m_ObjectHideFlags: 0
@@ -73683,7 +73722,6 @@ MonoBehaviour:
           m_StringArgument: Stop
           m_BoolArgument: 1
         m_CallState: 2
-  cortinaDeHierro: {fileID: 361447444}
 --- !u!4 &5790936946760696349
 Transform:
   m_ObjectHideFlags: 0
@@ -73843,7 +73881,6 @@ MonoBehaviour:
           m_StringArgument: Stop
           m_BoolArgument: 0
         m_CallState: 2
-  cortinaDeHierro: {fileID: 2093179257}
 --- !u!4 &5790936946971814551
 Transform:
   m_ObjectHideFlags: 0
@@ -73999,7 +74036,6 @@ MonoBehaviour:
           m_StringArgument: Stop
           m_BoolArgument: 0
         m_CallState: 2
-  cortinaDeHierro: {fileID: 142643287}
 --- !u!4 &5790936948163386868
 Transform:
   m_ObjectHideFlags: 0

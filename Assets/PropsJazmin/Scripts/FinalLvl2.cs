@@ -46,7 +46,7 @@ public class FinalLvl2 : MonoBehaviour
         anim.SetBool("Fade", true);
         yield return new WaitUntil(() => black.color.a == 1);
         //yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(nextLevelIndex);
+        SceneManager.LoadScene("Lvl3CutScene");
 
         RewriteData rewriteData = FindObjectOfType<RewriteData>();
 

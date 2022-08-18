@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Luis.unity
     guid: 5586cb93e29266c43a4e2804ff9ada91
   - enabled: 1
+    path: Assets/Scenes/Lvl3CutScene.unity
+    guid: 5d0d3863c2f788d449834c64e5aff371
+  - enabled: 1
     path: Assets/Scenes/GoodEnding.unity
     guid: ea0481eba952d3c489ec9024d7b405f6
   - enabled: 1

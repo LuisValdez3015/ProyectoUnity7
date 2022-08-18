@@ -10,9 +10,6 @@ public class WeighingMachine : MonoBehaviour
     [SerializeField] private UnityEvent onWeightLose = default;
     private List<WeigthObject> weigthObjects;
     private bool alredyCompleted;
-    public AudioSource cortinaDeHierro;
-
-
 
     private void Awake()
     {
@@ -37,7 +34,6 @@ public class WeighingMachine : MonoBehaviour
             alredyCompleted = true;
 
             onWeightComplete?.Invoke();
-            //Destroy(cortinaDeHierro, 2f);
         }
     }
     private void OnTriggerExit(Collider other)
