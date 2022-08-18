@@ -47,6 +47,8 @@ public class GunSkill : PlayerSkill
 
     //int shootAnimation;
 
+    public AudioSource recargar;
+
     private void Start()
     {
         currentAmmo = maxAmmo;
@@ -112,6 +114,7 @@ public class GunSkill : PlayerSkill
     public void FullAmmoTrigger()
     {
         currentAmmo = maxAmmo;
+        recargar.Play();
     }
 
     private void ShootSkill()

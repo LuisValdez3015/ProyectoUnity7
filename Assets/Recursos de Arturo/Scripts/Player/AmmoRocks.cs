@@ -5,7 +5,6 @@ using UnityEngine;
 public class AmmoRocks : MonoBehaviour
 {
     private PlayerController playerController;
-    public AudioSource recargar;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,7 +17,6 @@ public class AmmoRocks : MonoBehaviour
             GunSkill gunSkill = other.GetComponentInChildren<GunSkill>();
 
             gunSkill.FullAmmoTrigger();
-            recargar.Play();
         }
 
 

@@ -37,6 +37,7 @@ public class WeighingMachine : MonoBehaviour
             alredyCompleted = true;
             cortinaDeHierro.Play();
             onWeightComplete?.Invoke();
+            Destroy(cortinaDeHierro, 2f);
         }
     }
     private void OnTriggerExit(Collider other)
