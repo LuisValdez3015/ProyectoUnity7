@@ -10,6 +10,9 @@ public class HornoManager : MonoBehaviour
     [SerializeField] GameObject luzVerde;
     [SerializeField] GameObject luzRoja;
 
+    [SerializeField] GameObject humoAmo;
+    
+
     [SerializeField] Animator salidaWeaver;
     [SerializeField] Animator salidaToolbag;
 
@@ -21,6 +24,8 @@ public class HornoManager : MonoBehaviour
             //Animacion De Humo
             luzRoja.SetActive(true);
             luzVerde.SetActive(true);
+            humoAmo.SetActive(true);
+            
             salidaWeaver.SetBool("Abrir", true);
             salidaToolbag.SetBool("Abrir", true);
         }

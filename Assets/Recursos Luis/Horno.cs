@@ -7,8 +7,10 @@ public class Horno : MonoBehaviour
     [SerializeField] public int TemperatureOnPoint = 0;
     [SerializeField] GameObject barra;
     public AudioSource objetoAfuego;
+
+    [SerializeField] GameObject humoverde;
     //public bool Completado;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +22,11 @@ public class Horno : MonoBehaviour
     {
         barra.transform.localScale = new Vector3(1, 1, TemperatureOnPoint);
 
-        //if (TemperatureOnPoint == 3)
-        //{
-        //    Debug.Log("Humo");
-        //}
+        if (TemperatureOnPoint == 3)
+        {
+            humoverde.SetActive(true);
+            Debug.Log("Humo");
+        }
     }
 
     
