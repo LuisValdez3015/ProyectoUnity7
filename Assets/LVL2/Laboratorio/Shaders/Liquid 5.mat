@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Liquid 1
+  m_Name: Liquid 5
   m_Shader: {fileID: -6465566751694194690, guid: ba6e539b302eb1f46b2e6e0ef720a361,
     type: 3}
   m_ShaderKeywords: 
@@ -79,7 +79,7 @@ Material:
     m_Floats:
     - Vector1_0c8dd2b0107f46a1b9bd2346588ad17e: 0.76
     - Vector1_bd8785830be448ccb42990fa4154b9d3: 2.73
-    - Vector1_dbc167c8a11c49678b4c8293a85b18f3: 100
+    - Vector1_dbc167c8a11c49678b4c8293a85b18f3: 9
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -109,14 +109,12 @@ Material:
     m_Colors:
     - Color_316daf95038f4ce3ab793415831e042b: {r: 0.7176471, g: 0.10196079, b: 0,
         a: 0}
-    - Color_3943c86184244b0c9da582a0f9a23654: {r: 0.15307939, g: 0.3522971, b: 0.754717,
+    - Color_3943c86184244b0c9da582a0f9a23654: {r: 0.14072241, g: 0.4056604, b: 0.082280174,
         a: 0}
-    - Color_42de6cf8d770465a863d422662be5a05: {r: 0.383811, g: 0.45941404, b: 0.7075472,
-        a: 0}
+    - Color_42de6cf8d770465a863d422662be5a05: {r: 0.8571429, g: 1, b: 0, a: 0}
     - Color_7b1ea5ca5f5841058918cff2a6ba2268: {r: 0.7169812, g: 0.101760946, b: 0,
         a: 0}
-    - Color_cffffac4aab041b49d74ca91f9eb2a11: {r: 0.5127714, g: 0.5152388, b: 0.6509434,
-        a: 0}
+    - Color_cffffac4aab041b49d74ca91f9eb2a11: {r: 0, g: 0.2627451, b: 0, a: 0}
     - Color_e1d39e0e709c464687864a381b576da2: {r: 0.7830188, g: 0.42155528, b: 0.28439826,
         a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
