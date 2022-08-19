@@ -63,8 +63,7 @@ public class WeighingMachine : MonoBehaviour
         return currentWeight;
     }
     private bool IsFull()
-    {
-        
+    {        
         return CalculateCurrentWeight() >= requiredWeight;
     }
 }
