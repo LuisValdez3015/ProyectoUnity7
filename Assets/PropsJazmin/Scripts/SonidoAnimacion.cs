@@ -11,4 +11,9 @@ public class SonidoAnimacion : MonoBehaviour
     {
         sonido.Play();
     }
+
+    public void SonidoStop()
+    {
+        sonido.Stop();
+    }
 }

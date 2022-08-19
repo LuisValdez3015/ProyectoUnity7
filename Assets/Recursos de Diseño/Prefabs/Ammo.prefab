@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6326788447466749842}
   - component: {fileID: 6326788447466749841}
   - component: {fileID: 6326788447466749840}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Ammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16cb926710cffa42a95b28507ae6575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recargar: {fileID: 0}
 --- !u!1001 &6326788446399677135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -141,10 +140,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 554efaca9ce8ea54c93c1e20fc169422,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5511efe0dd2ca3a4da31271b98b27bf9, type: 2}
     - target: {fileID: 919132149155446097, guid: 554efaca9ce8ea54c93c1e20fc169422,
         type: 3}
       propertyPath: m_Name
       value: Piedra 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 554efaca9ce8ea54c93c1e20fc169422,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 554efaca9ce8ea54c93c1e20fc169422, type: 3}
@@ -161,6 +170,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6326788447466749842}
     m_Modifications:
+    - target: {fileID: -8768941124931101395, guid: ee79be8f7f11d774285fa02dc11b8bbf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee79be8f7f11d774285fa02dc11b8bbf,
         type: 3}
       propertyPath: m_RootOrder
@@ -236,6 +250,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: piedra01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee79be8f7f11d774285fa02dc11b8bbf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746240532654471015, guid: ee79be8f7f11d774285fa02dc11b8bbf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5511efe0dd2ca3a4da31271b98b27bf9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee79be8f7f11d774285fa02dc11b8bbf, type: 3}
 --- !u!4 &5784871449931484959 stripped
@@ -325,11 +349,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c6ee9159284b44546a1b98a6a065b3e1, type: 2}
+      objectReference: {fileID: 2100000, guid: 5511efe0dd2ca3a4da31271b98b27bf9, type: 2}
+    - target: {fileID: 279119577426077888, guid: 5a1c30e4bef37494eb9ae3c48d9f5d32,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5a1c30e4bef37494eb9ae3c48d9f5d32,
         type: 3}
       propertyPath: m_Name
       value: piedra02
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5a1c30e4bef37494eb9ae3c48d9f5d32,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a1c30e4bef37494eb9ae3c48d9f5d32, type: 3}
@@ -420,11 +454,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c6ee9159284b44546a1b98a6a065b3e1, type: 2}
+      objectReference: {fileID: 2100000, guid: 5511efe0dd2ca3a4da31271b98b27bf9, type: 2}
+    - target: {fileID: 279119577426077888, guid: 5a1c30e4bef37494eb9ae3c48d9f5d32,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5a1c30e4bef37494eb9ae3c48d9f5d32,
         type: 3}
       propertyPath: m_Name
       value: piedra02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5a1c30e4bef37494eb9ae3c48d9f5d32,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a1c30e4bef37494eb9ae3c48d9f5d32, type: 3}
@@ -441,6 +485,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6326788447466749842}
     m_Modifications:
+    - target: {fileID: -8768941124931101395, guid: ee79be8f7f11d774285fa02dc11b8bbf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee79be8f7f11d774285fa02dc11b8bbf,
         type: 3}
       propertyPath: m_RootOrder
@@ -516,6 +565,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: piedra01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee79be8f7f11d774285fa02dc11b8bbf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746240532654471015, guid: ee79be8f7f11d774285fa02dc11b8bbf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5511efe0dd2ca3a4da31271b98b27bf9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee79be8f7f11d774285fa02dc11b8bbf, type: 3}
 --- !u!4 &5784871449571948079 stripped
@@ -601,10 +660,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6f8c42050a0d7314a8db4fdbb480abaa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5511efe0dd2ca3a4da31271b98b27bf9, type: 2}
     - target: {fileID: 919132149155446097, guid: 6f8c42050a0d7314a8db4fdbb480abaa,
         type: 3}
       propertyPath: m_Name
       value: Piedra 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6f8c42050a0d7314a8db4fdbb480abaa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f8c42050a0d7314a8db4fdbb480abaa, type: 3}
