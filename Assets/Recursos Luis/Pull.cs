@@ -100,7 +100,7 @@ public class Pull : PlayerSkill
             aimTarget.transform.position = Vector3.Lerp(aimTarget.transform.position, position, ikSmoothness * Time.deltaTime);
         }        
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.R))
         {
             if (heldObject != null)
             {
