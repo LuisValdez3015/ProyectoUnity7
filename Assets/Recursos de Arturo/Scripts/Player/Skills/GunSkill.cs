@@ -31,8 +31,9 @@ public class GunSkill : PlayerSkill
     private float nextTimeToFire = 0f;
 
     [SerializeField] public Image[] rocksAmmo;
-    [SerializeField] public Sprite rock;
-    [SerializeField] public Sprite emptyRock;
+    [SerializeField] public Image[] emptyAmmo;
+    [SerializeField] public Sprite[] rock;
+    [SerializeField] public Sprite[] emptyRock;
 
 
     //[SerializeField] private Transform character;
@@ -90,26 +91,14 @@ public class GunSkill : PlayerSkill
 
             if (i < leftAmmo)
             {
-                rocksAmmo[i].sprite = emptyRock;
+                rocksAmmo[i].sprite = emptyRock[i];
             }
             else
             {
-                rocksAmmo[i].sprite = rock;
+                rocksAmmo[i].sprite =  rock[i];
             }
         }
     }
-
-    //IEnumerator Reload()
-    //{
-    //    isReloading = true;
-    //    Debug.Log("Reloading...");
-
-    //    yield return new WaitForSeconds(reloadTime);
-
-    //    Debug.Log("Reloaded...");
-    //    currentAmmo = maxAmmo;
-    //    isReloading = false;
-    //}
 
     public void FullAmmoTrigger()
     {
