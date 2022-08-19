@@ -102,7 +102,7 @@ public class PlayerMovimiento : MonoBehaviour
         if (groundedPlayer && playerVelocity.y > 0)
         {
             animator.SetTrigger("Jump");
-            Debug.Log("Hola");
+            //Debug.Log("Hola");
             animator.ResetTrigger("GroundedJump");
             //StopFootsteps();
         }
@@ -188,7 +188,7 @@ public class PlayerMovimiento : MonoBehaviour
             {
                 animator.SetTrigger("GroundedJump");
                 animator.ResetTrigger("Jump");
-                Debug.Log("He golpeado algo");
+                //Debug.Log("He golpeado algo");
             }
         }
     }
